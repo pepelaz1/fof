@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="ru.pepelaz.fof">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -23,11 +23,88 @@
         <activity
             android:name=".MainActivity"
             android:label="@string/main_activity_title"
-            android:screenOrientation="portrait">
-
-        </activity>
+            android:screenOrientation="portrait"></activity>
         <activity
             android:name=".SiteActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".SpeciesActivity"
+            android:label="Species"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name=".RecordsActivity"
+            android:label="Records"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name=".TackleActivity"
+            android:label="Tackle"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name=".BaitActivity"
+            android:label="Bait"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name=".FactsActivity"
+            android:label="Facts"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name=".SeasonsActivity"
+            android:label="Seasons"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name=".LocationsActivity"
+            android:label="Locations"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name=".GlossaryActivity"
+            android:label="Glossary"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name=".CameraActivity"
+            android:label="Camera"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name=".CookingActivity"
+            android:label="Cooking"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name=".TidesActivity"
+            android:label="Tides"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name=".WeatherActivity"
+            android:label="Weather"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name=".ContactActivity"
+            android:label="Contact"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name=".AboutActivity"
+            android:label="About"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name=".GetLuckyActivity"
+            android:label="Get Lucky"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name=".QuizActivity"
+            android:label="Quiz"
             android:screenOrientation="portrait">
         </activity>
     </application>

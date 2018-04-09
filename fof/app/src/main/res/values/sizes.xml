@@ -6,6 +6,9 @@
     <dimen name="home_logo_margin_top">10dp</dimen>
     <dimen name="home_logo_margin_bottom">10dp</dimen>
     <dimen name="home_quit_button_margin_left">20dp</dimen>
+    <dimen name="home_site_button_padding_left">20dp</dimen>
+    <dimen name="home_site_button_padding_right">20dp</dimen>
+    <dimen name="home_down_buttons_padding_height">24dp</dimen>
 
     <dimen name="bar_height">26dp</dimen>
     <dimen name="bar_text_size">14sp</dimen>

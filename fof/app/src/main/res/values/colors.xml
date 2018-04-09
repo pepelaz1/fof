@@ -6,4 +6,6 @@
 
     <color name="bar_text_color">#FFFFFF</color>
     <color name="bar_back_color">#8d8d8d</color>
+
+    <color name="blue">#0000ff</color>
 </resources>
