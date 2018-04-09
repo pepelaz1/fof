@@ -1,0 +1,467 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/sea_background" />
+
+    <TableLayout
+        android:layout_width="0dp"
+        android:layout_height="347dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView4"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TableRow
+            android:id="@+id/tableRow1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="100">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/home_icon_margin"
+                android:layout_weight="25"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/imageView5"
+                    android:layout_width="@dimen/home_button_width"
+                    android:layout_height="@dimen/home_button_height"
+                    android:layout_gravity="center"
+                    android:scaleType="fitXY"
+                    app:srcCompat="@drawable/fish" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="Species"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/home_button_text_size"
+                    android:textStyle="bold|italic" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/home_icon_margin"
+                android:layout_weight="25"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/imageView6"
+                    android:layout_width="@dimen/home_button_width"
+                    android:layout_height="@dimen/home_button_height"
+                    android:layout_gravity="center"
+                    android:scaleType="fitXY"
+                    app:srcCompat="@drawable/records" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="Records"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/home_button_text_size"
+                    android:textStyle="bold|italic" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/home_icon_margin"
+                android:layout_weight="25"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/imageView7"
+                    android:layout_width="@dimen/home_button_width"
+                    android:layout_height="@dimen/home_button_height"
+                    android:layout_gravity="center"
+                    android:scaleType="fitXY"
+                    app:srcCompat="@drawable/tackle" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="Tackle"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/home_button_text_size"
+                    android:textStyle="bold|italic" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/home_icon_margin"
+                android:layout_weight="25"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/imageView8"
+                    android:layout_width="@dimen/home_button_width"
+                    android:layout_height="@dimen/home_button_height"
+                    android:layout_gravity="center"
+                    android:scaleType="fitXY"
+                    app:srcCompat="@drawable/baitfish" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="Bait"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/home_button_text_size"
+                    android:textStyle="bold|italic" />
+            </LinearLayout>
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/tableRow2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="100">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_margin="@dimen/home_icon_margin"
+                android:layout_weight="25"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/imageView9"
+                    android:layout_width="@dimen/home_button_width"
+                    android:layout_height="@dimen/home_button_height"
+                    android:layout_gravity="center"
+                    android:scaleType="fitXY"
+                    app:srcCompat="@drawable/facts" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="Facts"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/home_button_text_size"
+                    android:textStyle="bold|italic" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_margin="@dimen/home_icon_margin"
+                android:layout_weight="25"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/imageView10"
+                    android:layout_width="@dimen/home_button_width"
+                    android:layout_height="@dimen/home_button_height"
+                    android:layout_gravity="center"
+                    android:scaleType="fitXY"
+                    app:srcCompat="@drawable/calendar" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="Seasons"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/home_button_text_size"
+                    android:textStyle="bold|italic" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_margin="@dimen/home_icon_margin"
+                android:layout_weight="25"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/imageView11"
+                    android:layout_width="@dimen/home_button_width"
+                    android:layout_height="@dimen/home_button_height"
+                    android:layout_gravity="center"
+                    android:scaleType="fitXY"
+                    app:srcCompat="@drawable/gps" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="Locations"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/home_button_text_size"
+                    android:textStyle="bold|italic" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_margin="@dimen/home_icon_margin"
+                android:layout_weight="25"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/imageView12"
+                    android:layout_width="@dimen/home_button_width"
+                    android:layout_height="@dimen/home_button_height"
+                    android:layout_gravity="center"
+                    android:scaleType="fitXY"
+                    app:srcCompat="@drawable/glossary" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="Glossary"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/home_button_text_size"
+                    android:textStyle="bold|italic" />
+            </LinearLayout>
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/tableRow3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="100">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_margin="@dimen/home_icon_margin"
+                android:layout_weight="25"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/imageView13"
+                    android:layout_width="@dimen/home_button_width"
+                    android:layout_height="@dimen/home_button_height"
+                    android:layout_gravity="center"
+                    android:scaleType="fitXY"
+                    app:srcCompat="@drawable/camera" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="Camera"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/home_button_text_size"
+                    android:textStyle="bold|italic" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_margin="@dimen/home_icon_margin"
+                android:layout_weight="25"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/imageView14"
+                    android:layout_width="@dimen/home_button_width"
+                    android:layout_height="@dimen/home_button_height"
+                    android:layout_gravity="center"
+                    android:scaleType="fitXY"
+                    app:srcCompat="@drawable/cooking" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="Cooking"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/home_button_text_size"
+                    android:textStyle="bold|italic" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_margin="@dimen/home_icon_margin"
+                android:layout_weight="25"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/imageView15"
+                    android:layout_width="@dimen/home_button_width"
+                    android:layout_height="@dimen/home_button_height"
+                    android:layout_gravity="center"
+                    android:scaleType="fitXY"
+                    app:srcCompat="@drawable/tides" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="Tides"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/home_button_text_size"
+                    android:textStyle="bold|italic" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_margin="@dimen/home_icon_margin"
+                android:layout_weight="25"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/imageView16"
+                    android:layout_width="@dimen/home_button_width"
+                    android:layout_height="@dimen/home_button_height"
+                    android:layout_gravity="center"
+                    android:scaleType="fitXY"
+                    app:srcCompat="@drawable/weather" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="Weather"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/home_button_text_size"
+                    android:textStyle="bold|italic" />
+            </LinearLayout>
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/tableRow4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="100">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_margin="@dimen/home_icon_margin"
+                android:layout_weight="25"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/imageView17"
+                    android:layout_width="@dimen/home_button_width"
+                    android:layout_height="@dimen/home_button_height"
+                    android:layout_gravity="center"
+                    android:scaleType="fitXY"
+                    app:srcCompat="@drawable/contact" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="Contact"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/home_button_text_size"
+                    android:textStyle="bold|italic" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_margin="@dimen/home_icon_margin"
+                android:layout_weight="25"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/imageView18"
+                    android:layout_width="@dimen/home_button_width"
+                    android:layout_height="@dimen/home_button_height"
+                    android:layout_gravity="center"
+                    android:scaleType="fitXY"
+                    app:srcCompat="@drawable/about" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="About"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/home_button_text_size"
+                    android:textStyle="bold|italic" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_margin="@dimen/home_icon_margin"
+                android:layout_weight="25"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/imageView19"
+                    android:layout_width="@dimen/home_button_width"
+                    android:layout_height="@dimen/home_button_height"
+                    android:layout_gravity="center"
+                    android:scaleType="fitXY"
+                    app:srcCompat="@drawable/fruitmachine" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="Get Lucky"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/home_button_text_size"
+                    android:textStyle="bold|italic" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_margin="@dimen/home_icon_margin"
+                android:layout_weight="25"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/imageView20"
+                    android:layout_width="@dimen/home_button_width"
+                    android:layout_height="@dimen/home_button_height"
+                    android:scaleType="fitXY"
+                    app:srcCompat="@drawable/quiz" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="Quiz"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/home_button_text_size"
+                    android:textStyle="bold|italic" />
+            </LinearLayout>
+        </TableRow>
+    </TableLayout>
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logo_transparent" />
+</android.support.constraint.ConstraintLayout>
