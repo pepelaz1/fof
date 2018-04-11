@@ -22,18 +22,13 @@ class LocationsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_locations)
 
-        // Location permission not granted
         if (ContextCompat.checkSelfPermission(this, ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(this, arrayOf(ACCESS_FINE_LOCATION), LOCATION_PERMISSION_ID)
         } else {
             getCoordinates()
         }
-
     }
 
-    fun buttonCloseClick(v: View) {
-        finish()
-    }
 
     override fun onRequestPermissionsResult(requestCode: Int, @NonNull permissions: Array<String>,
                                             @NonNull grantResults: IntArray) {
@@ -56,6 +51,19 @@ class LocationsActivity : AppCompatActivity() {
 
                     textViewPresentLocation.text = latitude.toString() + ", " + longitude.toString()
                 }
+
+    }
+
+    fun onRetrieveClick(v: View) {
+        finish()
+    }
+
+    fun onRecordPresentClick(v: View) {
+        finish()
+    }
+
+    fun onRecordDifferentClick(v: View) {
+        finish()
     }
 
 }
