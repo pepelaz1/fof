@@ -1,4 +1,4 @@
-package ru.pepelaz.fof
+package ru.pepelaz.fof.activities
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
@@ -6,6 +6,7 @@ import android.view.View
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import kotlinx.android.synthetic.main.activity_site.*
+import ru.pepelaz.fof.R
 
 class SiteActivity : AppCompatActivity() {
 

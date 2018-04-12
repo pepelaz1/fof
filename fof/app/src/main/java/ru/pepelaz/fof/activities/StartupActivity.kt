@@ -1,11 +1,10 @@
-package ru.pepelaz.fof
+package ru.pepelaz.fof.activities
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.content.Intent
-import android.content.Context.MODE_PRIVATE
-import android.content.SharedPreferences
 import android.os.Handler
+import ru.pepelaz.fof.R
 
 
 class StartupActivity : AppCompatActivity() {

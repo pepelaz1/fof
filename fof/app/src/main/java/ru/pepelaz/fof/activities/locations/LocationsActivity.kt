@@ -1,4 +1,4 @@
-package ru.pepelaz.fof
+package ru.pepelaz.fof.activities.locations
 
 import android.Manifest.permission.ACCESS_FINE_LOCATION
 import android.content.pm.PackageManager
@@ -11,6 +11,7 @@ import android.util.Log
 import android.view.View
 import io.nlopez.smartlocation.SmartLocation
 import kotlinx.android.synthetic.main.activity_locations.*
+import ru.pepelaz.fof.R
 
 class LocationsActivity : AppCompatActivity() {
 

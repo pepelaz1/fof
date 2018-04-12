@@ -1,6 +1,5 @@
-package ru.pepelaz.fof
+package ru.pepelaz.fof.activities
 
-import android.graphics.Color
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -9,8 +8,8 @@ import android.view.View
 import android.widget.ImageView
 import kotlinx.android.synthetic.main.activity_main.*
 import android.content.Intent
-
-
+import ru.pepelaz.fof.R
+import ru.pepelaz.fof.activities.locations.LocationsActivity
 
 
 class MainActivity : AppCompatActivity() {

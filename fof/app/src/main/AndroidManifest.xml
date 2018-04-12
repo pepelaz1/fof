@@ -14,7 +14,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".StartupActivity"
+            android:name=".activities.StartupActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -23,91 +23,101 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".MainActivity"
+            android:name=".activities.MainActivity"
             android:label="@string/main_activity_title"
             android:screenOrientation="portrait">
         </activity>
         <activity
-            android:name=".SiteActivity"
+            android:name=".activities.SiteActivity"
             android:screenOrientation="portrait">
         </activity>
         <activity
-            android:name=".SpeciesActivity"
+            android:name=".activities.SpeciesActivity"
             android:label="Species"
             android:screenOrientation="portrait">
         </activity>
         <activity
-            android:name=".RecordsActivity"
+            android:name=".activities.RecordsActivity"
             android:label="Records"
             android:screenOrientation="portrait">
         </activity>
         <activity
-            android:name=".TackleActivity"
+            android:name=".activities.TackleActivity"
             android:label="Tackle"
             android:screenOrientation="portrait">
         </activity>
         <activity
-            android:name=".BaitActivity"
+            android:name=".activities.BaitActivity"
             android:label="Bait"
             android:screenOrientation="portrait">
         </activity>
         <activity
-            android:name=".FactsActivity"
+            android:name=".activities.FactsActivity"
             android:label="Facts"
             android:screenOrientation="portrait">
         </activity>
         <activity
-            android:name=".SeasonsActivity"
+            android:name=".activities.SeasonsActivity"
             android:label="Seasons"
             android:screenOrientation="portrait">
         </activity>
         <activity
-            android:name=".LocationsActivity"
+            android:name="ru.pepelaz.fof.activities.locations.LocationsActivity"
             android:label="Locations"
             android:screenOrientation="portrait">
         </activity>
         <activity
-            android:name=".GlossaryActivity"
+            android:name="ru.pepelaz.fof.activities.locations.LocationEditActivity"
+            android:label="Locations"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name="ru.pepelaz.fof.activities.locations.LocationSavedActivity"
+            android:label="Locations"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name=".activities.GlossaryActivity"
             android:label="Glossary"
             android:screenOrientation="portrait">
         </activity>
         <activity
-            android:name=".CameraActivity"
+            android:name=".activities.CameraActivity"
             android:label="Camera"
             android:screenOrientation="portrait">
         </activity>
         <activity
-            android:name=".CookingActivity"
+            android:name=".activities.CookingActivity"
             android:label="Cooking"
             android:screenOrientation="portrait">
         </activity>
         <activity
-            android:name=".TidesActivity"
+            android:name=".activities.TidesActivity"
             android:label="Tides"
             android:screenOrientation="portrait">
         </activity>
         <activity
-            android:name=".WeatherActivity"
+            android:name=".activities.WeatherActivity"
             android:label="Weather"
             android:screenOrientation="portrait">
         </activity>
         <activity
-            android:name=".ContactActivity"
+            android:name=".activities.ContactActivity"
             android:label="Contact"
             android:screenOrientation="portrait">
         </activity>
         <activity
-            android:name=".AboutActivity"
+            android:name=".activities.AboutActivity"
             android:label="About"
             android:screenOrientation="portrait">
         </activity>
         <activity
-            android:name=".GetLuckyActivity"
+            android:name=".activities.GetLuckyActivity"
             android:label="Get Lucky"
             android:screenOrientation="portrait">
         </activity>
         <activity
-            android:name=".QuizActivity"
+            android:name=".activities.QuizActivity"
             android:label="Quiz"
             android:screenOrientation="portrait">
         </activity>
