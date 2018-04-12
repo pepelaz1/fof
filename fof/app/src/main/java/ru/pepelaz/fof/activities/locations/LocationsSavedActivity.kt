@@ -13,7 +13,7 @@ import io.nlopez.smartlocation.SmartLocation
 import kotlinx.android.synthetic.main.activity_locations.*
 import ru.pepelaz.fof.R
 
-class LocationSavedActivity : AppCompatActivity() {
+class LocationsSavedActivity : AppCompatActivity() {
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
