@@ -50,21 +50,18 @@ class LocationsActivity : AppCompatActivity() {
                     longitude = location.longitude
                     latitude = location.latitude
 
-                    textViewPresentLocation.text = latitude.toString() + ", " + longitude.toString()
+                    textViewLatitudeValue.text = latitude.toString()
+                    textViewLongitudeValue.text = longitude.toString()
                 }
 
     }
 
-    fun onRetrieveClick(v: View) {
+    fun onRecordClick(v: View) {
         finish()
     }
 
-    fun onRecordPresentClick(v: View) {
+    fun onSavedClick(v: View) {
         finish()
     }
 
-    fun onRecordDifferentClick(v: View) {
-        finish()
-    }
-
-}
+ }
