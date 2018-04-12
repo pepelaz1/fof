@@ -43,6 +43,13 @@
         <item name="android:background">@drawable/button2_background</item>
         <item name="android:textAllCaps">true</item>
         <item name="android:textStyle"></item>
+        <item name="android:minWidth">@dimen/button2_min_width</item>
+        <item name="android:layout_gravity">center</item>
+    </style>
+
+    <style name="AppTheme.Button3" parent="AppTheme.Button2">
+        <item name="android:textSize">@dimen/button3_text_size</item>
+        <item name="android:minWidth">@dimen/button3_min_width</item>
     </style>
 
 </resources>

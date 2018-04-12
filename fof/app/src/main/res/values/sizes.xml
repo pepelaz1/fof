@@ -15,5 +15,7 @@
     <dimen name="bar_text_size">14sp</dimen>
 
     <dimen name="button2_text_size">18sp</dimen>
-
+    <dimen name="button3_text_size">14sp</dimen>
+    <dimen name="button2_min_width">120dp</dimen>
+    <dimen name="button3_min_width">80dp</dimen>
 </resources>

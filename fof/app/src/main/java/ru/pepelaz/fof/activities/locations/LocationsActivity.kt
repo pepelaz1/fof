@@ -1,5 +1,6 @@
 package ru.pepelaz.fof.activities.locations
 
+import android.Manifest
 import android.Manifest.permission.ACCESS_FINE_LOCATION
 import android.content.Intent
 import android.content.pm.PackageManager
@@ -19,6 +20,9 @@ import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.model.MarkerOptions
 import com.google.android.gms.maps.model.LatLng
+import com.google.android.gms.maps.model.Marker
+
+
 
 class LocationsActivity : FragmentActivity(), OnMapReadyCallback {
 
@@ -27,6 +31,7 @@ class LocationsActivity : FragmentActivity(), OnMapReadyCallback {
     val LOCATION_PERMISSION_ID = 1001
 
     private var map: GoogleMap? = null
+    private var marker: Marker? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -71,7 +76,12 @@ class LocationsActivity : FragmentActivity(), OnMapReadyCallback {
     }
 
     fun onRecordClick(v: View) {
-        startActivity(Intent(this, LocationEditActivity::class.java))
+        val intent = Intent(this, LocationEditActivity::class.java)
+        val b = Bundle()
+        b.putDouble("latitude", latitude)
+        b.putDouble("longitude", longitude)
+        intent.putExtras(b)
+        startActivity(intent)
     }
 
     fun onSavedClick(v: View) {
@@ -79,16 +89,37 @@ class LocationsActivity : FragmentActivity(), OnMapReadyCallback {
     }
 
     override fun onMapReady(googleMap: GoogleMap) {
-        Log.d("test_test","on map ready")
+       // Log.d("test_test","on map ready")
         map = googleMap
+
+        map!!.mapType = GoogleMap.MAP_TYPE_TERRAIN
+        map!!.uiSettings.setZoomControlsEnabled(true)
+        map!!.uiSettings.setCompassEnabled(true)
+        map!!.uiSettings.setMyLocationButtonEnabled(true)
+        map!!.uiSettings.setAllGesturesEnabled(true)
+
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            return;
+        }
+        map!!.setMyLocationEnabled(true);
+
+        map!!.setOnMapClickListener {
+//            Log.d("test_test","on map click")
+//            if (marker != null)
+//                marker!!.remove()
+//
+//            marker = map!!.addMarker(MarkerOptions().position(it).title("Me"))
+//            map!!.moveCamera(CameraUpdateFactory.newLatLngZoom(it, 13.0f))
+        }
     }
 
     private fun updateMapPosition() {
         if (map != null)
         {
             val current = LatLng(latitude, longitude)
-            map!!.addMarker(MarkerOptions().position(current).title("Present location"))
-            map!!.moveCamera(CameraUpdateFactory.newLatLng(current))
+            marker = map!!.addMarker(MarkerOptions().position(current).title("Me"))
+            map!!.moveCamera(CameraUpdateFactory.newLatLngZoom(current, 13.0f))
+
         }
     }
 
