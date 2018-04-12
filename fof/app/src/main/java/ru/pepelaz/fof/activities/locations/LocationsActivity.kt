@@ -2,6 +2,7 @@ package ru.pepelaz.fof.activities.locations
 
 import android.Manifest
 import android.Manifest.permission.ACCESS_FINE_LOCATION
+import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Bundle
@@ -20,7 +21,9 @@ import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.model.MarkerOptions
 import com.google.android.gms.maps.model.LatLng
+
 import com.google.android.gms.maps.model.Marker
+
 
 
 
@@ -71,8 +74,12 @@ class LocationsActivity : FragmentActivity(), OnMapReadyCallback {
                     textViewLongitudeValue.text = longitude.toString()
 
                     updateMapPosition()
-                }
 
+                    val editor = getSharedPreferences("fof", Context.MODE_PRIVATE).edit()
+                    editor.putString("latitude", latitude.toString())
+                    editor.putString("longitude", longitude.toString())
+                    editor.apply()
+                }
     }
 
     fun onRecordClick(v: View) {
@@ -114,12 +121,10 @@ class LocationsActivity : FragmentActivity(), OnMapReadyCallback {
     }
 
     private fun updateMapPosition() {
-        if (map != null)
-        {
+        if (map != null)  {
             val current = LatLng(latitude, longitude)
             marker = map!!.addMarker(MarkerOptions().position(current).title("Me"))
             map!!.moveCamera(CameraUpdateFactory.newLatLngZoom(current, 13.0f))
-
         }
     }
 

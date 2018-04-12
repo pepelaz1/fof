@@ -2,6 +2,7 @@
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/constraint1"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".activities.locations.LocationEditActivity">
@@ -13,28 +14,28 @@
         android:layout_marginLeft="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
+        android:gravity="center"
         android:text="Present location selected. Use map to change location "
+        android:textAllCaps="true"
         android:textColor="@android:color/black"
         android:textSize="14sp"
-        android:textAllCaps="true"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
         android:textStyle="bold"
-        android:gravity="center"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <LinearLayout
         android:id="@+id/linear1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
         android:layout_marginLeft="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:layout_gravity="center"
+        android:orientation="horizontal"
+        android:weightSum="100"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView1"
-        android:weightSum="100"
-        android:orientation="horizontal">
+        app:layout_constraintTop_toBottomOf="@+id/textView1">
 
         <LinearLayout
             android:layout_width="0dp"
@@ -47,7 +48,7 @@
                 android:layout_height="wrap_content"
                 android:text="Latitude:"
                 android:textColor="@android:color/black"
-                android:textStyle="bold"/>
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/textViewLatitudeValue"
@@ -55,7 +56,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="8dp"
                 android:textColor="@android:color/black"
-                android:textStyle="bold"/>
+                android:textStyle="bold" />
 
         </LinearLayout>
 
@@ -71,7 +72,7 @@
                 android:layout_height="wrap_content"
                 android:text="Longitude:"
                 android:textColor="@android:color/black"
-                android:textStyle="bold"/>
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/textViewLongitudeValue"
@@ -79,7 +80,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="8dp"
                 android:textColor="@android:color/black"
-                android:textStyle="bold"/>
+                android:textStyle="bold" />
 
         </LinearLayout>
     </LinearLayout>
@@ -94,29 +95,30 @@
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/linear2"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linear1"
-        app:layout_constraintBottom_toTopOf="@+id/linear2"
         tools:context=".activities.locations.LocationEditActivity" />
 
     <LinearLayout
         android:id="@+id/linear2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
+        android:orientation="horizontal"
+        android:weightSum="100"
+        app:layout_constraintBottom_toTopOf="@+id/linear3"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/map"
-        app:layout_constraintBottom_toTopOf="@+id/linear3"
-        android:weightSum="100">
+        app:layout_constraintTop_toBottomOf="@+id/map">
 
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="30">
+            android:layout_weight="20"
+            android:gravity="center_vertical">
 
             <TextView
                 android:id="@+id/textView2"
@@ -131,12 +133,15 @@
 
         <LinearLayout
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="70">
+            android:layout_height="match_parent"
+            android:layout_weight="80">
 
             <EditText
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:id="@+id/editTextName"
+                style="@style/AppTheme.EditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:maxLines="1" />
         </LinearLayout>
 
     </LinearLayout>
@@ -145,43 +150,46 @@
         android:id="@+id/linear3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
+        android:orientation="horizontal"
+        android:weightSum="100"
+        app:layout_constraintBottom_toTopOf="@+id/linear4"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linear2"
-        app:layout_constraintBottom_toTopOf="@+id/linear4"
-        android:weightSum="100">
+        app:layout_constraintTop_toBottomOf="@+id/linear2">
 
-         <LinearLayout
+        <LinearLayout
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="30"
-             android:gravity="top">
+            android:layout_height="match_parent"
+            android:layout_weight="20"
+            android:gravity="center_vertical">
 
-             <TextView
-                 android:id="@+id/textView3"
-                 android:layout_width="wrap_content"
-                 android:layout_height="wrap_content"
-                 android:layout_gravity="top"
-                 android:text="Notes:"
-                 android:textAllCaps="true"
-                 android:textColor="@android:color/black"
-                 android:textSize="14sp"
-                 android:textStyle="bold" />
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:text="Notes:"
+                android:textAllCaps="true"
+                android:textColor="@android:color/black"
+                android:textSize="14sp"
+                android:textStyle="bold" />
 
-         </LinearLayout>
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="70">
+            android:layout_weight="80">
 
             <EditText
-                android:layout_width="wrap_content"
+                android:id="@+id/editTextNote"
+                style="@style/AppTheme.EditText"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:lines="2"/>
+                android:lines="2"
+                android:maxLines="2" />
         </LinearLayout>
 
     </LinearLayout>
@@ -191,10 +199,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
+        android:layout_marginTop="8dp"
         android:orientation="horizontal"
         android:weightSum="100"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -212,7 +220,8 @@
                 style="@style/AppTheme.Button3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Save" />
+                android:text="Save"
+                android:onClick="onSaveClick"/>
 
         </LinearLayout>
 
@@ -226,7 +235,8 @@
                 style="@style/AppTheme.Button3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Cancel" />
+                android:text="Cancel"
+                android:onClick="onCancelClick"/>
         </LinearLayout>
 
         <LinearLayout
@@ -239,7 +249,8 @@
                 style="@style/AppTheme.Button3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Delete" />
+                android:text="Delete"
+                android:onClick="onDeleteClick"/>
         </LinearLayout>
 
         <LinearLayout
@@ -252,7 +263,8 @@
                 style="@style/AppTheme.Button3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Reset" />
+                android:text="Reset"
+                android:onClick="onResetClick"/>
         </LinearLayout>
 
     </LinearLayout>

@@ -51,5 +51,16 @@
         <item name="android:textSize">@dimen/button3_text_size</item>
         <item name="android:minWidth">@dimen/button3_min_width</item>
     </style>
+    <style name="AppTheme.EditText" parent="Widget.AppCompat.EditText">
+        <item name="android:background">@drawable/edittext_background</item>
+        <item name="android:paddingTop">8dp</item>
+        <item name="android:paddingBottom">8dp</item>
+        <item name="android:paddingRight">8dp</item>
+        <item name="android:paddingLeft">8dp</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:layout_marginTop">4dp</item>
+        <item name="android:layout_marginBottom">4dp</item>
+        <item name="android:inputType">textEmailAddress|textMultiLine</item>
+    </style>
 
 </resources>
