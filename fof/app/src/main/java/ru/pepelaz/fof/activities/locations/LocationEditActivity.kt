@@ -112,6 +112,8 @@ class LocationEditActivity :  FragmentActivity(), OnMapReadyCallback {
             map!!.moveCamera(CameraUpdateFactory.newLatLngZoom(position, 13.0f))
 
         }
+        textViewLatitudeValue.text = latitude.toString()
+        textViewLongitudeValue.text = longitude.toString()
     }
 
     private fun hideKeyboard() {
