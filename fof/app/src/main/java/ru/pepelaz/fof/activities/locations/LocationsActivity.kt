@@ -23,15 +23,15 @@ import com.google.android.gms.maps.model.MarkerOptions
 import com.google.android.gms.maps.model.LatLng
 
 import com.google.android.gms.maps.model.Marker
-
-
+import ru.pepelaz.fof.data.CoordinatesEvent
+import ru.pepelaz.fof.helpers.CurrentCoords
+import ru.pepelaz.fof.helpers.RxBus
 
 
 class LocationsActivity : FragmentActivity(), OnMapReadyCallback {
 
     private var longitude: Double = 0.toDouble()
     private var latitude: Double = 0.toDouble()
-    val LOCATION_PERMISSION_ID = 1001
 
     private var map: GoogleMap? = null
     private var marker: Marker? = null
@@ -43,44 +43,20 @@ class LocationsActivity : FragmentActivity(), OnMapReadyCallback {
                 .findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
 
-        if (ContextCompat.checkSelfPermission(this, ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(this, arrayOf(ACCESS_FINE_LOCATION), LOCATION_PERMISSION_ID)
-        } else {
-            getCoordinates()
-        }
+
+        RxBus.listen(CoordinatesEvent::class.java).subscribe({
+
+            longitude = it.longitude
+            latitude = it.latitude
+
+
+            updateMapPosition()
+
+        })
+
+
     }
 
-
-    override fun onRequestPermissionsResult(requestCode: Int, @NonNull permissions: Array<String>,
-                                            @NonNull grantResults: IntArray) {
-        Log.d("test_test", "onRequestPermissionsResult grantResults: " + grantResults)
-        when (requestCode) {
-            LOCATION_PERMISSION_ID -> {
-                if (!grantResults.isEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                    getCoordinates()
-                }
-            }
-        }
-    }
-
-    fun getCoordinates() {
-        SmartLocation.with(this).location()
-                .start { location ->
-                    Log.d("test_test", "Lat: " + location.latitude + ", Long: " + location.longitude)
-                    longitude = location.longitude
-                    latitude = location.latitude
-
-                    textViewLatitudeValue.text = latitude.toString()
-                    textViewLongitudeValue.text = longitude.toString()
-
-                    updateMapPosition()
-
-                    val editor = getSharedPreferences("fof", Context.MODE_PRIVATE).edit()
-                    editor.putString("latitude", latitude.toString())
-                    editor.putString("longitude", longitude.toString())
-                    editor.apply()
-                }
-    }
 
     fun onRecordClick(v: View) {
         val intent = Intent(this, LocationEditActivity::class.java)
@@ -118,9 +94,18 @@ class LocationsActivity : FragmentActivity(), OnMapReadyCallback {
 //            marker = map!!.addMarker(MarkerOptions().position(it).title("Me"))
 //            map!!.moveCamera(CameraUpdateFactory.newLatLngZoom(it, 13.0f))
         }
+
+        latitude = CurrentCoords.latitude
+        longitude = CurrentCoords.longitude
+        updateMapPosition()
     }
 
+
+
     private fun updateMapPosition() {
+        textViewLatitudeValue.text = latitude.toString()
+        textViewLongitudeValue.text = longitude.toString()
+
         if (map != null)  {
             val current = LatLng(latitude, longitude)
             marker = map!!.addMarker(MarkerOptions().position(current).title("Me"))

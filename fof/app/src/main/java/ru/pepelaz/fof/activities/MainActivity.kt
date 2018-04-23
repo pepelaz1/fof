@@ -1,5 +1,7 @@
 package ru.pepelaz.fof.activities
 
+import android.Manifest
+import android.content.Context
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -8,15 +10,34 @@ import android.view.View
 import android.widget.ImageView
 import kotlinx.android.synthetic.main.activity_main.*
 import android.content.Intent
+import android.content.pm.PackageManager
+import android.support.annotation.NonNull
+import android.support.v4.app.ActivityCompat
+import android.support.v4.content.ContextCompat
+import io.nlopez.smartlocation.SmartLocation
+import io.reactivex.Observable
+import io.reactivex.subjects.PublishSubject
+import kotlinx.android.synthetic.main.activity_locations.*
 import ru.pepelaz.fof.R
 import ru.pepelaz.fof.activities.locations.LocationsActivity
+import ru.pepelaz.fof.data.CoordinatesEvent
+import ru.pepelaz.fof.helpers.CurrentCoords
+import ru.pepelaz.fof.helpers.RxBus
 
 
 class MainActivity : AppCompatActivity() {
 
+    val LOCATION_PERMISSION_ID = 1001
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.ACCESS_FINE_LOCATION), LOCATION_PERMISSION_ID)
+        } else {
+            getCoordinates()
+        }
 
         imageViewFish.setOnTouchListener(touchListener)
         imageViewRecords.setOnTouchListener(touchListener)
@@ -101,6 +122,41 @@ class MainActivity : AppCompatActivity() {
         Log.d("test_test","Destiny: " + resources.getDisplayMetrics().density)
     }
 
+    override fun onRequestPermissionsResult(requestCode: Int, @NonNull permissions: Array<String>,
+                                            @NonNull grantResults: IntArray) {
+        Log.d("test_test", "onRequestPermissionsResult grantResults: " + grantResults)
+        when (requestCode) {
+            LOCATION_PERMISSION_ID -> {
+                if (!grantResults.isEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    getCoordinates()
+                }
+            }
+        }
+    }
+
+    fun getCoordinates() {
+        SmartLocation.with(this).location()
+                .start { location ->
+                    Log.d("test_test", "Lat: " + location.latitude + ", Long: " + location.longitude)
+                    CurrentCoords.latitude = location.latitude
+                    CurrentCoords.longitude = location.longitude
+
+                    RxBus.publish(CoordinatesEvent(location.latitude, location.longitude))
+//                    longitude = location.longitude
+//                    latitude = location.latitude
+//
+//                    textViewLatitudeValue.text = latitude.toString()
+//                    textViewLongitudeValue.text = longitude.toString()
+//
+//                    updateMapPosition()
+//
+//                    val editor = getSharedPreferences("fof", Context.MODE_PRIVATE).edit()
+//                    editor.putString("latitude", latitude.toString())
+//                    editor.putString("longitude", longitude.toString())
+//                    editor.apply()
+                }
+    }
+
     object touchListener: View.OnTouchListener {
         override fun onTouch(v: View, m: MotionEvent): Boolean {
             // Perform tasks here
@@ -117,6 +173,8 @@ class MainActivity : AppCompatActivity() {
     }
     fun buttonGoSiteClicked(v: View) {
         startActivity(Intent(this, SiteActivity::class.java))
-
     }
+
+
+
 }

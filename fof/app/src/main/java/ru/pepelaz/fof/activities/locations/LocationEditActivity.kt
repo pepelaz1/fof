@@ -23,6 +23,7 @@ import kotlinx.android.synthetic.main.activity_edit_location.*
 import ru.pepelaz.fof.R
 import ru.pepelaz.fof.database.Location
 import ru.pepelaz.fof.database.LocationDao
+import ru.pepelaz.fof.helpers.CurrentCoords
 
 
 class LocationEditActivity :  FragmentActivity(), OnMapReadyCallback {
@@ -31,8 +32,8 @@ class LocationEditActivity :  FragmentActivity(), OnMapReadyCallback {
     private var latitude: Double = 0.toDouble()
     private var longitude: Double = 0.toDouble()
 
-    private var curLatitude: Double = 0.toDouble()
-    private var curLongitude: Double = 0.toDouble()
+    //private var curLatitude: Double = 0.toDouble()
+    //private var curLongitude: Double = 0.toDouble()
 
     private var map: GoogleMap? = null
     private var marker: Marker? = null
@@ -50,9 +51,9 @@ class LocationEditActivity :  FragmentActivity(), OnMapReadyCallback {
         latitude = intent.extras.getDouble("latitude")
         longitude = intent.extras.getDouble("longitude")
 
-        val sp = getSharedPreferences("fof", Context.MODE_PRIVATE)
-        curLatitude = (sp.getString("latitude","0.0")).toDouble()
-        curLongitude  = (sp.getString("longitude","0.0")).toDouble()
+//        val sp = getSharedPreferences("fof", Context.MODE_PRIVATE)
+//        curLatitude = (sp.getString("latitude","0.0")).toDouble()
+//        curLongitude  = (sp.getString("longitude","0.0")).toDouble()
 
         locationId = intent.extras.getInt("locationId")
         if (locationId != 0) {
@@ -181,8 +182,8 @@ class LocationEditActivity :  FragmentActivity(), OnMapReadyCallback {
         if (marker != null)
             marker!!.remove()
 
-        longitude = curLongitude
-        latitude = curLatitude
+        longitude = CurrentCoords.longitude
+        latitude = CurrentCoords.latitude
         updateMapPosition()
     }
 
