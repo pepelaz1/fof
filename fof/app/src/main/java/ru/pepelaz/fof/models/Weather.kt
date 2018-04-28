@@ -7,4 +7,10 @@ import org.simpleframework.xml.Root
 class Weather() {
     @set:Element(name="date")
     @get:Element(name="date") var date: String? = null
+
+    @set:Element(name="mintempC")
+    @get:Element(name="mintempC") var mintempC: Integer? = null
+
+    @set:Element(name="maxtempC")
+    @get:Element(name="maxtempC") var maxtempC: Integer? = null
 }

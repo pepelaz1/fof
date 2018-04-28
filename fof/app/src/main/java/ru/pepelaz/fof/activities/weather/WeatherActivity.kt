@@ -10,8 +10,10 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.activity_weather.*
 import ru.pepelaz.fof.R
+import ru.pepelaz.fof.adapters.WeatherAdapter
 import ru.pepelaz.fof.helpers.CurrentCoords
 import ru.pepelaz.fof.network.Communicator
+import ru.pepelaz.fof.storages.WeatherStorage
 
 class WeatherActivity : AppCompatActivity() {
 
@@ -59,11 +61,28 @@ class WeatherActivity : AppCompatActivity() {
     }
 
     fun loadWeather() {
-        Communicator.service(this)!!.getWeather("b6add83687f743fb94a150227171510", "53.57,-2.94", "yes")
+        val coords = CurrentCoords.latitude.toString() + "," + CurrentCoords.longitude.toString()
+
+        //val coords= "53.57,-2.94"
+        Communicator.service(this)!!.getWeather("b6add83687f743fb94a150227171510", coords, "yes")
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe { data ->
-                    Log.d("test_test","data: " + data.weather!![0].date)
-                }
+                .subscribe (
+                        {data ->
+                            Log.d("test_test", "data: " + data.weather!![0].date)
+                            WeatherStorage.set(data.weather!!)
+                            updateWeatherList()
+                        },
+                        {error ->
+                            Log.d("test_test","Failed to get weather data, error: " + error.toString())
+                            textViewError.visibility = View.VISIBLE
+                            listViewWeather.visibility = View.GONE
+                        }
+                )
+
+    }
+
+    fun updateWeatherList() {
+        listViewWeather!!.setAdapter(WeatherAdapter(this))
     }
 }

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="70dp"
+    android:orientation="horizontal">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="100"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/textViewDate"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
+            android:gravity="center_vertical"
+            android:layout_weight="16"
+            android:ellipsize="marquee"
+            android:focusable="false"
+            android:textColor="@android:color/black" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_weight="16"
+            android:weightSum="100">
+
+            <TextView
+                android:id="@+id/textViewMaxtempC"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="50"
+                android:ellipsize="marquee"
+                android:textColor="@color/red"
+                android:text="456"
+                android:layout_gravity="center_vertical"
+                android:focusable="false"/>
+
+            <TextView
+                android:id="@+id/textViewMintempC"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="50"
+                android:text="123"
+                android:ellipsize="marquee"
+                android:textColor="@color/blue"
+                android:layout_gravity="center_vertical"
+                android:focusable="false"/>
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/textViewRain"
+            android:layout_width="0dp"
+            android:layout_weight="16"
+            android:layout_height="wrap_content"
+            android:ellipsize="marquee"
+            android:textColor="@android:color/black"
+            android:layout_gravity="center_vertical"
+            android:focusable="false"/>
+
+        <TextView
+            android:id="@+id/textViewDesciption"
+            android:layout_width="0dp"
+            android:layout_weight="20"
+            android:layout_height="wrap_content"
+            android:ellipsize="marquee"
+            android:textColor="@android:color/black"
+            android:layout_gravity="center_vertical"
+            android:focusable="false"/>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_weight="16">
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/textViewWind"
+            android:layout_width="0dp"
+            android:layout_weight="16"
+            android:layout_height="wrap_content"
+            android:ellipsize="marquee"
+            android:textColor="@android:color/black"
+            android:layout_gravity="center_vertical"
+            android:focusable="false"/>
+
+    </LinearLayout>
+
+ </LinearLayout>
