@@ -103,7 +103,7 @@
             android:screenOrientation="portrait">
         </activity>
         <activity
-            android:name=".activities.WeatherActivity"
+            android:name=".activities.weather.WeatherActivity"
             android:label="Weather / Wind"
             android:screenOrientation="portrait">
         </activity>

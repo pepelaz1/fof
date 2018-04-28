@@ -1,13 +1,17 @@
-package ru.pepelaz.fof.activities
+package ru.pepelaz.fof.activities.weather
 
 import android.location.Address
 import android.location.Geocoder
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.activity_weather.*
 import ru.pepelaz.fof.R
 import ru.pepelaz.fof.helpers.CurrentCoords
+import ru.pepelaz.fof.network.Communicator
 
 class WeatherActivity : AppCompatActivity() {
 
@@ -26,6 +30,8 @@ class WeatherActivity : AppCompatActivity() {
 
         textViewLatitudeValue.text = CurrentCoords.latitude.toString()
         textViewLongitudeValue.text = CurrentCoords.longitude.toString()
+
+        loadWeather()
     }
 
     fun constructLocationName(a: Address): String {
@@ -48,7 +54,16 @@ class WeatherActivity : AppCompatActivity() {
     }
 
 
-    fun buttonCloseClick(v: View) {
+    fun onHomeClick(v: View) {
         finish()
+    }
+
+    fun loadWeather() {
+        Communicator.service(this)!!.getWeather("b6add83687f743fb94a150227171510", "53.57,-2.94", "yes")
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe { data ->
+                    Log.d("test_test","data: " + data.weather!![0].date)
+                }
     }
 }

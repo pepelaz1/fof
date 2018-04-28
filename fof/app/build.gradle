@@ -35,5 +35,15 @@ dependencies {
     implementation 'io.reactivex.rxjava2:rxjava:2.1.9'
     implementation 'com.j256.ormlite:ormlite-android:5.0'
     implementation 'com.google.android.gms:play-services-maps:11.4.2'
+    implementation "com.squareup.retrofit2:retrofit:2.3.0"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:2.3.0"
+    implementation "com.squareup.retrofit2:converter-gson:2.3.0"
+    implementation "com.squareup.retrofit2:converter-simplexml:2.3.0"
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.8.0'
+    implementation ('org.simpleframework:simple-xml:2.7.1') {
+        exclude module: 'stax-api'
+        exclude module: 'stax'
+        exclude module: 'xpp3'
+    }
 
 }
