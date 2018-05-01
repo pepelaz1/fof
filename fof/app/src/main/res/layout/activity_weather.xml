@@ -103,20 +103,20 @@
         android:id="@+id/linear3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="16dp"
-        android:layout_marginStart="16dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_gravity="center"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linear2"
-        android:weightSum="100"
+        android:weightSum="104"
         android:orientation="horizontal">
 
         <TextView
             android:layout_width="0dip"
             android:layout_height="wrap_content"
-            android:layout_weight="16"
+            android:layout_weight="20"
             android:text="Date"
             android:textColor="@android:color/black"
             android:textStyle="bold"/>
@@ -124,7 +124,7 @@
         <TextView
             android:layout_width="0dip"
             android:layout_height="wrap_content"
-            android:layout_weight="16"
+            android:layout_weight="14"
             android:text="Temp"
             android:textColor="@android:color/black"
             android:textStyle="bold"/>
@@ -132,7 +132,7 @@
         <TextView
             android:layout_width="0dip"
             android:layout_height="wrap_content"
-            android:layout_weight="16"
+            android:layout_weight="10"
             android:text="Rain"
             android:textColor="@android:color/black"
             android:textStyle="bold"/>
@@ -140,22 +140,23 @@
         <TextView
             android:layout_width="0dip"
             android:layout_height="wrap_content"
-            android:layout_weight="20"
+            android:layout_weight="24"
             android:text="Description"
+            android:maxLines="1"
             android:textColor="@android:color/black"
             android:textStyle="bold"/>
 
         <TextView
             android:layout_width="0dip"
             android:layout_height="wrap_content"
-            android:layout_weight="16"
+            android:layout_weight="14"
             android:textColor="@android:color/black"
             android:textStyle="bold"/>
 
         <TextView
             android:layout_width="0dip"
             android:layout_height="wrap_content"
-            android:layout_weight="16"
+            android:layout_weight="24"
             android:text="Wind"
             android:textColor="@android:color/black"
             android:textStyle="bold"/>
@@ -185,9 +186,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginBottom="24dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="32dp"
         android:divider="@null"
         app:layout_constraintBottom_toTopOf="@+id/linear4"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -238,7 +237,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Select new location"
-                android:minWidth="200dp"/>
+                android:minWidth="200dp"
+                android:onClick="onSelectNewLocationClick"/>
         </LinearLayout>
 
     </LinearLayout>

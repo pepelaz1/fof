@@ -39,9 +39,13 @@ class WeatherAdapter : ArrayAdapter<Weather> {
         (view!!.findViewById<View>(R.id.textViewMintempC) as TextView).text = weather.mintempC.toString()+ " \u2103"
 
         (view!!.findViewById<View>(R.id.textViewRain) as TextView).text = "0.0"
+        (view!!.findViewById<View>(R.id.textViewDesciption) as TextView).text = "Sunny fog"
+        (view!!.findViewById<View>(R.id.textViewWind) as TextView).text = "10 kmph SSE"
 
-      ///  if (position % 2 == 1)
-       //  view.setBackgroundColor(Color.parseColor("#f7f7f7"));
+        if (position % 2 != 0)
+           view.setBackgroundColor(Color.parseColor("#c7c7c7"));
+        else
+            view.setBackgroundColor(Color.parseColor("#ffffff"));
 
 //        val category = categories[position]
 //

@@ -1,94 +1,107 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="70dp"
+    android:layout_height="60dp"
+    android:gravity="center_vertical"
     android:orientation="horizontal">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:weightSum="100"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:weightSum="104"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp">
 
         <TextView
             android:id="@+id/textViewDate"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_gravity="center_vertical"
-            android:gravity="center_vertical"
-            android:layout_weight="16"
+            android:layout_weight="20"
             android:ellipsize="marquee"
             android:focusable="false"
+            android:gravity="center_vertical"
             android:textColor="@android:color/black" />
 
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_weight="15"
+            android:gravity="center_vertical"
             android:orientation="vertical"
-            android:layout_weight="16"
             android:weightSum="100">
 
             <TextView
                 android:id="@+id/textViewMaxtempC"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
+                android:layout_gravity="center_vertical"
                 android:layout_weight="50"
                 android:ellipsize="marquee"
-                android:textColor="@color/red"
+                android:focusable="false"
                 android:text="456"
-                android:layout_gravity="center_vertical"
-                android:focusable="false"/>
+                android:textColor="@color/red" />
 
             <TextView
                 android:id="@+id/textViewMintempC"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight="50"
-                android:text="123"
-                android:ellipsize="marquee"
-                android:textColor="@color/blue"
                 android:layout_gravity="center_vertical"
-                android:focusable="false"/>
+                android:layout_weight="50"
+                android:ellipsize="marquee"
+                android:focusable="false"
+                android:text="123"
+                android:textColor="@color/blue" />
 
         </LinearLayout>
 
         <TextView
             android:id="@+id/textViewRain"
             android:layout_width="0dp"
-            android:layout_weight="16"
             android:layout_height="wrap_content"
-            android:ellipsize="marquee"
-            android:textColor="@android:color/black"
             android:layout_gravity="center_vertical"
-            android:focusable="false"/>
+            android:layout_weight="10"
+            android:ellipsize="marquee"
+            android:focusable="false"
+            android:textColor="@android:color/black" />
 
         <TextView
             android:id="@+id/textViewDesciption"
             android:layout_width="0dp"
-            android:layout_weight="20"
             android:layout_height="wrap_content"
-            android:ellipsize="marquee"
-            android:textColor="@android:color/black"
             android:layout_gravity="center_vertical"
-            android:focusable="false"/>
+            android:layout_weight="24"
+            android:ellipsize="marquee"
+            android:focusable="false"
+            android:textSize="12sp"
+            android:textColor="@android:color/black" />
 
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_weight="16">
+            android:layout_weight="14"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:src="@drawable/suncloud"
+                android:layout_gravity="center"/>
+
         </LinearLayout>
 
         <TextView
             android:id="@+id/textViewWind"
             android:layout_width="0dp"
-            android:layout_weight="16"
             android:layout_height="wrap_content"
-            android:ellipsize="marquee"
-            android:textColor="@android:color/black"
             android:layout_gravity="center_vertical"
-            android:focusable="false"/>
+            android:layout_weight="24"
+            android:ellipsize="marquee"
+            android:focusable="false"
+            android:textSize="12sp"
+            android:textColor="@android:color/black" />
 
     </LinearLayout>
 
- </LinearLayout>
+</LinearLayout>

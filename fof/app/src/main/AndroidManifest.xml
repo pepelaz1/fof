@@ -108,6 +108,11 @@
             android:screenOrientation="portrait">
         </activity>
         <activity
+            android:name=".activities.weather.WeatherChangeLocationActivity"
+            android:label="Weather / Wind"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
             android:name=".activities.ContactActivity"
             android:label="Contact"
             android:screenOrientation="portrait">
