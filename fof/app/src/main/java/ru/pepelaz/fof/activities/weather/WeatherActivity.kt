@@ -63,7 +63,13 @@ class WeatherActivity : AppCompatActivity() {
     }
 
     fun onSelectNewLocationClick(v: View) {
-        startActivity(Intent(this, WeatherChangeLocationActivity::class.java))
+        startActivityForResult(Intent(this, WeatherChangeLocationActivity::class.java), 1)
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == 1 && resultCode == 1)
+            finish()
     }
 
     fun loadWeather() {
