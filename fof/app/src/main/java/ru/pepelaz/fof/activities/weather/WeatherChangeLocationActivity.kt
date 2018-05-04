@@ -77,7 +77,15 @@ class WeatherChangeLocationActivity :  FragmentActivity(), OnMapReadyCallback {
             marker = map!!.addMarker(MarkerOptions().position(it).title("Me"))
             map!!.moveCamera(CameraUpdateFactory.newLatLngZoom(it, 13.0f))
             hideKeyboard()
+
+            latitude = Math.round(it.latitude * 10000000.0) / 10000000.0
+            longitude = Math.round(it.longitude * 10000000.0) / 10000000.0
+
+
         }
+
+        latitude = CurrentCoords.latitude
+        longitude = CurrentCoords.longitude
         updateMapPosition()
     }
 
@@ -87,6 +95,7 @@ class WeatherChangeLocationActivity :  FragmentActivity(), OnMapReadyCallback {
             val position = LatLng(latitude, longitude)
             marker = map!!.addMarker(MarkerOptions().position(position).title("Me"))
             map!!.moveCamera(CameraUpdateFactory.newLatLngZoom(position, 13.0f))
+
 
         }
     }
@@ -111,6 +120,10 @@ class WeatherChangeLocationActivity :  FragmentActivity(), OnMapReadyCallback {
 
 
     fun onFindClick(v: View) {
+        CurrentCoords.longitude = longitude
+        CurrentCoords.latitude = latitude
+        setResult(2)
+        finish()
 
     }
 

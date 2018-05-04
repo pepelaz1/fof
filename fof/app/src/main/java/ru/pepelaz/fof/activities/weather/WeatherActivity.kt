@@ -23,18 +23,6 @@ class WeatherActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_weather)
 
-        val geocoder = Geocoder(this)
-        var addresses = geocoder.getFromLocation(
-                    CurrentCoords.latitude,
-                    CurrentCoords.longitude,
-                    1)
-        if (addresses != null && addresses.size > 0) {
-            textView2.text = constructLocationName(addresses[0])
-        }
-
-        textViewLatitudeValue.text = CurrentCoords.latitude.toString()
-        textViewLongitudeValue.text = CurrentCoords.longitude.toString()
-
         loadWeather()
     }
 
@@ -70,12 +58,27 @@ class WeatherActivity : AppCompatActivity() {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == 1 && resultCode == 1)
             finish()
+        else if (requestCode == 1 && resultCode == 2)
+            loadWeather()
     }
 
     fun loadWeather() {
-        //val coords = CurrentCoords.latitude.toString() + "," + CurrentCoords.longitude.toString()
 
-        val coords= "53.57,-2.94"
+        val geocoder = Geocoder(this)
+        var addresses = geocoder.getFromLocation(
+                CurrentCoords.latitude,
+                CurrentCoords.longitude,
+                1)
+        if (addresses != null && addresses.size > 0) {
+            textView2.text = constructLocationName(addresses[0])
+        }
+
+        textViewLatitudeValue.text = CurrentCoords.latitude.toString()
+        textViewLongitudeValue.text = CurrentCoords.longitude.toString()
+
+        val coords = CurrentCoords.latitude.toString() + "," + CurrentCoords.longitude.toString()
+
+        //val coords= "53.57,-2.94"
         Communicator.service(this)!!.getWeather("b6add83687f743fb94a150227171510", coords, "yes", 24)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
