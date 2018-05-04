@@ -46,24 +46,13 @@ class WeatherAdapter : ArrayAdapter<Weather> {
         Glide.with(context).load(weather.hourly!![0].weatherIconUrl)
                 .into( (view!!.findViewById<View>(R.id.imageView) as ImageView))
 
-
-        http@ //cdn.worldweatheronline.net/images/wsymbols01_png_64/wsymbol_0002_sunny_intervals.png
-        (view!!.findViewById<View>(R.id.textViewWind) as TextView).text = "10 kmph SSE"
+        val wind = weather.hourly!![0].windspeedKmph.toString() + " kmph " + weather.hourly!![0].winddir16Point
+        (view!!.findViewById<View>(R.id.textViewWind) as TextView).text = wind
 
         if (position % 2 != 0)
            view.setBackgroundColor(Color.parseColor("#c7c7c7"));
         else
             view.setBackgroundColor(Color.parseColor("#ffffff"));
-
-//        val category = categories[position]
-//
-//        (view!!.findViewById<View>(R.id.checkbox) as CheckBox).isChecked = category.Selected
-//        (view!!.findViewById<View>(R.id.textview) as TextView).text = category.Name
-//
-//
-//        (view!!.findViewById<View>(R.id.imageview) as ImageView).setImageResource(
-//                context.getResources().getIdentifier(prefix + category.Id.toString(), "drawable", context.getPackageName()))
-
 
         return view!!
     }

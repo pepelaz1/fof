@@ -12,4 +12,10 @@ class Hourly {
 
     @set:Element(name="weatherIconUrl")
     @get:Element(name="weatherIconUrl") var weatherIconUrl: String? = null
-}
+
+    @set:Element(name="windspeedKmph")
+    @get:Element(name="windspeedKmph") var windspeedKmph: Int? = null
+
+    @set:Element(name="winddir16Point")
+    @get:Element(name="winddir16Point") var winddir16Point: String? = null
+ }
