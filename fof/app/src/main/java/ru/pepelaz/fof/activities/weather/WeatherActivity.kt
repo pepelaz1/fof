@@ -73,10 +73,10 @@ class WeatherActivity : AppCompatActivity() {
     }
 
     fun loadWeather() {
-        val coords = CurrentCoords.latitude.toString() + "," + CurrentCoords.longitude.toString()
+        //val coords = CurrentCoords.latitude.toString() + "," + CurrentCoords.longitude.toString()
 
-        //val coords= "53.57,-2.94"
-        Communicator.service(this)!!.getWeather("b6add83687f743fb94a150227171510", coords, "yes")
+        val coords= "53.57,-2.94"
+        Communicator.service(this)!!.getWeather("b6add83687f743fb94a150227171510", coords, "yes", 24)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe (

@@ -1,6 +1,7 @@
 package ru.pepelaz.fof.models
 
 import org.simpleframework.xml.Element
+import org.simpleframework.xml.ElementList
 import org.simpleframework.xml.Root
 
 @Root(strict = false)
@@ -13,4 +14,7 @@ class Weather() {
 
     @set:Element(name="maxtempC")
     @get:Element(name="maxtempC") var maxtempC: Integer? = null
+
+    @set:ElementList(inline=true)
+    @get:ElementList(inline=true) var hourly: ArrayList<Hourly>? = null
 }

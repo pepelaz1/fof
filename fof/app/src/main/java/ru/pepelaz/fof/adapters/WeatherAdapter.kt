@@ -7,7 +7,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
+import android.widget.ImageView
 import android.widget.TextView
+import com.bumptech.glide.Glide
 import ru.pepelaz.fof.R
 import ru.pepelaz.fof.models.Weather
 import ru.pepelaz.fof.storages.WeatherStorage
@@ -38,8 +40,14 @@ class WeatherAdapter : ArrayAdapter<Weather> {
         (view!!.findViewById<View>(R.id.textViewMaxtempC) as TextView).text = weather.maxtempC.toString()+ " \u2103"
         (view!!.findViewById<View>(R.id.textViewMintempC) as TextView).text = weather.mintempC.toString()+ " \u2103"
 
-        (view!!.findViewById<View>(R.id.textViewRain) as TextView).text = "0.0"
-        (view!!.findViewById<View>(R.id.textViewDesciption) as TextView).text = "Sunny fog"
+        (view!!.findViewById<View>(R.id.textViewRain) as TextView).text = weather.hourly!![0].precipMM.toString()
+        (view!!.findViewById<View>(R.id.textViewDesciption) as TextView).text = weather.hourly!![0].weatherDesc
+
+        Glide.with(context).load(weather.hourly!![0].weatherIconUrl)
+                .into( (view!!.findViewById<View>(R.id.imageView) as ImageView))
+
+
+        http@ //cdn.worldweatheronline.net/images/wsymbols01_png_64/wsymbol_0002_sunny_intervals.png
         (view!!.findViewById<View>(R.id.textViewWind) as TextView).text = "10 kmph SSE"
 
         if (position % 2 != 0)
