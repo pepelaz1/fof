@@ -3,6 +3,7 @@ package ru.pepelaz.fof.network
 import android.content.Context
 import okhttp3.OkHttpClient
 import com.google.gson.GsonBuilder
+import okhttp3.Interceptor
 import okhttp3.logging.HttpLoggingInterceptor
 import org.simpleframework.xml.convert.AnnotationStrategy
 import org.simpleframework.xml.core.Persister
@@ -11,6 +12,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.Retrofit
 import retrofit2.converter.simplexml.SimpleXmlConverterFactory
+import java.io.IOException
 
 
 class Communicator(context: Context) {
@@ -35,10 +37,33 @@ class Communicator(context: Context) {
         val loggingInterceptor = HttpLoggingInterceptor()
         loggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY)
 
-        val httpClient = OkHttpClient.Builder()
+
+//        val interceptor = Interceptor { chain ->
+//            var request = chain.request()
+//            val builder = request.newBuilder().addHeader("Cache-Control", "no-cache")
+//            request = builder.build()
+//            chain.proceed(request)
+//        }
+
+        val builder = OkHttpClient.Builder()
+        builder.addInterceptor { chain ->
+            val original = chain.request()
+
+            // Request customization: add request headers
+            val requestBuilder = original.newBuilder()
+                    .addHeader("Cache-Control", "no-cache")
+                    .addHeader("Cache-Control", "no-store")
+
+            val request = requestBuilder.build()
+            chain.proceed(request)
+        }
+
+        val httpClient = builder
                 .addInterceptor(loggingInterceptor)
                 .readTimeout(30, TimeUnit.SECONDS)
                 .connectTimeout(30, TimeUnit.SECONDS)
+                .cache( null)
+                //.addInterceptor(interceptor)
                 .build()
 
         val retrofit = Retrofit.Builder()

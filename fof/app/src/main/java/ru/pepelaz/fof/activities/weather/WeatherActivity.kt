@@ -11,6 +11,7 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.activity_weather.*
 import ru.pepelaz.fof.R
+import ru.pepelaz.fof.R.id.*
 import ru.pepelaz.fof.activities.SpeciesActivity
 import ru.pepelaz.fof.adapters.WeatherAdapter
 import ru.pepelaz.fof.helpers.CurrentCoords
@@ -64,6 +65,17 @@ class WeatherActivity : AppCompatActivity() {
 
     fun loadWeather() {
 
+        // CurrentCoords.latitude = 36.539296
+         //CurrentCoords.longitude = -4.6226728
+
+        //CurrentCoords.latitude = 53.57
+        //CurrentCoords.longitude = -2.94
+
+        //CurrentCoords.latitude = -1.0
+        //CurrentCoords.longitude = -1.0
+
+
+
         val geocoder = Geocoder(this)
         var addresses = geocoder.getFromLocation(
                 CurrentCoords.latitude,
@@ -73,12 +85,14 @@ class WeatherActivity : AppCompatActivity() {
             textView2.text = constructLocationName(addresses[0])
         }
 
+
+
         textViewLatitudeValue.text = CurrentCoords.latitude.toString()
         textViewLongitudeValue.text = CurrentCoords.longitude.toString()
 
         val coords = CurrentCoords.latitude.toString() + "," + CurrentCoords.longitude.toString()
 
-        //val coords= "53.57,-2.94"
+
         Communicator.service(this)!!.getWeather("b6add83687f743fb94a150227171510", coords, "yes", 24)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
