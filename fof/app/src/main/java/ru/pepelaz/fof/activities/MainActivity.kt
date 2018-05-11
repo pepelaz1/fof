@@ -16,6 +16,7 @@ import android.support.v4.content.ContextCompat
 import io.nlopez.smartlocation.SmartLocation
 import ru.pepelaz.fof.R
 import ru.pepelaz.fof.activities.locations.LocationsActivity
+import ru.pepelaz.fof.activities.tides.TidesActivity
 import ru.pepelaz.fof.activities.weather.WeatherActivity
 import ru.pepelaz.fof.data.CoordinatesEvent
 import ru.pepelaz.fof.helpers.CurrentCoords

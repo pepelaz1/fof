@@ -98,7 +98,12 @@
             android:screenOrientation="portrait">
         </activity>
         <activity
-            android:name=".activities.TidesActivity"
+            android:name=".activities.tides.TidesActivity"
+            android:label="Tides"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name=".activities.tides.TidesChangeLocationActivity"
             android:label="Tides"
             android:screenOrientation="portrait">
         </activity>

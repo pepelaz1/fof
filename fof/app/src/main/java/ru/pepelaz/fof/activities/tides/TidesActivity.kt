@@ -1,4 +1,4 @@
-package ru.pepelaz.fof.activities.weather
+package ru.pepelaz.fof.activities.tides
 
 import android.content.Intent
 import android.location.Address
@@ -19,13 +19,13 @@ import ru.pepelaz.fof.helpers.Utils
 import ru.pepelaz.fof.network.Communicator
 import ru.pepelaz.fof.storages.WeatherStorage
 
-class WeatherActivity : AppCompatActivity() {
+class TidesActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_weather)
+        setContentView(R.layout.activity_tides)
 
-        loadWeather()
+        loadTides()
     }
 
 
@@ -36,7 +36,7 @@ class WeatherActivity : AppCompatActivity() {
     }
 
     fun onSelectNewLocationClick(v: View) {
-        startActivityForResult(Intent(this, WeatherChangeLocationActivity::class.java), 1)
+        startActivityForResult(Intent(this, TidesChangeLocationActivity::class.java), 1)
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -44,10 +44,10 @@ class WeatherActivity : AppCompatActivity() {
         if (requestCode == 1 && resultCode == 1)
             finish()
         else if (requestCode == 1 && resultCode == 2)
-            loadWeather()
+            loadTides()
     }
 
-    fun loadWeather() {
+    fun loadTides() {
 
         // CurrentCoords.latitude = 36.539296
          //CurrentCoords.longitude = -4.6226728
@@ -70,30 +70,29 @@ class WeatherActivity : AppCompatActivity() {
         }
 
 
+
         textViewLatitudeValue.text = CurrentCoords.latitude.toString()
         textViewLongitudeValue.text = CurrentCoords.longitude.toString()
 
         val coords = CurrentCoords.latitude.toString() + "," + CurrentCoords.longitude.toString()
 
-        Communicator.service(this)!!.getWeather("b6add83687f743fb94a150227171510", coords, "yes", 24)
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe (
-                        {data ->
-                            Log.d("test_test", "data: " + data.weather!![0].date)
-                            WeatherStorage.set(data.weather!!)
-                            updateWeatherList()
-                        },
-                        {error ->
-                            Log.d("test_test","Failed to get weather data, error: " + error.toString())
-                            textViewError.visibility = View.VISIBLE
-                            listViewWeather.visibility = View.GONE
-                        }
-                )
+
+//        Communicator.service(this)!!.getWeather("b6add83687f743fb94a150227171510", coords, "yes", 24)
+//                .subscribeOn(Schedulers.io())
+//                .observeOn(AndroidSchedulers.mainThread())
+//                .subscribe (
+//                        {data ->
+//                            Log.d("test_test", "data: " + data.weather!![0].date)
+//                            WeatherStorage.set(data.weather!!)
+//                            updateWeatherList()
+//                        },
+//                        {error ->
+//                            Log.d("test_test","Failed to get weather data, error: " + error.toString())
+//                            textViewError.visibility = View.VISIBLE
+//                            listViewWeather.visibility = View.GONE
+//                        }
+//                )
 
     }
 
-    fun updateWeatherList() {
-        listViewWeather!!.setAdapter(WeatherAdapter(this))
-    }
 }
