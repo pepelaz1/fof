@@ -32,7 +32,7 @@ class WeatherAdapter : ArrayAdapter<Weather> {
 
         val weather = WeatherStorage.get()!![position]
         val date = SimpleDateFormat("yyyy-MM-dd").parse(weather.date)
-        var str = SimpleDateFormat("MMM dd").format(date)
+        var str = SimpleDateFormat("MMM dd EEEE").format(date)
 
         str = str.substring(0, 1).toUpperCase() + str.substring(1)
         (view!!.findViewById<View>(R.id.textViewDate) as TextView).text  = str
@@ -46,7 +46,7 @@ class WeatherAdapter : ArrayAdapter<Weather> {
         Glide.with(context).load(weather.hourly!![0].weatherIconUrl)
                 .into( (view!!.findViewById<View>(R.id.imageView) as ImageView))
 
-        val wind = weather.hourly!![0].windspeedKmph.toString() + " kmph " + weather.hourly!![0].winddir16Point
+        val wind = weather.hourly!![0].windspeedMiles.toString() + " mph " + weather.hourly!![0].winddir16Point
         (view!!.findViewById<View>(R.id.textViewWind) as TextView).text = wind
 
         if (position % 2 != 0)

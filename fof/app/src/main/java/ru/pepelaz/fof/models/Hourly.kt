@@ -16,6 +16,9 @@ class Hourly {
     @set:Element(name="windspeedKmph")
     @get:Element(name="windspeedKmph") var windspeedKmph: Int? = null
 
+    @set:Element(name="windspeedMiles")
+    @get:Element(name="windspeedMiles") var windspeedMiles: Int? = null
+
     @set:Element(name="winddir16Point")
     @get:Element(name="winddir16Point") var winddir16Point: String? = null
  }
