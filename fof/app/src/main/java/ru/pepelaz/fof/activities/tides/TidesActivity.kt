@@ -45,7 +45,6 @@ class TidesActivity() : AppCompatActivity(), TidesCalendarFragment.OnFragmentInt
         }
 
 
-
         loadTides()
     }
 

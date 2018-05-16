@@ -7,8 +7,11 @@ import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.LinearLayout
+import android.widget.TextView
 
 import ru.pepelaz.fof.R
+import java.io.LineNumberReader
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -30,18 +33,35 @@ class TidesCalendarFragment : Fragment() {
     private var param2: String? = null
     private var listener: OnFragmentInteractionListener? = null
 
+
+    private data class WeekDay(val layout: LinearLayout, var date: TextView, var day: TextView, var selected: Boolean)
+    private var weekDays = ArrayList<WeekDay>()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
             param1 = it.getString(ARG_PARAM1)
             param2 = it.getString(ARG_PARAM2)
         }
+
+
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_tides_calendar, container, false)
+        var v = inflater.inflate(R.layout.fragment_tides_calendar, container, false)
+        for (i in 0..6) {
+            val ll = v.findViewWithTag<LinearLayout>("linear" + i.toString())
+
+            weekDays.add(WeekDay(
+                    v.findViewWithTag<LinearLayout>("linear" + i.toString()),
+                    v.findViewWithTag<TextView>("date" + i.toString()),
+                    v.findViewWithTag<TextView>("day" + i.toString()),
+                    false))
+        }
+        weekDays[3].selected = true
+        return v
     }
 
     // TODO: Rename method, update argument and hook method into UI event
@@ -56,6 +76,7 @@ class TidesCalendarFragment : Fragment() {
         } else {
             throw RuntimeException(context.toString() + " must implement OnFragmentInteractionListener")
         }
+        update()
     }
 
     override fun onDetach() {
@@ -63,6 +84,9 @@ class TidesCalendarFragment : Fragment() {
         listener = null
     }
 
+    private fun update() {
+
+    }
     /**
      * This interface must be implemented by activities that contain this
      * fragment to allow an interaction in this fragment to be communicated
