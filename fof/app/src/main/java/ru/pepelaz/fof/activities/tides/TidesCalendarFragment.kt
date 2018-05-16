@@ -1,9 +1,13 @@
 package ru.pepelaz.fof.activities.tides
 
 import android.content.Context
+import android.icu.text.SimpleDateFormat
 import android.net.Uri
+import android.os.Build
 import android.os.Bundle
+import android.support.annotation.RequiresApi
 import android.support.v4.app.Fragment
+import android.support.v4.content.ContextCompat
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,6 +16,8 @@ import android.widget.TextView
 
 import ru.pepelaz.fof.R
 import java.io.LineNumberReader
+import java.util.*
+
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -27,14 +33,17 @@ private const val ARG_PARAM2 = "param2"
  * create an instance of this fragment.
  *
  */
-class TidesCalendarFragment : Fragment() {
+class TidesCalendarFragment : Fragment(), View.OnClickListener {
+
+
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
-    private var listener: OnFragmentInteractionListener? = null
+    private var listener: ITidesCalendarFragment? = null
 
 
-    private data class WeekDay(val layout: LinearLayout, var date: TextView, var day: TextView, var selected: Boolean)
+    private data class WeekDay(val tag: String, val date: Date, val layout: LinearLayout,
+                               var tvDate: TextView, var tvDay: TextView, var selected: Boolean)
     private var weekDays = ArrayList<WeekDay>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -47,36 +56,46 @@ class TidesCalendarFragment : Fragment() {
 
     }
 
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
         var v = inflater.inflate(R.layout.fragment_tides_calendar, container, false)
+        val date = Date()
+        val sfDayNum = java.text.SimpleDateFormat("dd")
+        val sfDayName = java.text.SimpleDateFormat("EEE")
         for (i in 0..6) {
-            val ll = v.findViewWithTag<LinearLayout>("linear" + i.toString())
-
-            weekDays.add(WeekDay(
-                    v.findViewWithTag<LinearLayout>("linear" + i.toString()),
-                    v.findViewWithTag<TextView>("date" + i.toString()),
-                    v.findViewWithTag<TextView>("day" + i.toString()),
-                    false))
+            val tag = "linear" + i.toString()
+            var ll = v.findViewWithTag<LinearLayout>("linear" + i.toString())
+            ll.setOnClickListener(this)
+            val date = addDays(i - 3)
+            var tvDate = v.findViewWithTag<TextView>("date" + i.toString())
+            tvDate.text = sfDayNum.format(date)
+            var tvDay = v.findViewWithTag<TextView>("day" + i.toString())
+            tvDay.text = sfDayName.format(date)
+            weekDays.add(WeekDay(tag, date, ll, tvDate, tvDay, false))
         }
         weekDays[3].selected = true
+        listener!!.onDateSelected(weekDays[3].date)
+        update()
         return v
     }
 
-    // TODO: Rename method, update argument and hook method into UI event
-    fun onButtonPressed(uri: Uri) {
-        listener?.onFragmentInteraction(uri)
+    fun addDays(days: Int): Date {
+        val calendar = Calendar.getInstance()
+        calendar.add(Calendar.DAY_OF_YEAR, days)
+
+        return calendar.time
     }
+
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
-        if (context is OnFragmentInteractionListener) {
+        if (context is ITidesCalendarFragment) {
             listener = context
         } else {
-            throw RuntimeException(context.toString() + " must implement OnFragmentInteractionListener")
+            throw RuntimeException(context.toString() + " must implement ITidesCalendarFragment")
         }
-        update()
     }
 
     override fun onDetach() {
@@ -85,7 +104,15 @@ class TidesCalendarFragment : Fragment() {
     }
 
     private fun update() {
-
+        for(weekDay in weekDays) {
+            if (weekDay.selected) {
+                weekDay.tvDate.setTextColor(ContextCompat.getColor(context!!, R.color.tides_calendar_text_selected))
+                weekDay.tvDay.setTextColor(ContextCompat.getColor(context!!, R.color.tides_calendar_text_selected))
+            } else {
+                weekDay.tvDate.setTextColor(ContextCompat.getColor(context!!, R.color.tides_calendar_text_normal))
+                weekDay.tvDay.setTextColor(ContextCompat.getColor(context!!, R.color.tides_calendar_text_normal))
+            }
+        }
     }
     /**
      * This interface must be implemented by activities that contain this
@@ -98,9 +125,9 @@ class TidesCalendarFragment : Fragment() {
      * (http://developer.android.com/training/basics/fragments/communicating.html)
      * for more information.
      */
-    interface OnFragmentInteractionListener {
+    interface ITidesCalendarFragment {
         // TODO: Update argument type and name
-        fun onFragmentInteraction(uri: Uri)
+        fun onDateSelected(date: Date)
     }
 
     companion object {
@@ -121,5 +148,19 @@ class TidesCalendarFragment : Fragment() {
                         putString(ARG_PARAM2, param2)
                     }
                 }
+    }
+
+
+
+    override fun onClick(v: View?) {
+        for(weekDay in weekDays) {
+            if (weekDay.tag == v!!.tag) {
+                weekDay.selected = true
+                listener!!.onDateSelected(weekDay.date)
+            } else {
+                weekDay.selected = false;
+            }
+        }
+        update()
     }
 }

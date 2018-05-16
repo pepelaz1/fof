@@ -29,21 +29,16 @@ import java.util.*
 
 
 
-class TidesActivity() : AppCompatActivity(), TidesCalendarFragment.OnFragmentInteractionListener {
+class TidesActivity() : AppCompatActivity(), TidesCalendarFragment.ITidesCalendarFragment {
 
-    override fun onFragmentInteraction(uri: Uri) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    override fun onDateSelected(date: Date) {
+        Log.d("test_test", "date selected: " + date)
     }
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        try {
-            setContentView(R.layout.activity_tides)
-        } catch(e: Exception) {
-            Log.d("test_test",e.message)
-        }
-
+        setContentView(R.layout.activity_tides)
 
         loadTides()
     }
