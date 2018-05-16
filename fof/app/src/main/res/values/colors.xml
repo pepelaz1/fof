@@ -11,4 +11,8 @@
     <color name="blue">#0000ff</color>
     <color name="yellow">#ffff00</color>
     <color name="button2_color">#599BD7</color>
+
+    <color name="tides_calendar_back_color">#1565C0</color>
+    <color name="tides_calendar_text_normal">#ddd</color>
+    <color name="tides_calendar_text_selected">#fff</color>
 </resources>

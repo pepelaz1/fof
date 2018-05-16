@@ -1,10 +1,15 @@
 package ru.pepelaz.fof.activities.tides
 
+import android.app.Activity
 import android.content.Intent
 import android.location.Address
 import android.location.Geocoder
+import android.net.Uri
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Parcel
+import android.os.Parcelable
+import android.support.v4.app.FragmentActivity
 import android.util.Log
 import android.view.View
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -18,12 +23,28 @@ import ru.pepelaz.fof.helpers.CurrentCoords
 import ru.pepelaz.fof.helpers.Utils
 import ru.pepelaz.fof.network.Communicator
 import ru.pepelaz.fof.storages.WeatherStorage
+import java.util.*
 
-class TidesActivity : AppCompatActivity() {
+
+
+
+
+class TidesActivity() : AppCompatActivity(), TidesCalendarFragment.OnFragmentInteractionListener {
+
+    override fun onFragmentInteraction(uri: Uri) {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_tides)
+        try {
+            setContentView(R.layout.activity_tides)
+        } catch(e: Exception) {
+            Log.d("test_test",e.message)
+        }
+
+
 
         loadTides()
     }
@@ -71,8 +92,8 @@ class TidesActivity : AppCompatActivity() {
 
 
 
-        textViewLatitudeValue.text = CurrentCoords.latitude.toString()
-        textViewLongitudeValue.text = CurrentCoords.longitude.toString()
+       // textViewLatitudeValue.text = CurrentCoords.latitude.toString()
+       // textViewLongitudeValue.text = CurrentCoords.longitude.toString()
 
         val coords = CurrentCoords.latitude.toString() + "," + CurrentCoords.longitude.toString()
 
@@ -94,5 +115,8 @@ class TidesActivity : AppCompatActivity() {
 //                )
 
     }
+
+
+
 
 }
