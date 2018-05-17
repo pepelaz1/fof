@@ -2,6 +2,7 @@ package ru.pepelaz.fof.activities.tides
 
 import android.app.Activity
 import android.content.Intent
+import android.graphics.Color
 import android.location.Address
 import android.location.Geocoder
 import android.net.Uri
@@ -12,6 +13,9 @@ import android.os.Parcelable
 import android.support.v4.app.FragmentActivity
 import android.util.Log
 import android.view.View
+import com.github.mikephil.charting.data.Entry
+import com.github.mikephil.charting.data.LineData
+import com.github.mikephil.charting.data.LineDataSet
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.activity_weather.*
@@ -24,15 +28,22 @@ import ru.pepelaz.fof.helpers.Utils
 import ru.pepelaz.fof.network.Communicator
 import ru.pepelaz.fof.storages.WeatherStorage
 import java.util.*
-
-
-
+import com.github.mikephil.charting.charts.LineChart
+import com.github.mikephil.charting.components.AxisBase
+import com.github.mikephil.charting.components.XAxis
+import com.github.mikephil.charting.components.YAxis
+import com.github.mikephil.charting.formatter.IAxisValueFormatter
+import com.github.mikephil.charting.formatter.IValueFormatter
+import kotlinx.android.synthetic.main.activity_tides.*
+import java.text.SimpleDateFormat
+import java.util.concurrent.TimeUnit
 
 
 class TidesActivity() : AppCompatActivity(), TidesCalendarFragment.ITidesCalendarFragment {
 
     override fun onDateSelected(date: Date) {
         Log.d("test_test", "date selected: " + date)
+        rebuildChart()
     }
 
 
@@ -41,10 +52,8 @@ class TidesActivity() : AppCompatActivity(), TidesCalendarFragment.ITidesCalenda
         setContentView(R.layout.activity_tides)
 
         loadTides()
+        rebuildChart()
     }
-
-
-
 
     fun onHomeClick(v: View) {
         finish()
@@ -81,7 +90,7 @@ class TidesActivity() : AppCompatActivity(), TidesCalendarFragment.ITidesCalenda
                 CurrentCoords.longitude,
                 1)
         if (addresses != null && addresses.size > 0) {
-            textView2.text = Utils.constructLocationName(addresses[0])
+            textView3.text = Utils.constructLocationName(addresses[0])
         }
 
 
@@ -111,6 +120,41 @@ class TidesActivity() : AppCompatActivity(), TidesCalendarFragment.ITidesCalenda
     }
 
 
+    fun rebuildChart() {
+        if (chartView != null) {
+            val entries = ArrayList<Entry>()
+            val r = Random()
+            for (i in 0..10) {
+                entries.add(Entry(i.toFloat(), (r.nextInt(10 - 5) + 5).toFloat()))
+            }
+
+            val dataSet = LineDataSet(entries, "Label") // add entries to dataset
+            dataSet.setColor(Color.BLUE)
+            dataSet.setValueTextColor(Color.BLACK)
+            dataSet.fillColor = Color.RED
+            dataSet.setDrawFilled(true)
+            dataSet.setDrawValues(false)
+
+            dataSet.setMode(LineDataSet.Mode.CUBIC_BEZIER);
+
+            val lineChart: LineChart = chartView
+
+            val lineData = LineData(dataSet);
+            lineChart.setData(lineData);
+            lineChart.xAxis.position = XAxis.XAxisPosition.BOTTOM;
+            lineChart.xAxis.valueFormatter = object: IAxisValueFormatter {
+                private val format = SimpleDateFormat("HH:mm")
+
+                override fun getFormattedValue(value: Float, axis: AxisBase?): String {
+                     var millis = TimeUnit.HOURS.toMillis(value.toLong())
+                     return format.format( Date(millis))
+                }
+
+            }
+            lineChart.axisRight.isEnabled = false
+            lineChart.invalidate()
+        }
+    }
 
 
 }
