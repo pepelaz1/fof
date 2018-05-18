@@ -15,4 +15,6 @@
     <color name="tides_calendar_back_color">#1565C0</color>
     <color name="tides_calendar_text_normal">#ddd</color>
     <color name="tides_calendar_text_selected">#fff</color>
+    <color name="tides_chart_line_color">#3177C7</color>
+    <color name="tides_chart_fill_color">#A3C2E6</color>
 </resources>
