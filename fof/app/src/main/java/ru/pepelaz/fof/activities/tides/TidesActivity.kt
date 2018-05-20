@@ -22,7 +22,6 @@ import com.github.mikephil.charting.data.LineData
 import com.github.mikephil.charting.data.LineDataSet
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
-import kotlinx.android.synthetic.main.activity_weather.*
 import ru.pepelaz.fof.R
 import ru.pepelaz.fof.R.id.*
 import ru.pepelaz.fof.activities.SpeciesActivity
@@ -39,7 +38,6 @@ import com.github.mikephil.charting.components.YAxis
 import com.github.mikephil.charting.formatter.IAxisValueFormatter
 import com.github.mikephil.charting.formatter.IValueFormatter
 import kotlinx.android.synthetic.main.activity_tides.*
-import kotlinx.android.synthetic.main.activity_weather.view.*
 import java.text.SimpleDateFormat
 import java.util.concurrent.TimeUnit
 
@@ -85,8 +83,8 @@ class TidesActivity() : AppCompatActivity(), TidesCalendarFragment.ITidesCalenda
         // CurrentCoords.latitude = 36.539296
          //CurrentCoords.longitude = -4.6226728
 
-        //CurrentCoords.latitude = 53.57
-        //CurrentCoords.longitude = -2.94
+        CurrentCoords.latitude = 53.57
+        CurrentCoords.longitude = -2.94
 
         //CurrentCoords.latitude = -1.0
         //CurrentCoords.longitude = -1.0
@@ -98,8 +96,8 @@ class TidesActivity() : AppCompatActivity(), TidesCalendarFragment.ITidesCalenda
                 CurrentCoords.latitude,
                 CurrentCoords.longitude,
                 1)
-        if (addresses != null && addresses.size > 0 && textView3 != null) {
-            textView3.text = Utils.constructLocationName(addresses[0])
+        if (addresses != null && addresses.size > 0 && textViewTidesPresentLocation != null) {
+            textViewTidesPresentLocation.text = "PRESENT LOCATION: " + Utils.constructLocationName(addresses[0])
         }
 
 
@@ -164,6 +162,7 @@ class TidesActivity() : AppCompatActivity(), TidesCalendarFragment.ITidesCalenda
         val p = lineChart!!.getPaint(Chart.PAINT_INFO);
         p.textSize = 50f
         lineChart!!.invalidate()
+        linear3.visibility = View.GONE
     }
 
 
@@ -192,6 +191,8 @@ class TidesActivity() : AppCompatActivity(), TidesCalendarFragment.ITidesCalenda
         val lineData = LineData(dataSet)
         lineChart!!.setData(lineData)
         lineChart!!.invalidate()
+
+        linear3.visibility = View.VISIBLE
     }
 
 
