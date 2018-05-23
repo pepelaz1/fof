@@ -48,7 +48,7 @@ class TidesActivity() : AppCompatActivity(), TidesCalendarFragment.ITidesCalenda
     var lineChart: LineChart? = null
 
     override fun onDateSelected(date: Date) {
-        Log.d("test_test", "date selected: " + date)
+        //Log.d("test_test", "date selected: " + SimpleDateFormat("yyyy-MM-dd").format(date))
         selectedDate = date
         loadTides()
     }
@@ -83,8 +83,8 @@ class TidesActivity() : AppCompatActivity(), TidesCalendarFragment.ITidesCalenda
         // CurrentCoords.latitude = 36.539296
          //CurrentCoords.longitude = -4.6226728
 
-        CurrentCoords.latitude = 53.57
-        CurrentCoords.longitude = -2.94
+       // CurrentCoords.latitude = 53.57
+       // CurrentCoords.longitude = -2.94
 
         //CurrentCoords.latitude = -1.0
         //CurrentCoords.longitude = -1.0
@@ -112,7 +112,7 @@ class TidesActivity() : AppCompatActivity(), TidesCalendarFragment.ITidesCalenda
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe(
                             { data ->
-                                Log.d("test_test", "data: " + data.weather!![0].date)
+                               // Log.d("test_test", "data: " + data.weather!![0].date)
                                 WeatherStorage.set(data.weather!!)
                                 setChartData()
                             },
@@ -157,12 +157,15 @@ class TidesActivity() : AppCompatActivity(), TidesCalendarFragment.ITidesCalenda
 
 
     fun showChartError() {
+        Log.d("test_test", "show chart error: ")
+        linear3.visibility = View.GONE
+        lineChart!!.setData(null)
         lineChart!!.setNoDataText("Failed to get tides data")
         lineChart!!.setNoDataTextColor(ContextCompat.getColor(this, R.color.red))
         val p = lineChart!!.getPaint(Chart.PAINT_INFO);
         p.textSize = 50f
         lineChart!!.invalidate()
-        linear3.visibility = View.GONE
+
     }
 
 
@@ -171,28 +174,57 @@ class TidesActivity() : AppCompatActivity(), TidesCalendarFragment.ITidesCalenda
             return
         }
 
-        val entries = ArrayList<Entry>()
-        val r = Random()
-        for (i in 0..9) {
-            entries.add(Entry(i.toFloat(), (r.nextInt(10) - 5).toFloat()))
-       }
+        for (weather in WeatherStorage.get()!!)     {
+            if (weather.date!! == SimpleDateFormat("yyyy-MM-dd").format(selectedDate)) {
+                Log.d("test_test", "date: " + weather.date!!)
 
-        val dataSet = LineDataSet(entries, "Label") // add entries to dataset
-        dataSet.setColor(ContextCompat.getColor(this, R.color.tides_chart_line_color))
-        dataSet.setValueTextColor(Color.BLACK)
-        dataSet.fillColor = Color.RED
-        dataSet.lineWidth = 2.0f
-        dataSet.setDrawFilled(true)
-        dataSet.setDrawValues(false)
-        dataSet.fillColor = ContextCompat.getColor(this, R.color.tides_chart_fill_color)
+                textViewHighTides.text = ""
+                textViewLowTides.text = ""
+                val entries = ArrayList<Entry>()
+                for (tide_data in weather!!.tides!!.tide_data!!) {
+                    val entry =  Entry()
+                    val d = SimpleDateFormat("yyyy-MM-dd HH:mm").parse(tide_data.tideDateTime)
+                    val s = SimpleDateFormat("HH:mm").format(d)
+                    entry.x = s.replace(":",".").toFloat()
+
+                    val ft = (3.28084 * tide_data.tideHeight_mt!!).toFloat()
+                    entry.y = ft
+                    entries.add(entry)
+
+                    if (tide_data.tide_type == "HIGH") {
+                        val sh = textViewHighTides.text.toString() + "%.2f".format(ft) + " ft at " + s + "\n"
+                        textViewHighTides.text = sh
+                    } else if (tide_data.tide_type == "LOW") {
+                        val sl = textViewLowTides.text.toString() + "%.2f".format(ft) + " ft at " + s + "\n"
+                        textViewLowTides.text = sl
+                    }
+                }
+
+                val dataSet = LineDataSet(entries, "Label") // add entries to dataset
+                dataSet.setColor(ContextCompat.getColor(this, R.color.tides_chart_line_color))
+                dataSet.setValueTextColor(Color.BLACK)
+                dataSet.fillColor = Color.RED
+                dataSet.lineWidth = 2.0f
+                dataSet.setDrawFilled(true)
+                dataSet.setDrawValues(false)
+                dataSet.fillColor = ContextCompat.getColor(this, R.color.tides_chart_fill_color)
 
 
-        dataSet.setMode(LineDataSet.Mode.CUBIC_BEZIER)
-        val lineData = LineData(dataSet)
-        lineChart!!.setData(lineData)
-        lineChart!!.invalidate()
+                dataSet.setMode(LineDataSet.Mode.CUBIC_BEZIER)
+                val lineData = LineData(dataSet)
+                lineChart!!.setData(lineData)
+                lineChart!!.invalidate()
 
-        linear3.visibility = View.VISIBLE
+                linear3.visibility = View.VISIBLE
+
+               // textViewHighTides.text = "15.76 ft at 01:00\n15.54 ft at 14:00"
+               // textViewLowTides.text ="-2.16 ft at 07:50\n-1.75 ft at 20:10"
+
+                return
+            }
+        }
+
+        showChartError()
     }
 
 

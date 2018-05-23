@@ -137,18 +137,12 @@
                     android:textSize="14sp"/>
 
                 <TextView
+                    android:id="@+id/textViewHighTides"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@android:color/black"
-                    android:text="15.76 ft at 01:00"
                     android:textSize="16sp"/>
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textColor="@android:color/black"
-                    android:text="15.54 ft at 14:00"
-                    android:textSize="16sp"/>
             </LinearLayout>
 
             <LinearLayout
@@ -167,18 +161,13 @@
                     android:textSize="14sp"/>
 
                 <TextView
+                    android:id="@+id/textViewLowTides"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@android:color/black"
-                    android:text="-2.16 ft at 07:50"
                     android:textSize="16sp"/>
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textColor="@android:color/black"
-                    android:text="-1.75 ft at 20:10"
-                    android:textSize="16sp"/>
+
             </LinearLayout>
         </LinearLayout>
 

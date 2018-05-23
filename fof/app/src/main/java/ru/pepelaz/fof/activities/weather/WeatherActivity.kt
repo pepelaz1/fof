@@ -52,8 +52,8 @@ class WeatherActivity : AppCompatActivity() {
         // CurrentCoords.latitude = 36.539296
          //CurrentCoords.longitude = -4.6226728
 
-        //CurrentCoords.latitude = 53.57
-        //CurrentCoords.longitude = -2.94
+        CurrentCoords.latitude = 53.57
+        CurrentCoords.longitude = -2.94
 
         //CurrentCoords.latitude = -1.0
         //CurrentCoords.longitude = -1.0
