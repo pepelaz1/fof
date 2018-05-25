@@ -1,11 +1,7 @@
-package ru.pepelaz.fof.activities.tides
+package ru.pepelaz.fof.fragments
 
 import android.content.Context
-import android.icu.text.SimpleDateFormat
-import android.net.Uri
-import android.os.Build
 import android.os.Bundle
-import android.support.annotation.RequiresApi
 import android.support.v4.app.Fragment
 import android.support.v4.content.ContextCompat
 import android.view.LayoutInflater
@@ -15,7 +11,6 @@ import android.widget.LinearLayout
 import android.widget.TextView
 
 import ru.pepelaz.fof.R
-import java.io.LineNumberReader
 import java.util.*
 
 
@@ -33,13 +28,13 @@ private const val ARG_PARAM2 = "param2"
  * create an instance of this fragment.
  *
  */
-class TidesCalendarFragment : Fragment(), View.OnClickListener {
+class CalendarFragment : Fragment(), View.OnClickListener {
 
 
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
-    private var listener: ITidesCalendarFragment? = null
+    private var listener: ICalendarFragment? = null
 
 
     private data class WeekDay(val tag: String, val date: Date, val layout: LinearLayout,
@@ -91,10 +86,10 @@ class TidesCalendarFragment : Fragment(), View.OnClickListener {
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
-        if (context is ITidesCalendarFragment) {
+        if (context is ICalendarFragment) {
             listener = context
         } else {
-            throw RuntimeException(context.toString() + " must implement ITidesCalendarFragment")
+            throw RuntimeException(context.toString() + " must implement ICalendarFragment")
         }
     }
 
@@ -125,7 +120,7 @@ class TidesCalendarFragment : Fragment(), View.OnClickListener {
      * (http://developer.android.com/training/basics/fragments/communicating.html)
      * for more information.
      */
-    interface ITidesCalendarFragment {
+    interface ICalendarFragment {
         // TODO: Update argument type and name
         fun onDateSelected(date: Date)
     }
@@ -142,7 +137,7 @@ class TidesCalendarFragment : Fragment(), View.OnClickListener {
         // TODO: Rename and change types and number of parameters
         @JvmStatic
         fun newInstance(param1: String, param2: String) =
-                TidesCalendarFragment().apply {
+                CalendarFragment().apply {
                     arguments = Bundle().apply {
                         putString(ARG_PARAM1, param1)
                         putString(ARG_PARAM2, param2)

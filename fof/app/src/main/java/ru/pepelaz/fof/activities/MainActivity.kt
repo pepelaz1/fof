@@ -140,18 +140,6 @@ class MainActivity : AppCompatActivity() {
                     CurrentCoords.longitude = location.longitude
 
                     RxBus.publish(CoordinatesEvent(location.latitude, location.longitude))
-//                    longitude = location.longitude
-//                    latitude = location.latitude
-//
-//                    textViewLatitudeValue.text = latitude.toString()
-//                    textViewLongitudeValue.text = longitude.toString()
-//
-//                    updateMapPosition()
-//
-//                    val editor = getSharedPreferences("fof", Context.MODE_PRIVATE).edit()
-//                    editor.putString("latitude", latitude.toString())
-//                    editor.putString("longitude", longitude.toString())
-//                    editor.apply()
                 }
     }
 

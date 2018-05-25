@@ -1,18 +1,10 @@
 package ru.pepelaz.fof.activities.tides
 
-import android.app.Activity
 import android.content.Intent
 import android.graphics.Color
-import android.graphics.Paint
-import android.graphics.Typeface
-import android.location.Address
 import android.location.Geocoder
-import android.net.Uri
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.os.Parcel
-import android.os.Parcelable
-import android.support.v4.app.FragmentActivity
 import android.support.v4.content.ContextCompat
 import android.util.Log
 import android.view.View
@@ -23,9 +15,6 @@ import com.github.mikephil.charting.data.LineDataSet
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import ru.pepelaz.fof.R
-import ru.pepelaz.fof.R.id.*
-import ru.pepelaz.fof.activities.SpeciesActivity
-import ru.pepelaz.fof.adapters.WeatherAdapter
 import ru.pepelaz.fof.helpers.CurrentCoords
 import ru.pepelaz.fof.helpers.Utils
 import ru.pepelaz.fof.network.Communicator
@@ -34,15 +23,17 @@ import java.util.*
 import com.github.mikephil.charting.charts.LineChart
 import com.github.mikephil.charting.components.AxisBase
 import com.github.mikephil.charting.components.XAxis
-import com.github.mikephil.charting.components.YAxis
 import com.github.mikephil.charting.formatter.IAxisValueFormatter
-import com.github.mikephil.charting.formatter.IValueFormatter
 import kotlinx.android.synthetic.main.activity_tides.*
+import ru.pepelaz.fof.data.CoordinatesEvent
+import ru.pepelaz.fof.fragments.CalendarFragment
+import ru.pepelaz.fof.fragments.PresentLocationFragment
+import ru.pepelaz.fof.helpers.RxBus
 import java.text.SimpleDateFormat
 import java.util.concurrent.TimeUnit
 
 
-class TidesActivity() : AppCompatActivity(), TidesCalendarFragment.ITidesCalendarFragment {
+class TidesActivity() : AppCompatActivity(), CalendarFragment.ICalendarFragment {
 
     var selectedDate: Date? = null
     var lineChart: LineChart? = null
@@ -56,10 +47,20 @@ class TidesActivity() : AppCompatActivity(), TidesCalendarFragment.ITidesCalenda
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         setContentView(R.layout.activity_tides)
 
         setupChart()
         loadTides()
+
+//        RxBus.listen(CoordinatesEvent::class.java).subscribe({
+//
+//            CurrentCoords.longitude = it.longitude
+//            CurrentCoords.latitude = it.latitude
+//
+//            loadTides()
+//
+//        })
     }
 
     fun onHomeClick(v: View) {
@@ -78,31 +79,10 @@ class TidesActivity() : AppCompatActivity(), TidesCalendarFragment.ITidesCalenda
             loadTides()
     }
 
+
+
     fun loadTides() {
-
-        // CurrentCoords.latitude = 36.539296
-         //CurrentCoords.longitude = -4.6226728
-
-       // CurrentCoords.latitude = 53.57
-       // CurrentCoords.longitude = -2.94
-
-        //CurrentCoords.latitude = -1.0
-        //CurrentCoords.longitude = -1.0
-
-
-
-        val geocoder = Geocoder(this)
-        var addresses = geocoder.getFromLocation(
-                CurrentCoords.latitude,
-                CurrentCoords.longitude,
-                1)
-        if (addresses != null && addresses.size > 0 && textViewTidesPresentLocation != null) {
-            textViewTidesPresentLocation.text = "PRESENT LOCATION: " + Utils.constructLocationName(addresses[0])
-        }
-
-
-       // textViewLatitudeValue.text = CurrentCoords.latitude.toString()
-       // textViewLongitudeValue.text = CurrentCoords.longitude.toString()
+        (presentLocationFragment as PresentLocationFragment).onNewCoords()
 
         if (lineChart != null) {
             val coords = CurrentCoords.latitude.toString() + "," + CurrentCoords.longitude.toString()
@@ -119,7 +99,6 @@ class TidesActivity() : AppCompatActivity(), TidesCalendarFragment.ITidesCalenda
                             { error ->
                                 Log.d("test_test", "Failed to get weather data, error: " + error.toString())
                                 showChartError()
-                              //  lineChart!!.invalidate()
                             }
                     )
         }
@@ -145,14 +124,12 @@ class TidesActivity() : AppCompatActivity(), TidesCalendarFragment.ITidesCalenda
         lineChart!!.axisRight.isEnabled = false
         lineChart!!.axisLeft.valueFormatter = object: IAxisValueFormatter {
             override fun getFormattedValue(value: Float, axis: AxisBase?): String {
-                return String.format("%.1f", value) + " ft"
+                return String.format("%.1f", value) + " m"
             }
         }
 
         lineChart!!.description.isEnabled = false;
         lineChart!!.legend.isEnabled = false
-        //lineChart!!.invalidate()
-
     }
 
 
@@ -176,7 +153,7 @@ class TidesActivity() : AppCompatActivity(), TidesCalendarFragment.ITidesCalenda
 
         for (weather in WeatherStorage.get()!!)     {
             if (weather.date!! == SimpleDateFormat("yyyy-MM-dd").format(selectedDate)) {
-                Log.d("test_test", "date: " + weather.date!!)
+                //Log.d("test_test", "date: " + weather.date!!)
 
                 textViewHighTides.text = ""
                 textViewLowTides.text = ""
@@ -187,15 +164,16 @@ class TidesActivity() : AppCompatActivity(), TidesCalendarFragment.ITidesCalenda
                     val s = SimpleDateFormat("HH:mm").format(d)
                     entry.x = s.replace(":",".").toFloat()
 
-                    val ft = (3.28084 * tide_data.tideHeight_mt!!).toFloat()
-                    entry.y = ft
+                   // val ft = (3.28084 * tide_data.tideHeight_mt!!).toFloat()
+                    val meters = tide_data.tideHeight_mt!!.toFloat()
+                    entry.y = meters
                     entries.add(entry)
 
                     if (tide_data.tide_type == "HIGH") {
-                        val sh = textViewHighTides.text.toString() + "%.2f".format(ft) + " ft at " + s + "\n"
+                        val sh = textViewHighTides.text.toString() + "%.2f".format(meters) + " m at " + s + "\n"
                         textViewHighTides.text = sh
                     } else if (tide_data.tide_type == "LOW") {
-                        val sl = textViewLowTides.text.toString() + "%.2f".format(ft) + " ft at " + s + "\n"
+                        val sl = textViewLowTides.text.toString() + "%.2f".format(meters) + " m at " + s + "\n"
                         textViewLowTides.text = sl
                     }
                 }

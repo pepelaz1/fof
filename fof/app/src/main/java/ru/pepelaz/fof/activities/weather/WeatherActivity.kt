@@ -5,6 +5,7 @@ import android.location.Address
 import android.location.Geocoder
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
 import android.util.Log
 import android.view.View
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -14,7 +15,10 @@ import ru.pepelaz.fof.R
 import ru.pepelaz.fof.R.id.*
 import ru.pepelaz.fof.activities.SpeciesActivity
 import ru.pepelaz.fof.adapters.WeatherAdapter
+import ru.pepelaz.fof.data.CoordinatesEvent
+import ru.pepelaz.fof.fragments.PresentLocationFragment
 import ru.pepelaz.fof.helpers.CurrentCoords
+import ru.pepelaz.fof.helpers.RxBus
 import ru.pepelaz.fof.helpers.Utils
 import ru.pepelaz.fof.network.Communicator
 import ru.pepelaz.fof.storages.WeatherStorage
@@ -27,8 +31,6 @@ class WeatherActivity : AppCompatActivity() {
 
         loadWeather()
     }
-
-
 
 
     fun onHomeClick(v: View) {
@@ -49,27 +51,7 @@ class WeatherActivity : AppCompatActivity() {
 
     fun loadWeather() {
 
-        // CurrentCoords.latitude = 36.539296
-         //CurrentCoords.longitude = -4.6226728
-
-        CurrentCoords.latitude = 53.57
-        CurrentCoords.longitude = -2.94
-
-        //CurrentCoords.latitude = -1.0
-        //CurrentCoords.longitude = -1.0
-
-
-
-        val geocoder = Geocoder(this)
-        var addresses = geocoder.getFromLocation(
-                CurrentCoords.latitude,
-                CurrentCoords.longitude,
-                1)
-        if (addresses != null && addresses.size > 0) {
-            textView2.text = Utils.constructLocationName(addresses[0])
-        }
-
-
+        (presentLocationFragment as PresentLocationFragment).onNewCoords()
         textViewLatitudeValue.text = CurrentCoords.latitude.toString()
         textViewLongitudeValue.text = CurrentCoords.longitude.toString()
 

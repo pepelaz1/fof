@@ -24,6 +24,7 @@ import com.google.android.gms.maps.model.LatLng
 
 import com.google.android.gms.maps.model.Marker
 import ru.pepelaz.fof.data.CoordinatesEvent
+import ru.pepelaz.fof.fragments.PresentLocationFragment
 import ru.pepelaz.fof.helpers.CurrentCoords
 import ru.pepelaz.fof.helpers.RxBus
 
@@ -111,6 +112,7 @@ class LocationsActivity : FragmentActivity(), OnMapReadyCallback {
             marker = map!!.addMarker(MarkerOptions().position(current).title("Me"))
             map!!.moveCamera(CameraUpdateFactory.newLatLngZoom(current, 13.0f))
         }
+        (presentLocationFragment as PresentLocationFragment).onNewCoords()
     }
 
  }

@@ -6,20 +6,27 @@ object Utils {
 
     fun constructLocationName(a: Address): String {
         var result = ""
-        if (a.thoroughfare != null) {
+        for (i in 0..a.maxAddressLineIndex) {
+            if (result != "") result += ", "
+            result += a.getAddressLine(i)
+        }
+       /* if (a.thoroughfare != null) {
             result += a.thoroughfare
         }
         if (a.subThoroughfare != null) {
-            result += ", " + a.subThoroughfare
+            if (result != "") result += ", "
+            result += a.subThoroughfare
         }
 
         if (a.locality != null) {
-            result += ", " + a.locality
+            if (result != "") result += ", "
+            result += a.locality
         }
 
         if (a.countryName != null) {
-            result += ", " + a.countryName
-        }
-        return result;
+            if (result != "") result += ", "
+            result += a.countryName
+        }*/
+        return result
     }
 }

@@ -18,11 +18,11 @@ import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.Marker
 import com.google.android.gms.maps.model.MarkerOptions
-import io.nlopez.smartlocation.SmartLocation
 import kotlinx.android.synthetic.main.activity_edit_location.*
 import ru.pepelaz.fof.R
 import ru.pepelaz.fof.database.Location
 import ru.pepelaz.fof.database.LocationDao
+import ru.pepelaz.fof.fragments.PresentLocationFragment
 import ru.pepelaz.fof.helpers.CurrentCoords
 
 
@@ -32,11 +32,9 @@ class LocationEditActivity :  FragmentActivity(), OnMapReadyCallback {
     private var latitude: Double = 0.toDouble()
     private var longitude: Double = 0.toDouble()
 
-    //private var curLatitude: Double = 0.toDouble()
-    //private var curLongitude: Double = 0.toDouble()
-
     private var map: GoogleMap? = null
     private var marker: Marker? = null
+    private var isFirstStart = false
 
     private val locationDao = LocationDao()
 
@@ -50,10 +48,6 @@ class LocationEditActivity :  FragmentActivity(), OnMapReadyCallback {
 
         latitude = intent.extras.getDouble("latitude")
         longitude = intent.extras.getDouble("longitude")
-
-//        val sp = getSharedPreferences("fof", Context.MODE_PRIVATE)
-//        curLatitude = (sp.getString("latitude","0.0")).toDouble()
-//        curLongitude  = (sp.getString("longitude","0.0")).toDouble()
 
         locationId = intent.extras.getInt("locationId")
         if (locationId != 0) {
@@ -92,7 +86,7 @@ class LocationEditActivity :  FragmentActivity(), OnMapReadyCallback {
                 marker!!.remove()
 
             marker = map!!.addMarker(MarkerOptions().position(it).title("Me"))
-            map!!.moveCamera(CameraUpdateFactory.newLatLngZoom(it, 13.0f))
+            map!!.moveCamera(CameraUpdateFactory.newLatLng(it))
             hideKeyboard()
 
             latitude = Math.round(it.latitude * 10000000.0) / 10000000.0
@@ -100,6 +94,11 @@ class LocationEditActivity :  FragmentActivity(), OnMapReadyCallback {
 
             textViewLatitudeValue.text = latitude.toString()
             textViewLongitudeValue.text = longitude.toString()
+
+            CurrentCoords.latitude = latitude
+            CurrentCoords.longitude = longitude
+
+            (presentLocationFragment as PresentLocationFragment).onNewCoords()
         }
         updateMapPosition()
     }

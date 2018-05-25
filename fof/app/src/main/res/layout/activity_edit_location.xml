@@ -7,21 +7,17 @@
     android:layout_height="match_parent"
     tools:context=".activities.locations.LocationEditActivity">
 
-    <TextView
-        android:id="@+id/textView1"
-        android:layout_width="wrap_content"
+    <fragment
+        android:name="ru.pepelaz.fof.fragments.PresentLocationFragment"
+        android:id="@+id/presentLocationFragment"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="8dp"
-        android:layout_marginStart="8dp"
+        android:layout_marginRight="8dp"
         android:layout_marginTop="8dp"
-        android:gravity="center"
-        android:text="Present location selected. Use map to change location "
-        android:textAllCaps="true"
-        android:textColor="@android:color/black"
-        android:textSize="14sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
 
     <LinearLayout
         android:id="@+id/linear1"
@@ -35,7 +31,7 @@
         android:weightSum="100"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView1">
+        app:layout_constraintTop_toBottomOf="@+id/presentLocationFragment">
 
         <LinearLayout
             android:layout_width="0dp"
@@ -85,6 +81,24 @@
         </LinearLayout>
     </LinearLayout>
 
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
+        android:text="Use map to change location"
+        android:textAllCaps="true"
+        android:textColor="@android:color/black"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/linear1"
+        app:layout_constraintBottom_toTopOf="@id/map"/>
+
+
     <fragment xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         android:id="@+id/map"
@@ -98,7 +112,7 @@
         app:layout_constraintBottom_toTopOf="@+id/linear2"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linear1"
+        app:layout_constraintTop_toBottomOf="@+id/textView1"
         tools:context=".activities.locations.LocationEditActivity" />
 
     <LinearLayout

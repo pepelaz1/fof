@@ -6,39 +6,9 @@
     android:layout_height="match_parent"
     tools:context=".activities.tides.TidesActivity">
 
-    <LinearLayout
-        android:id="@+id/linear1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginTop="8dp">
-
-        <TextView
-            android:id="@+id/textViewTidesPresentLocation"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Present Location: "
-            android:textColor="@android:color/black"
-            android:textSize="14sp"
-            android:textStyle="bold"
-            android:layout_gravity="center_vertical"/>
-
-        <!--<TextView-->
-            <!--android:id="@+id/textView3"-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:textColor="@android:color/black"-->
-            <!--android:textSize="14sp"-->
-            <!--android:textStyle="bold"/>-->
-
-    </LinearLayout>
-
     <fragment
-        android:name="ru.pepelaz.fof.activities.tides.TidesCalendarFragment"
-        android:id="@+id/tidesCalendarFragment"
+        android:name="ru.pepelaz.fof.fragments.PresentLocationFragment"
+        android:id="@+id/presentLocationFragment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="8dp"
@@ -46,7 +16,19 @@
         android:layout_marginTop="8dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linear1"/>
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <fragment
+        android:name="ru.pepelaz.fof.fragments.CalendarFragment"
+        android:id="@+id/calendarFragment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/presentLocationFragment"/>
 
     <com.github.mikephil.charting.charts.LineChart
         android:id="@+id/chartView"
@@ -54,7 +36,7 @@
         android:layout_height="200dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tidesCalendarFragment"
+        app:layout_constraintTop_toBottomOf="@+id/calendarFragment"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginTop="8dp"/>
@@ -100,8 +82,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@android:color/black"
-                    android:text="9.87 ft"
-                    android:textSize="16sp"/>
+                    android:text="3.0 m"
+                    android:textSize="16sp"
+                    android:layout_gravity="center"/>
             </LinearLayout>
 
             <ImageView
