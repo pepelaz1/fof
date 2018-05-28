@@ -88,11 +88,6 @@
             android:screenOrientation="portrait">
         </activity>
         <activity
-            android:name=".activities.CameraActivity"
-            android:label="Camera"
-            android:screenOrientation="portrait">
-        </activity>
-        <activity
             android:name=".activities.CookingActivity"
             android:label="Cooking"
             android:screenOrientation="portrait">
