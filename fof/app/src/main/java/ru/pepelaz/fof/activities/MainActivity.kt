@@ -10,6 +10,7 @@ import android.widget.ImageView
 import kotlinx.android.synthetic.main.activity_main.*
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.provider.MediaStore
 import android.support.annotation.NonNull
 import android.support.v4.app.ActivityCompat
 import android.support.v4.content.ContextCompat
@@ -87,7 +88,11 @@ class MainActivity : AppCompatActivity() {
         })
 
         imageViewCamera.setOnClickListener({
-            startActivity(Intent(this, CameraActivity::class.java))
+          //  startActivity(Intent(this, CameraActivity::class.java))
+            val cameraIntent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
+            if(cameraIntent.resolveActivity(packageManager)!=null){
+                startActivityForResult(cameraIntent,1)
+            }
         })
 
         imageViewCooking.setOnClickListener({

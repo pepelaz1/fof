@@ -55,6 +55,10 @@ class LocationEditActivity :  FragmentActivity(), OnMapReadyCallback {
             editTextName.setText(location.Name)
             editTextNote.setText(location.Notes)
             textView1.setText("Saved location selected")
+
+            CurrentCoords.latitude = latitude
+            CurrentCoords.longitude = longitude
+            (presentLocationFragment as PresentLocationFragment).onNewCoords()
         }
 
         textViewLatitudeValue.text = latitude.toString()

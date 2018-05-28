@@ -33,8 +33,13 @@ class LocationsSavedActivity : AppCompatActivity() {
     fun reload() {
         val locations = LocationDao().queryForAll()
         items = ArrayList()
-        for (location in locations)
-            items.add(location)
+        //for (i in 0 ..7) {
+            for (location in locations)
+                items.add(location)
+        //}
+
+
+
 
         val adapter = LocationsAdapter(this, items)
         listView.adapter = adapter
@@ -57,5 +62,8 @@ class LocationsSavedActivity : AppCompatActivity() {
         reload()
     }
 
+    fun onHomeClick(v: View) {
+        finish()
+    }
 
 }
