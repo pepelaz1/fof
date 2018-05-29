@@ -123,8 +123,8 @@
             android:screenOrientation="portrait">
         </activity>
         <activity
-            android:name=".activities.GetLuckyActivity"
-            android:label="Get Lucky"
+            android:name=".activities.CompassActivity"
+            android:label="Compass"
             android:screenOrientation="portrait">
         </activity>
         <activity

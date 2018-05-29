@@ -7,7 +7,6 @@ import android.util.Log
 import android.view.MotionEvent
 import android.view.View
 import android.widget.ImageView
-import kotlinx.android.synthetic.main.activity_main.*
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.provider.MediaStore
@@ -15,6 +14,7 @@ import android.support.annotation.NonNull
 import android.support.v4.app.ActivityCompat
 import android.support.v4.content.ContextCompat
 import io.nlopez.smartlocation.SmartLocation
+import kotlinx.android.synthetic.main.activity_main.*
 import ru.pepelaz.fof.R
 import ru.pepelaz.fof.activities.locations.LocationsActivity
 import ru.pepelaz.fof.activities.tides.TidesActivity
@@ -52,7 +52,7 @@ class MainActivity : AppCompatActivity() {
         imageViewWeather.setOnTouchListener(touchListener)
         imageViewContact.setOnTouchListener(touchListener)
         imageViewAbout.setOnTouchListener(touchListener)
-        imageViewGetLucky.setOnTouchListener(touchListener)
+        imageViewCompass.setOnTouchListener(touchListener)
         imageViewQuiz.setOnTouchListener(touchListener)
 
         imageViewFish.setOnClickListener({
@@ -115,8 +115,8 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this, AboutActivity::class.java))
         })
 
-        imageViewGetLucky.setOnClickListener({
-            startActivity(Intent(this, GetLuckyActivity::class.java))
+        imageViewCompass.setOnClickListener({
+            startActivity(Intent(this, CompassActivity::class.java))
         })
 
         imageViewQuiz.setOnClickListener({
