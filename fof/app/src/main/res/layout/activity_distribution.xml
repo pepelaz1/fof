@@ -4,16 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.SpeciesActivity">
+    tools:context=".activities.DistributionActivity">
 
-    <fragment
-        android:name="ru.pepelaz.fof.fragments.InfoFragment"
-        android:id="@+id/fragmentInfo"
+
+    <WebView
+        android:id="@+id/webView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+        android:layout_height="match_parent"/>
 
 </android.support.constraint.ConstraintLayout>

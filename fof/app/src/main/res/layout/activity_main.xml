@@ -163,20 +163,22 @@
                     android:orientation="vertical">
 
                     <ImageView
-                        android:id="@+id/imageViewFacts"
+                        android:id="@+id/imageViewDistribution"
                         android:layout_width="@dimen/home_button_width"
                         android:layout_height="@dimen/home_button_height"
                         android:layout_gravity="center"
                         android:scaleType="fitXY"
-                        app:srcCompat="@drawable/facts" />
+                        app:srcCompat="@drawable/distribution" />
 
                     <TextView
-                        android:layout_width="match_parent"
+                        android:layout_width="84dp"
                         android:layout_height="match_parent"
-                        android:text="Facts"
+                        android:text="Distribution"
                         android:textAlignment="center"
+                        android:layout_gravity="center"
                         android:textColor="@android:color/black"
                         android:textSize="@dimen/home_button_text_size"
+                        android:singleLine="true"
                         android:textStyle="bold|italic" />
                 </LinearLayout>
 
@@ -379,17 +381,17 @@
                     android:orientation="vertical">
 
                     <ImageView
-                        android:id="@+id/imageViewContact"
+                        android:id="@+id/imageViewKnot"
                         android:layout_width="@dimen/home_button_width"
                         android:layout_height="@dimen/home_button_height"
                         android:layout_gravity="center"
                         android:scaleType="fitXY"
-                        app:srcCompat="@drawable/contact" />
+                        app:srcCompat="@drawable/knot" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:text="Contact"
+                        android:text="Knot"
                         android:textAlignment="center"
                         android:textColor="@android:color/black"
                         android:textSize="@dimen/home_button_text_size"

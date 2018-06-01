@@ -58,8 +58,8 @@
             android:screenOrientation="portrait">
         </activity>
         <activity
-            android:name=".activities.FactsActivity"
-            android:label="Facts"
+            android:name=".activities.DistributionActivity"
+            android:label="Distribution"
             android:screenOrientation="portrait">
         </activity>
         <activity
@@ -113,8 +113,8 @@
             android:screenOrientation="portrait">
         </activity>
         <activity
-            android:name=".activities.ContactActivity"
-            android:label="Contact"
+            android:name=".activities.KnotActivity"
+            android:label="Knot"
             android:screenOrientation="portrait">
         </activity>
         <activity

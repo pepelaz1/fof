@@ -14,7 +14,7 @@ import android.widget.ImageView
 import android.view.animation.Animation
 import android.view.animation.RotateAnimation
 import kotlinx.android.synthetic.main.activity_compass.*
-import ru.pepelaz.fof.R.id.tvHeading
+import ru.pepelaz.fof.R.id.imageViewCompass
 
 
 
@@ -35,8 +35,14 @@ class CompassActivity : AppCompatActivity(), SensorEventListener {
 
     override fun onResume() {
         super.onResume()
-        sensorManager.registerListener(this, sensorManager.getDefaultSensor(Sensor.TYPE_ORIENTATION),
-                SensorManager.SENSOR_DELAY_GAME);
+        if (sensorManager.registerListener(this, sensorManager.getDefaultSensor(Sensor.TYPE_ORIENTATION),
+                SensorManager.SENSOR_DELAY_NORMAL) == false) {
+            textViewError.visibility = View.VISIBLE
+            imageViewCompass.visibility = View.GONE
+        } else {
+            textViewError.visibility = View.GONE
+            imageViewCompass.visibility = View.VISIBLE
+        }
     }
 
     override fun onPause() {

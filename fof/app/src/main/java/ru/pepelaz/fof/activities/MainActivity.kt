@@ -42,7 +42,7 @@ class MainActivity : AppCompatActivity() {
         imageViewRecords.setOnTouchListener(touchListener)
         imageViewTackle.setOnTouchListener(touchListener)
         imageViewBalt.setOnTouchListener(touchListener)
-        imageViewFacts.setOnTouchListener(touchListener)
+        imageViewDistribution.setOnTouchListener(touchListener)
         imageViewSeasons.setOnTouchListener(touchListener)
         imageViewLocations.setOnTouchListener(touchListener)
         imageViewGlossary.setOnTouchListener(touchListener)
@@ -50,7 +50,7 @@ class MainActivity : AppCompatActivity() {
         imageViewCooking.setOnTouchListener(touchListener)
         imageViewTides.setOnTouchListener(touchListener)
         imageViewWeather.setOnTouchListener(touchListener)
-        imageViewContact.setOnTouchListener(touchListener)
+        imageViewKnot.setOnTouchListener(touchListener)
         imageViewAbout.setOnTouchListener(touchListener)
         imageViewCompass.setOnTouchListener(touchListener)
         imageViewQuiz.setOnTouchListener(touchListener)
@@ -71,8 +71,8 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this, BaitActivity::class.java))
         })
 
-        imageViewFacts.setOnClickListener({
-            startActivity(Intent(this, FactsActivity::class.java))
+        imageViewDistribution.setOnClickListener({
+            startActivity(Intent(this, DistributionActivity::class.java))
         })
 
         imageViewSeasons.setOnClickListener({
@@ -107,8 +107,8 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this, WeatherActivity::class.java))
         })
 
-        imageViewContact.setOnClickListener({
-            startActivity(Intent(this, ContactActivity::class.java))
+        imageViewKnot.setOnClickListener({
+            startActivity(Intent(this, KnotActivity::class.java))
         })
 
         imageViewAbout.setOnClickListener({
