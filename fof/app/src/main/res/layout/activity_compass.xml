@@ -1,44 +1,155 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#fff"
     tools:context=".activities.CompassActivity">
 
-    <TextView
-        android:id="@+id/textViewHeading"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="40dp"
-        android:layout_marginTop="20dp"
-        android:textSize="18sp"
-        android:textColor="#000"
-        android:text="Heading: 0.0" />
-
-    <ImageView
-        android:id="@+id/imageViewCompass"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/textViewHeading"
-        android:layout_centerHorizontal="true"
-        android:src="@drawable/compass2"
-        android:visibility="visible"/>
-
-    <TextView
-        android:id="@+id/textViewError"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/layoutCompass"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginBottom="24dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginTop="24dp"
-        android:textColor="@color/red"
-        android:text="Failed to query magnetic sensor"
-        android:textSize="28sp"
-        android:visibility="gone"
-        android:gravity="center"/>
+        android:orientation="vertical"
+        android:weightSum="100">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="7"
+            android:orientation="horizontal"
+           android:layout_gravity="center">
+
+            <TextView
+                android:id="@+id/textViewDegree"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:textSize="24sp"
+                android:textColor="#000"
+                android:textStyle="bold"
+                android:layout_marginRight="10dp"
+                android:text="" />
+
+            <TextView
+                android:id="@+id/textViewTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:textSize="24sp"
+                android:textColor="#000"
+                android:textStyle="bold"
+                android:text="" />
+
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:src="@drawable/arrow_down"
+            android:layout_weight="5"
+            android:layout_gravity="center">
+        </ImageView>
+
+        <ImageView
+            android:id="@+id/imageViewCompass"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="30"
+            android:layout_gravity="center"
+            android:src="@drawable/compass2"
+            android:visibility="visible"/>
+
+        <fragment
+            android:name="ru.pepelaz.fof.fragments.PresentLocationFragment"
+            android:id="@+id/presentLocationFragment"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="10"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="8dp"/>
+
+        <fragment xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:id="@+id/map"
+            android:name="com.google.android.gms.maps.SupportMapFragment"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="38"
+            android:layout_marginBottom="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="8dp"
+            tools:context=".activities.locations.LocationsActivity" />
+
+        <LinearLayout
+            android:id="@+id/linearButtons"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="12"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginBottom="8dp"
+            android:weightSum="100"
+            android:orientation="horizontal">
+
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="50"
+                android:gravity="center">
+
+                <Button
+                    android:id="@+id/buttonHome"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/AppTheme.Button2"
+                    android:text="Refresh"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="50"
+                android:gravity="center">
+
+                <Button
+                    android:id="@+id/buttonMore"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/AppTheme.Button2"
+                    android:text="More"/>
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/layoutError"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/textViewError"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="24dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginTop="24dp"
+            android:textColor="@color/red"
+            android:text="Failed to query magnetic sensor"
+            android:textSize="28sp"
+            android:gravity="center"/>
+
+    </LinearLayout>
 
 </RelativeLayout>
