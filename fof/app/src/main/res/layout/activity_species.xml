@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".activities.SpeciesActivity">
 
+
     <fragment
         android:name="ru.pepelaz.fof.fragments.InfoFragment"
         android:id="@+id/fragmentInfo"

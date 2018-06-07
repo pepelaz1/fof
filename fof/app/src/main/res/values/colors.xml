@@ -10,6 +10,7 @@
     <color name="red">#ff0000</color>
     <color name="blue">#0000ff</color>
     <color name="yellow">#ffff00</color>
+    <color name="white">#ffffff</color>
     <color name="button2_color">#599BD7</color>
 
     <color name="tides_calendar_back_color">#1565C0</color>
