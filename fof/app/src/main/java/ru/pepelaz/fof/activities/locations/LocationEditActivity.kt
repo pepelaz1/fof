@@ -24,6 +24,7 @@ import ru.pepelaz.fof.database.Location
 import ru.pepelaz.fof.database.LocationDao
 import ru.pepelaz.fof.fragments.PresentLocationFragment
 import ru.pepelaz.fof.helpers.CurrentCoords
+import ru.pepelaz.fof.helpers.PresentLocationCoords
 
 
 class LocationEditActivity :  FragmentActivity(), OnMapReadyCallback {
@@ -186,6 +187,9 @@ class LocationEditActivity :  FragmentActivity(), OnMapReadyCallback {
     fun onResetClick(v: View) {
         if (marker != null)
             marker!!.remove()
+
+        CurrentCoords.latitude = PresentLocationCoords.latitude
+        CurrentCoords.longitude = PresentLocationCoords.longitude
 
         longitude = CurrentCoords.longitude
         latitude = CurrentCoords.latitude

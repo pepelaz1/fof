@@ -10,15 +10,11 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import ru.pepelaz.fof.R
-import android.widget.TextView
 import android.hardware.SensorManager
 import android.support.v4.app.ActivityCompat
-import android.widget.ImageView
 import android.view.animation.Animation
 import android.view.animation.RotateAnimation
 import kotlinx.android.synthetic.main.activity_compass.*
-import ru.pepelaz.fof.R.id.imageViewCompass
-import ru.pepelaz.fof.helpers.CurrentCoords
 
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
@@ -27,12 +23,16 @@ import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.model.MarkerOptions
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.Marker
+import ru.pepelaz.fof.fragments.PresentLocationFragment
+import ru.pepelaz.fof.helpers.CurrentCoords
+import ru.pepelaz.fof.helpers.PresentLocationCoords
 
 class CompassActivity : AppCompatActivity(), SensorEventListener,  OnMapReadyCallback {
 
 
     private var currentDegree = 0f
     private var map: GoogleMap? = null
+    private var marker: Marker? = null
 
     private val sensorManager: SensorManager by lazy {
         getSystemService(Context.SENSOR_SERVICE) as SensorManager
@@ -132,17 +132,31 @@ class CompassActivity : AppCompatActivity(), SensorEventListener,  OnMapReadyCal
         }
         map!!.setMyLocationEnabled(true);
 
-        map!!.setOnMapClickListener {
-            //            Log.d("test_test","on map click")
-//            if (marker != null)
-//                marker!!.remove()
-//
-//            marker = map!!.addMarker(MarkerOptions().position(it).title("Me"))
-//            map!!.moveCamera(CameraUpdateFactory.newLatLngZoom(it, 13.0f))
-        }
+        updateMapPosition()
+    }
 
-        //latitude = CurrentCoords.latitude
-        //longitude = CurrentCoords.longitude
-        //updateMapPosition()
+    fun updateMapPosition() {
+        textViewLatitudeValue.text = CurrentCoords.latitude.toString()
+        textViewLongitudeValue.text = CurrentCoords.longitude.toString()
+
+        if (map != null)  {
+            val current = LatLng(CurrentCoords.latitude, CurrentCoords.longitude)
+            marker = map!!.addMarker(MarkerOptions().position(current).title("Me"))
+            map!!.moveCamera(CameraUpdateFactory.newLatLngZoom(current, 13.0f))
+        }
+        (presentLocationFragment as PresentLocationFragment).onNewCoords()
+    }
+
+
+    fun onHomeClick(v: View) {
+        finish()
+    }
+
+    fun onRefreshClick(v: View) {
+        CurrentCoords.longitude = PresentLocationCoords.longitude
+        CurrentCoords.latitude = PresentLocationCoords.latitude
+
+        updateMapPosition()
     }
 }
+

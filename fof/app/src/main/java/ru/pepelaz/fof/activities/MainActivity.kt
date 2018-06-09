@@ -14,6 +14,7 @@ import android.support.annotation.NonNull
 import android.support.v4.app.ActivityCompat
 import android.support.v4.content.ContextCompat
 import io.nlopez.smartlocation.SmartLocation
+import kotlinx.android.synthetic.main.activity_locations.view.*
 import kotlinx.android.synthetic.main.activity_main.*
 import ru.pepelaz.fof.R
 import ru.pepelaz.fof.activities.locations.LocationsActivity
@@ -21,6 +22,7 @@ import ru.pepelaz.fof.activities.tides.TidesActivity
 import ru.pepelaz.fof.activities.weather.WeatherActivity
 import ru.pepelaz.fof.data.CoordinatesEvent
 import ru.pepelaz.fof.helpers.CurrentCoords
+import ru.pepelaz.fof.helpers.PresentLocationCoords
 import ru.pepelaz.fof.helpers.RxBus
 
 
@@ -141,8 +143,16 @@ class MainActivity : AppCompatActivity() {
         SmartLocation.with(this).location()
                 .start { location ->
                     Log.d("test_test", "Lat: " + location.latitude + ", Long: " + location.longitude)
-                    CurrentCoords.latitude = location.latitude
-                    CurrentCoords.longitude = location.longitude
+                   // CurrentCoords.latitude = location.latitude
+                   // CurrentCoords.longitude = location.longitude
+
+                    PresentLocationCoords.latitude = location.latitude
+                    PresentLocationCoords.longitude = location.longitude
+
+                    if (CurrentCoords.latitude == 0.0 || CurrentCoords.longitude == 0.0) {
+                        CurrentCoords.longitude = PresentLocationCoords.longitude
+                        CurrentCoords.latitude = PresentLocationCoords.latitude
+                    }
 
                     RxBus.publish(CoordinatesEvent(location.latitude, location.longitude))
                 }

@@ -45,6 +45,7 @@
         <item name="android:textStyle"></item>
         <item name="android:minWidth">@dimen/button2_min_width</item>
         <item name="android:layout_gravity">center</item>
+        <item name="android:padding">0dp</item>
     </style>
 
     <style name="AppTheme.Button3" parent="AppTheme.Button2">
