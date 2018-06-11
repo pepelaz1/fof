@@ -45,16 +45,21 @@ class CompassActivity : AppCompatActivity(), SensorEventListener,  OnMapReadyCal
         val mapFragment = supportFragmentManager
                 .findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
+
+        imageViewCompass.setOnClickListener({
+            scrollViewError.visibility = View.VISIBLE
+            layoutCompass.visibility = View.GONE
+        })
     }
 
     override fun onResume() {
         super.onResume()
         if (sensorManager.registerListener(this, sensorManager.getDefaultSensor(Sensor.TYPE_ORIENTATION),
                 SensorManager.SENSOR_DELAY_NORMAL) == false) {
-            layoutError.visibility = View.VISIBLE
+            scrollViewError.visibility = View.VISIBLE
             layoutCompass.visibility = View.GONE
         } else {
-            layoutError.visibility = View.GONE
+            scrollViewError.visibility = View.GONE
             layoutCompass.visibility = View.VISIBLE
         }
     }
