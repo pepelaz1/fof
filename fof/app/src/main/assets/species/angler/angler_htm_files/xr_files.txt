@@ -1,0 +1,12 @@
+angler_htm_files
+angler.htm
+angler_htm_files/1.png
+angler_htm_files/1@2x.png
+angler_htm_files/10.jpg
+angler_htm_files/10@2x.jpg
+angler_htm_files/XaraWDGeneratedHTMLfont1.woff
+angler_htm_files/XaraWDEmbeddedHTMLfont1.eot
+angler_htm_files/XaraWDGeneratedHTMLfont2.woff
+angler_htm_files/XaraWDEmbeddedHTMLfont2.eot
+angler_htm_files/XaraWDGeneratedHTMLfont3.woff
+angler_htm_files/XaraWDEmbeddedHTMLfont3.eot

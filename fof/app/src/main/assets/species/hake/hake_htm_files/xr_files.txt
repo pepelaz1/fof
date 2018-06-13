@@ -1,0 +1,12 @@
+hake_htm_files
+hake.htm
+hake_htm_files/1.png
+hake_htm_files/1@2x.png
+hake_htm_files/38.jpg
+hake_htm_files/38@2x.jpg
+hake_htm_files/XaraWDGeneratedHTMLfont1.woff
+hake_htm_files/XaraWDEmbeddedHTMLfont1.eot
+hake_htm_files/XaraWDGeneratedHTMLfont2.woff
+hake_htm_files/XaraWDEmbeddedHTMLfont2.eot
+hake_htm_files/XaraWDGeneratedHTMLfont3.woff
+hake_htm_files/XaraWDEmbeddedHTMLfont3.eot

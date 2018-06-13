@@ -1,0 +1,12 @@
+dory_htm_files
+dory.htm
+dory_htm_files/1.png
+dory_htm_files/1@2x.png
+dory_htm_files/23.jpg
+dory_htm_files/23@2x.jpg
+dory_htm_files/XaraWDGeneratedHTMLfont1.woff
+dory_htm_files/XaraWDEmbeddedHTMLfont1.eot
+dory_htm_files/XaraWDGeneratedHTMLfont2.woff
+dory_htm_files/XaraWDEmbeddedHTMLfont2.eot
+dory_htm_files/XaraWDGeneratedHTMLfont3.woff
+dory_htm_files/XaraWDEmbeddedHTMLfont3.eot

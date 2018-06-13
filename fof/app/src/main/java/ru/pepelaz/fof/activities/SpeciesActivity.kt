@@ -7,6 +7,8 @@ import kotlinx.android.synthetic.main.activity_species.*
 import ru.pepelaz.fof.R
 import ru.pepelaz.fof.data.Specie
 import ru.pepelaz.fof.fragments.InfoFragment
+import java.io.BufferedReader
+import java.io.InputStreamReader
 
 
 class SpeciesActivity : AppCompatActivity(), InfoFragment.IInfoFragment {
@@ -19,22 +21,34 @@ class SpeciesActivity : AppCompatActivity(), InfoFragment.IInfoFragment {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_species)
         loadSpecies()
-       // (fragmentInfo as InfoFragment).textViewTitle.text = title
         (fragmentInfo as InfoFragment).listener = this
         openSpecie()
     }
 
     fun loadSpecies() {
-        species.add(Specie("angler"))
-        species.add(Specie("bass"))
-        species.add(Specie("bream"))
+
+        val streamReader = InputStreamReader(assets.open("species/species.csv"))
+
+        val reader = BufferedReader(streamReader)
+        var line: String?
+        while (true) {
+            line = reader.readLine()
+            if (line == null) {
+                break
+            }
+            var parts = line!!.split("\t")
+            species.add(Specie(parts[0], parts[1], parts[2]))
+        }
     }
+
+
 
     fun openSpecie() {
         val specie = species[curIdx]
-        val contentUrl = "file:///android_asset/species/"+ specie.name +"/index.htm"
+        val contentUrl = "file:///android_asset/species/"+ specie.name.toLowerCase() +"/" + specie.name.toLowerCase() + ".htm"
         (fragmentInfo as InfoFragment).contentUrl = contentUrl
-        (fragmentInfo as InfoFragment).moreUrl = "http://bit.ly/2kgUV78"
+        (fragmentInfo as InfoFragment).moreUrl = specie.moreUrl
+        (fragmentInfo as InfoFragment).imageUrl = specie.imageUrl
 
         if (curIdx == 0) {
             (fragmentInfo as InfoFragment).onFirst()
@@ -45,11 +59,6 @@ class SpeciesActivity : AppCompatActivity(), InfoFragment.IInfoFragment {
         }
 
         (fragmentInfo as InfoFragment).updateContent()
-
-//        val ft = supportFragmentManager.beginTransaction()
-//        ft.remove(fragmentInfo)
-//        ft.add(R.id.fragmentInfo, fragmentInfo)
-//        ft.commit()
     }
 
     override fun onNext() {

@@ -34,12 +34,14 @@ class InfoFragment : Fragment() {
 
     var contentUrl: String? = ""
     var moreUrl: String? = ""
+    var imageUrl: String? = ""
     var pd: ProgressDialog? = null
     var listener: IInfoFragment? = null
 
     interface IInfoFragment {
         fun onPrev()
         fun onNext()
+
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
@@ -66,7 +68,6 @@ class InfoFragment : Fragment() {
                 }
             }
         }
-        // v.webView.loadUrl("file:///android_asset/species/angler/index.htm")
         v.webView.loadUrl(contentUrl)
         v.buttonPrev.setOnClickListener({
             listener!!.onPrev()
@@ -75,13 +76,14 @@ class InfoFragment : Fragment() {
         v.buttonNext.setOnClickListener({
             listener!!.onNext()
         })
-//        using (var stream = Resources.OpenRawResource(Resource.Raw.someHTMLBasedFile))
-//        using (var streamReader = new StreamReader(stream))
-//        {
-//            webView.LoadDataWithBaseURL("file:///android_asset/", streamReader.ReadToEnd(), "text/html", "UTF-8", "");
-//        }
 
+        v.buttonMore.setOnClickListener({
+            v.webView.loadUrl(moreUrl)
+        })
 
+        v.buttonImage.setOnClickListener({
+            v.webView.loadUrl(imageUrl)
+        })
 
         return v
     }
