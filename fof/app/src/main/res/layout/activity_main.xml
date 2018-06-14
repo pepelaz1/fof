@@ -173,7 +173,7 @@
                     <TextView
                         android:layout_width="84dp"
                         android:layout_height="match_parent"
-                        android:text="Distribution"
+                        android:text="Places"
                         android:textAlignment="center"
                         android:layout_gravity="center"
                         android:textColor="@android:color/black"
@@ -456,16 +456,17 @@
                     android:orientation="vertical">
 
                     <ImageView
-                        android:id="@+id/imageViewQuiz"
+                        android:id="@+id/imageViewTorch"
                         android:layout_width="@dimen/home_button_width"
                         android:layout_height="@dimen/home_button_height"
                         android:scaleType="fitXY"
-                        app:srcCompat="@drawable/quiz" />
+                        app:srcCompat="@drawable/torch" />
 
                     <TextView
+                        android:id="@+id/textViewTorch"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:text="Quiz"
+                        android:text="Torch off"
                         android:textAlignment="center"
                         android:textColor="@android:color/black"
                         android:textSize="@dimen/home_button_text_size"

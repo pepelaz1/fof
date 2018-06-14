@@ -13,12 +13,18 @@ import kotlinx.android.synthetic.main.fragment_info.view.*
 import ru.pepelaz.fof.R
 import android.content.Intent
 import android.graphics.Color
+import android.hardware.SensorManager
 import android.net.Uri
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import kotlinx.android.synthetic.main.activity_knot.*
 import kotlinx.android.synthetic.main.fragment_info.*
 import java.util.*
+import android.opengl.ETC1.getWidth
+import android.view.WindowManager
+import android.view.Display
+
+
 
 
 // TODO: Rename parameter arguments, choose names that match
@@ -44,6 +50,8 @@ class InfoFragment : Fragment() {
 
     }
 
+
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
@@ -61,6 +69,8 @@ class InfoFragment : Fragment() {
         v.webView.settings.javaScriptEnabled = true
         v.webView.settings.setSupportZoom(true)
         v.webView.settings.builtInZoomControls = false
+        var scale = resources.getDimension(R.dimen.species_page_scale)
+        v.webView.setInitialScale(scale.toInt())
         v.webView.webViewClient = object : WebViewClient() {
             override fun onPageFinished(view: WebView, url: String) {
                 if (pd != null && pd!!.isShowing) {
@@ -88,9 +98,12 @@ class InfoFragment : Fragment() {
         return v
     }
 
+
+
     fun updateContent() {
         view!!.webView.loadUrl(contentUrl)
     }
+
 
     fun onMid() {
         buttonNext.isEnabled = true

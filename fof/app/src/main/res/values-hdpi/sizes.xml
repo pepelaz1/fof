@@ -7,4 +7,7 @@
     <dimen name="home_site_button_padding_right">20dp</dimen>
     <dimen name="home_down_buttons_padding_height">30dp</dimen>
 
+    <dimen name="button3_min_width">60dp</dimen>
+    <dimen name="species_page_scale">80px</dimen>
+
 </resources>

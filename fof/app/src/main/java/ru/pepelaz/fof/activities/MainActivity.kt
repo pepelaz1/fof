@@ -1,6 +1,8 @@
 package ru.pepelaz.fof.activities
 
 import android.Manifest
+import android.Manifest.permission.ACCESS_FINE_LOCATION
+import android.Manifest.permission.CAMERA
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -9,18 +11,21 @@ import android.view.View
 import android.widget.ImageView
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.content.pm.PackageManager.PERMISSION_GRANTED
+import android.os.Build
 import android.provider.MediaStore
 import android.support.annotation.NonNull
 import android.support.v4.app.ActivityCompat
 import android.support.v4.content.ContextCompat
 import io.nlopez.smartlocation.SmartLocation
-import kotlinx.android.synthetic.main.activity_locations.view.*
 import kotlinx.android.synthetic.main.activity_main.*
 import ru.pepelaz.fof.R
 import ru.pepelaz.fof.activities.locations.LocationsActivity
 import ru.pepelaz.fof.activities.tides.TidesActivity
 import ru.pepelaz.fof.activities.weather.WeatherActivity
 import ru.pepelaz.fof.data.CoordinatesEvent
+import ru.pepelaz.fof.flashlight.Flashlight
+import ru.pepelaz.fof.flashlight.FlashlightFactory
 import ru.pepelaz.fof.helpers.CurrentCoords
 import ru.pepelaz.fof.helpers.PresentLocationCoords
 import ru.pepelaz.fof.helpers.RxBus
@@ -28,16 +33,23 @@ import ru.pepelaz.fof.helpers.RxBus
 
 class MainActivity : AppCompatActivity() {
 
-    val LOCATION_PERMISSION_ID = 1001
+    private val PERMISSION_REQUEST = 1001
+    private lateinit var flashlight: Flashlight
+    private var isFlashlightEnabled = false
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.ACCESS_FINE_LOCATION), LOCATION_PERMISSION_ID)
+        flashlight = FlashlightFactory.newInstance(this, Build.VERSION_CODES.KITKAT)
+
+        if ((ContextCompat.checkSelfPermission(this, ACCESS_FINE_LOCATION) != PERMISSION_GRANTED) ||
+            (ContextCompat.checkSelfPermission(this, CAMERA) != PERMISSION_GRANTED)) {
+            ActivityCompat.requestPermissions(this, arrayOf(ACCESS_FINE_LOCATION, CAMERA), PERMISSION_REQUEST)
         } else {
             getCoordinates()
+            flashlight.onStart()
         }
 
         imageViewFish.setOnTouchListener(touchListener)
@@ -55,7 +67,7 @@ class MainActivity : AppCompatActivity() {
         imageViewKnot.setOnTouchListener(touchListener)
         imageViewAbout.setOnTouchListener(touchListener)
         imageViewCompass.setOnTouchListener(touchListener)
-        imageViewQuiz.setOnTouchListener(touchListener)
+        imageViewTorch.setOnTouchListener(touchListener)
 
         imageViewFish.setOnClickListener({
             startActivity(Intent(this, SpeciesActivity::class.java))
@@ -90,7 +102,7 @@ class MainActivity : AppCompatActivity() {
         })
 
         imageViewCamera.setOnClickListener({
-          //  startActivity(Intent(this, CameraActivity::class.java))
+
             val cameraIntent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
             if(cameraIntent.resolveActivity(packageManager)!=null){
                 startActivityForResult(cameraIntent,1)
@@ -121,8 +133,11 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this, CompassActivity::class.java))
         })
 
-        imageViewQuiz.setOnClickListener({
-            startActivity(Intent(this, QuizActivity::class.java))
+        imageViewTorch.setOnClickListener({
+            isFlashlightEnabled = !isFlashlightEnabled
+            flashlight.enable(isFlashlightEnabled)
+
+            textViewTorch.text = (if (isFlashlightEnabled) "Torch on" else "Torch off" )
         })
         Log.d("test_test","Destiny: " + resources.getDisplayMetrics().density)
     }
@@ -131,11 +146,16 @@ class MainActivity : AppCompatActivity() {
                                             @NonNull grantResults: IntArray) {
         Log.d("test_test", "onRequestPermissionsResult grantResults: " + grantResults)
         when (requestCode) {
-            LOCATION_PERMISSION_ID -> {
-                if (!grantResults.isEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                    getCoordinates()
+            PERMISSION_REQUEST -> {
+                if (!grantResults.isEmpty())
+                    if (grantResults[0] == PERMISSION_GRANTED) {
+                        getCoordinates()
+                    }
+                    if (grantResults[1] == PERMISSION_GRANTED) {
+                        flashlight.onPermissionGranted()
+                        flashlight.onStart()
+                    }
                 }
-            }
         }
     }
 
