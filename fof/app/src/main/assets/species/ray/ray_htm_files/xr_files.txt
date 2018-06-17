@@ -1,0 +1,12 @@
+ray_htm_files
+ray.htm
+ray_htm_files/1.png
+ray_htm_files/1@2x.png
+ray_htm_files/65.jpg
+ray_htm_files/65@2x.jpg
+ray_htm_files/XaraWDGeneratedHTMLfont1.woff
+ray_htm_files/XaraWDEmbeddedHTMLfont1.eot
+ray_htm_files/XaraWDGeneratedHTMLfont2.woff
+ray_htm_files/XaraWDEmbeddedHTMLfont2.eot
+ray_htm_files/XaraWDGeneratedHTMLfont3.woff
+ray_htm_files/XaraWDEmbeddedHTMLfont3.eot

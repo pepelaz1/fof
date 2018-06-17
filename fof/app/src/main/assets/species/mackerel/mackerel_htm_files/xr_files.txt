@@ -1,0 +1,12 @@
+mackerel_htm_files
+mackerel.htm
+mackerel_htm_files/1.png
+mackerel_htm_files/1@2x.png
+mackerel_htm_files/47.jpg
+mackerel_htm_files/47@2x.jpg
+mackerel_htm_files/XaraWDGeneratedHTMLfont1.woff
+mackerel_htm_files/XaraWDEmbeddedHTMLfont1.eot
+mackerel_htm_files/XaraWDGeneratedHTMLfont2.woff
+mackerel_htm_files/XaraWDEmbeddedHTMLfont2.eot
+mackerel_htm_files/XaraWDGeneratedHTMLfont3.woff
+mackerel_htm_files/XaraWDEmbeddedHTMLfont3.eot

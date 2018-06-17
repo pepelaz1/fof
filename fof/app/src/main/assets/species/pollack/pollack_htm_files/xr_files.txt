@@ -1,0 +1,12 @@
+pollack_htm_files
+pollack.htm
+pollack_htm_files/1.png
+pollack_htm_files/1@2x.png
+pollack_htm_files/59.jpg
+pollack_htm_files/59@2x.jpg
+pollack_htm_files/XaraWDGeneratedHTMLfont1.woff
+pollack_htm_files/XaraWDEmbeddedHTMLfont1.eot
+pollack_htm_files/XaraWDGeneratedHTMLfont2.woff
+pollack_htm_files/XaraWDEmbeddedHTMLfont2.eot
+pollack_htm_files/XaraWDGeneratedHTMLfont3.woff
+pollack_htm_files/XaraWDEmbeddedHTMLfont3.eot

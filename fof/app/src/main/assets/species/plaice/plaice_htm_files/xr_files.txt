@@ -1,0 +1,12 @@
+plaice_htm_files
+plaice.htm
+plaice_htm_files/1.png
+plaice_htm_files/1@2x.png
+plaice_htm_files/56.jpg
+plaice_htm_files/56@2x.jpg
+plaice_htm_files/XaraWDGeneratedHTMLfont1.woff
+plaice_htm_files/XaraWDEmbeddedHTMLfont1.eot
+plaice_htm_files/XaraWDGeneratedHTMLfont2.woff
+plaice_htm_files/XaraWDEmbeddedHTMLfont2.eot
+plaice_htm_files/XaraWDGeneratedHTMLfont3.woff
+plaice_htm_files/XaraWDEmbeddedHTMLfont3.eot

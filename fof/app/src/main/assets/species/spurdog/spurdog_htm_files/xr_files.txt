@@ -1,0 +1,12 @@
+spurdog_htm_files
+spurdog.htm
+spurdog_htm_files/1.png
+spurdog_htm_files/1@2x.png
+spurdog_htm_files/79.jpg
+spurdog_htm_files/79@2x.jpg
+spurdog_htm_files/XaraWDGeneratedHTMLfont1.woff
+spurdog_htm_files/XaraWDEmbeddedHTMLfont1.eot
+spurdog_htm_files/XaraWDGeneratedHTMLfont2.woff
+spurdog_htm_files/XaraWDEmbeddedHTMLfont2.eot
+spurdog_htm_files/XaraWDGeneratedHTMLfont3.woff
+spurdog_htm_files/XaraWDEmbeddedHTMLfont3.eot
