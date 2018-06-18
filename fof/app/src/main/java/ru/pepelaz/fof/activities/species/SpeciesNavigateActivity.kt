@@ -1,50 +1,35 @@
-package ru.pepelaz.fof.activities
+package ru.pepelaz.fof.activities.species
 
+import android.content.res.AssetManager
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
 import kotlinx.android.synthetic.main.activity_species.*
+import kotlinx.android.synthetic.main.activity_species_navigate.*
 import ru.pepelaz.fof.R
-import ru.pepelaz.fof.data.Specie
 import ru.pepelaz.fof.fragments.InfoFragment
-import java.io.BufferedReader
-import java.io.InputStreamReader
+import ru.pepelaz.fof.storages.SpeciesStorage
 
 
-class SpeciesActivity : AppCompatActivity(), InfoFragment.IInfoFragment {
 
-    var species = ArrayList<Specie>()
+class SpeciesNavigateActivity : AppCompatActivity(), InfoFragment.IInfoFragment {
+
     var curIdx: Int = 0
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_species)
-        loadSpecies()
-        (fragmentInfo as InfoFragment).listener = this
+        setContentView(R.layout.activity_species_navigate)
+         (fragmentInfo as InfoFragment).listener = this
+
+        val b = intent.extras
+        if (b != null)
+            curIdx = b.getInt("specieNum")
+
         openSpecie()
     }
 
-    fun loadSpecies() {
-
-        val streamReader = InputStreamReader(assets.open("species/species.csv"))
-
-        val reader = BufferedReader(streamReader)
-        var line: String?
-        while (true) {
-            line = reader.readLine()
-            if (line == null) {
-                break
-            }
-            var parts = line!!.split("\t")
-            species.add(Specie(parts[0], parts[1], parts[2]))
-        }
-    }
-
-
-
     fun openSpecie() {
-        val specie = species[curIdx]
+
+       val specie = SpeciesStorage.getAt(curIdx)
         val contentUrl = "file:///android_asset/species/"+ specie.name.toLowerCase() +"/" + specie.name.toLowerCase() + ".htm"
         (fragmentInfo as InfoFragment).contentUrl = contentUrl
         (fragmentInfo as InfoFragment).moreUrl = specie.moreUrl
@@ -52,7 +37,7 @@ class SpeciesActivity : AppCompatActivity(), InfoFragment.IInfoFragment {
 
         if (curIdx == 0) {
             (fragmentInfo as InfoFragment).onFirst()
-        } else if (curIdx == species.size - 1) {
+        } else if (curIdx == SpeciesStorage.getSize() - 1) {
             (fragmentInfo as InfoFragment).onLast()
         } else {
             (fragmentInfo as InfoFragment).onMid()
@@ -62,7 +47,7 @@ class SpeciesActivity : AppCompatActivity(), InfoFragment.IInfoFragment {
     }
 
     override fun onNext() {
-       if (curIdx + 1 <= species.size - 1) {
+       if (curIdx + 1 <=  SpeciesStorage.getSize() - 1) {
            curIdx++
            openSpecie()
        }

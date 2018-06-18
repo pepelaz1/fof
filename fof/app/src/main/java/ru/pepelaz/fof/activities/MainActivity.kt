@@ -1,6 +1,5 @@
 package ru.pepelaz.fof.activities
 
-import android.Manifest
 import android.Manifest.permission.ACCESS_FINE_LOCATION
 import android.Manifest.permission.CAMERA
 import android.support.v7.app.AppCompatActivity
@@ -10,7 +9,6 @@ import android.view.MotionEvent
 import android.view.View
 import android.widget.ImageView
 import android.content.Intent
-import android.content.pm.PackageManager
 import android.content.pm.PackageManager.PERMISSION_GRANTED
 import android.os.Build
 import android.provider.MediaStore
@@ -21,6 +19,8 @@ import io.nlopez.smartlocation.SmartLocation
 import kotlinx.android.synthetic.main.activity_main.*
 import ru.pepelaz.fof.R
 import ru.pepelaz.fof.activities.locations.LocationsActivity
+import ru.pepelaz.fof.activities.species.SpeciesActivity
+import ru.pepelaz.fof.activities.species.SpeciesNavigateActivity
 import ru.pepelaz.fof.activities.tides.TidesActivity
 import ru.pepelaz.fof.activities.weather.WeatherActivity
 import ru.pepelaz.fof.data.CoordinatesEvent

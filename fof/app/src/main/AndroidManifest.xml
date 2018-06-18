@@ -42,7 +42,12 @@
             android:screenOrientation="portrait">
         </activity>
         <activity
-            android:name=".activities.SpeciesActivity"
+            android:name=".activities.species.SpeciesActivity"
+            android:label="Species"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name=".activities.species.SpeciesNavigateActivity"
             android:label="Species"
             android:screenOrientation="portrait">
         </activity>
@@ -129,11 +134,6 @@
         <activity
             android:name=".activities.CompassActivity"
             android:label="Compass"
-            android:screenOrientation="portrait">
-        </activity>
-        <activity
-            android:name=".activities.FlashlightActivity"
-            android:label="Flashlight"
             android:screenOrientation="portrait">
         </activity>
     </application>

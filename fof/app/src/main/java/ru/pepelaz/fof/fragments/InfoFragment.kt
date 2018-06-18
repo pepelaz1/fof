@@ -56,7 +56,7 @@ class InfoFragment : Fragment() {
                               savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
         val v = inflater.inflate(R.layout.fragment_info, container, false)
-        v.buttonHome.setOnClickListener({
+        v.buttonBack.setOnClickListener({
             activity!!.finish()
         })
         v.buttonMore.setOnClickListener({

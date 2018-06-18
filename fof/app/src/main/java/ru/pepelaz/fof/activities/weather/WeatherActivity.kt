@@ -1,25 +1,17 @@
 package ru.pepelaz.fof.activities.weather
 
 import android.content.Intent
-import android.location.Address
-import android.location.Geocoder
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.os.Handler
 import android.util.Log
 import android.view.View
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.activity_weather.*
 import ru.pepelaz.fof.R
-import ru.pepelaz.fof.R.id.*
-import ru.pepelaz.fof.activities.SpeciesActivity
 import ru.pepelaz.fof.adapters.WeatherAdapter
-import ru.pepelaz.fof.data.CoordinatesEvent
 import ru.pepelaz.fof.fragments.PresentLocationFragment
 import ru.pepelaz.fof.helpers.CurrentCoords
-import ru.pepelaz.fof.helpers.RxBus
-import ru.pepelaz.fof.helpers.Utils
 import ru.pepelaz.fof.network.Communicator
 import ru.pepelaz.fof.storages.WeatherStorage
 
