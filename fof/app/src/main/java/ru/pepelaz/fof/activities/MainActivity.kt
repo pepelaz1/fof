@@ -20,7 +20,6 @@ import kotlinx.android.synthetic.main.activity_main.*
 import ru.pepelaz.fof.R
 import ru.pepelaz.fof.activities.locations.LocationsActivity
 import ru.pepelaz.fof.activities.species.SpeciesActivity
-import ru.pepelaz.fof.activities.species.SpeciesNavigateActivity
 import ru.pepelaz.fof.activities.tides.TidesActivity
 import ru.pepelaz.fof.activities.weather.WeatherActivity
 import ru.pepelaz.fof.data.CoordinatesEvent
@@ -56,7 +55,7 @@ class MainActivity : AppCompatActivity() {
         imageViewRecords.setOnTouchListener(touchListener)
         imageViewTackle.setOnTouchListener(touchListener)
         imageViewBalt.setOnTouchListener(touchListener)
-        imageViewDistribution.setOnTouchListener(touchListener)
+        imageViewPlaces.setOnTouchListener(touchListener)
         imageViewSeasons.setOnTouchListener(touchListener)
         imageViewLocations.setOnTouchListener(touchListener)
         imageViewGlossary.setOnTouchListener(touchListener)
@@ -85,7 +84,7 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this, BaitActivity::class.java))
         })
 
-        imageViewDistribution.setOnClickListener({
+        imageViewPlaces.setOnClickListener({
             startActivity(Intent(this, DistributionActivity::class.java))
         })
 

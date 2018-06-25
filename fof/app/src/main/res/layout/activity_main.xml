@@ -163,12 +163,12 @@
                     android:orientation="vertical">
 
                     <ImageView
-                        android:id="@+id/imageViewDistribution"
+                        android:id="@+id/imageViewPlaces"
                         android:layout_width="@dimen/home_button_width"
                         android:layout_height="@dimen/home_button_height"
                         android:layout_gravity="center"
                         android:scaleType="fitXY"
-                        app:srcCompat="@drawable/distribution" />
+                        app:srcCompat="@drawable/places" />
 
                     <TextView
                         android:layout_width="84dp"
