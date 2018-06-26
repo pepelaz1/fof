@@ -67,7 +67,7 @@
             android:screenOrientation="portrait">
         </activity>
         <activity
-            android:name=".activities.DistributionActivity"
+            android:name=".activities.PlacesActivity"
             android:label="Distribution"
             android:screenOrientation="portrait">
         </activity>

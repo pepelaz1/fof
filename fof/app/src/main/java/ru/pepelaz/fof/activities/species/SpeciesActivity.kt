@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.view.View
 import kotlinx.android.synthetic.main.activity_species.*
 import ru.pepelaz.fof.R
+import ru.pepelaz.fof.R.id.gridViewSpecies
 import ru.pepelaz.fof.adapters.SpeciesAdapter
 import ru.pepelaz.fof.data.Specie
 import ru.pepelaz.fof.fragments.InfoFragment

@@ -85,7 +85,7 @@ class MainActivity : AppCompatActivity() {
         })
 
         imageViewPlaces.setOnClickListener({
-            startActivity(Intent(this, DistributionActivity::class.java))
+            startActivity(Intent(this, PlacesActivity::class.java))
         })
 
         imageViewSeasons.setOnClickListener({

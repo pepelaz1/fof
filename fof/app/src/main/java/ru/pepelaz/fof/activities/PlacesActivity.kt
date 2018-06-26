@@ -6,16 +6,17 @@ import android.os.Bundle
 import android.view.View
 import android.webkit.WebView
 import android.webkit.WebViewClient
-import kotlinx.android.synthetic.main.activity_knot.*
+import kotlinx.android.synthetic.main.activity_places.*
 import ru.pepelaz.fof.R
 
-class DistributionActivity : AppCompatActivity() {
+
+class PlacesActivity : AppCompatActivity() {
 
     var pd: ProgressDialog? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_distribution)
+        setContentView(R.layout.activity_places)
         pd = ProgressDialog.show(this, "", "Loading...",true);
         webView.settings.domStorageEnabled = true
         webView.settings.javaScriptEnabled = true
@@ -28,7 +29,9 @@ class DistributionActivity : AppCompatActivity() {
                 }
             }
         }
-        webView.loadUrl("http://bit.ly/2xwTLxQ")
+
+        val contentUrl = "file:///android_asset/pages/places/places.htm"
+        webView.loadUrl(contentUrl);
     }
 
 
@@ -37,5 +40,14 @@ class DistributionActivity : AppCompatActivity() {
         if (pd != null && pd!!.isShowing) {
             pd!!.dismiss()
         }
+    }
+
+    fun onHomeClick(v: View) {
+        finish()
+    }
+
+    fun onUpdatesClick(v: View) {
+        pd = ProgressDialog.show(this, "", "Loading...",true);
+        webView.loadUrl("http://bit.ly/2xwTLxQ")
     }
 }
