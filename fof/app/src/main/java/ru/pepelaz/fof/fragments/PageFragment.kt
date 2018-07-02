@@ -20,6 +20,7 @@ import java.util.*
 import android.opengl.ETC1.getWidth
 import android.view.WindowManager
 import android.view.Display
+import android.webkit.WebSettings
 import kotlinx.android.synthetic.main.fragment_page.view.*
 
 
@@ -46,6 +47,9 @@ class PageFragment : Fragment() {
         v.webView.settings.javaScriptEnabled = true
         v.webView.settings.setSupportZoom(true)
         v.webView.settings.builtInZoomControls = false
+
+        //var scale = 60
+        //v.webView.setInitialScale(scale)
         v.webView.webViewClient = object : WebViewClient() {
             override fun onPageFinished(view: WebView, url: String) {
                 if (pd != null && pd!!.isShowing) {
@@ -58,6 +62,7 @@ class PageFragment : Fragment() {
 
     fun loadOfflineContent() {
         view!!.webView.loadUrl(offlineUrl)
+
     }
 
     override fun onDestroy() {
