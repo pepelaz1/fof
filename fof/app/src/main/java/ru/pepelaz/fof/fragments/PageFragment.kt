@@ -20,8 +20,13 @@ import java.util.*
 import android.opengl.ETC1.getWidth
 import android.view.WindowManager
 import android.view.Display
+import android.webkit.WebResourceRequest
 import android.webkit.WebSettings
 import kotlinx.android.synthetic.main.fragment_page.view.*
+import android.support.v4.content.ContextCompat.startActivity
+import android.os.Build
+import android.annotation.TargetApi
+import android.os.Build.VERSION_CODES.N
 
 
 class PageFragment : Fragment() {
@@ -56,7 +61,44 @@ class PageFragment : Fragment() {
                     pd!!.dismiss()
                 }
             }
+
+
+            @Suppress("OverridingDeprecatedMember")
+            override fun shouldOverrideUrlLoading(view: WebView, url: String): Boolean {
+                  if (url.startsWith("tel:")) {
+                    val tel = Intent(Intent.ACTION_DIAL, Uri.parse(url))
+                    startActivity(tel)
+                    return true
+                } else if (url.contains("mailto:")) {
+                    view!!.getContext().startActivity(
+                            Intent(Intent.ACTION_VIEW, Uri.parse(url)))
+                    return true
+
+                } else {
+                    return super.shouldOverrideUrlLoading(view, url)
+                }
+            }
+
+
+
+//            override fun shouldOverrideUrlLoading(view: WebView?, request: WebResourceRequest?): Boolean {
+//                val uri = request.url
+//                if (request..startsWith("tel:")) {
+//                    val tel = Intent(Intent.ACTION_DIAL, Uri.parse(url))
+//                    startActivity(tel)
+//                    return true
+//                } else if (url.contains("mailto:")) {
+//                    view!!.getContext().startActivity(
+//                            Intent(Intent.ACTION_VIEW, Uri.parse(url)))
+//                    return true
+//
+//                } else {
+//                    return super.shouldOverrideUrlLoading(view, request)
+//                }
+//            }
         }
+
+
         return v
     }
 

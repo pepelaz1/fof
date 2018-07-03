@@ -14,7 +14,7 @@ class CookingActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_cooking)
 
-        (fragmentPage as PageFragment).offlineUrl = "file:///android_asset/pages/cooking/cooking.htm"
+        (fragmentPage as PageFragment).offlineUrl = "file:///android_asset/pages/cookingNew/cookingNew.htm"
         (fragmentPage as PageFragment).onlineUrl = "http://bit.ly/2KMLPKF"
         (fragmentPage as PageFragment).loadOfflineContent()
     }
