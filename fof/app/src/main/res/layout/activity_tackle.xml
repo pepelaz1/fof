@@ -8,8 +8,8 @@
 
 
     <fragment
-        android:name="ru.pepelaz.fof.fragments.PageFragment"
-        android:id="@+id/fragmentPage"
+        android:name="ru.pepelaz.fof.fragments.TackleFragment"
+        android:id="@+id/fragmentTackle"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_constraintLeft_toLeftOf="parent"
