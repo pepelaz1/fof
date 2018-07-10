@@ -5,9 +5,6 @@ import android.app.ProgressDialog
 import android.content.Context
 import android.os.Bundle
 import android.support.v4.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 
 import ru.pepelaz.fof.R
 import android.content.Intent
@@ -18,8 +15,6 @@ import android.webkit.WebView
 import android.webkit.WebViewClient
 import java.util.*
 import android.opengl.ETC1.getWidth
-import android.view.WindowManager
-import android.view.Display
 import android.webkit.WebResourceRequest
 import android.webkit.WebSettings
 import kotlinx.android.synthetic.main.fragment_tackle.view.*
@@ -28,20 +23,31 @@ import android.os.Build
 import android.annotation.TargetApi
 import android.os.Build.VERSION_CODES.N
 import android.util.Log
+import android.view.*
+import kotlin.collections.HashMap
 
 
 class TackleFragment : Fragment() {
 
-    var offlineUrl: String? = ""
+    val offlineUrl: String? = "file:///android_asset/pages/tackle/tackleHtm.htm"
     var onlineUrl: String? = ""
+    val origOnlineUrl: String? = "http://bit.ly/2KNOMu6"
+    val tacklePages = HashMap<String, Pair<String, String>>()
+
     var pd: ProgressDialog? = null
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
 
         val v = inflater.inflate(R.layout.fragment_tackle, container, false)
+        onlineUrl = origOnlineUrl
+        loadTacklePages()
+
         v.buttonHome.setOnClickListener({
-            activity!!.finish()
+            if (v.webView.url == offlineUrl)
+                activity!!.finish()
+            else
+                v.webView.goBack()
         })
         v.buttonUpdates.setOnClickListener({
             pd = ProgressDialog.show(context, "", "Loading...", true);
@@ -54,8 +60,7 @@ class TackleFragment : Fragment() {
         v.webView.settings.setSupportZoom(true)
         v.webView.settings.builtInZoomControls = false
 
-        //var scale = 60
-        //v.webView.setInitialScale(scale)
+
         v.webView.webViewClient = object : WebViewClient() {
             override fun onPageFinished(view: WebView, url: String) {
                 if (pd != null && pd!!.isShowing) {
@@ -84,23 +89,39 @@ class TackleFragment : Fragment() {
         }
 
         v.webView.setOnTouchListener { view, motionEvent ->
-            val hr = (view as WebView).hitTestResult
-            Log.d("test_test","getExtra: " + hr.extra + ", type: " + hr.type)
+            if (motionEvent.action == MotionEvent.ACTION_UP) {
+                val hr = (view as WebView).hitTestResult
+                if (hr.extra != null) {
+                    Log.d("test_test", "getExtra: " + hr.extra + ", type: " + hr.type)
+
+                    for (e in tacklePages) {
+
+                        if (hr.extra.contains(e.key)) {
+                            view!!.webView.loadUrl("file:///android_asset/pages/" + e.value.first);
+                            onlineUrl = e.value.second
+                        }
+                    }
+                }
+            }
             false
         }
 
-        
-//        v.webView.setOnTouchListener { view, motionEvent ->
-//            Log.d("test_test","123")
-//            return true
-//        }
-
-
+        v.webView.loadUrl(offlineUrl)
         return v
     }
 
-    fun loadOfflineContent() {
-        view!!.webView.loadUrl(offlineUrl)
+
+
+    fun loadTacklePages() {
+        tacklePages.put("22870", Pair("boom/boom.htm","http://bit.ly/2KNOMu6"))
+        tacklePages.put("22868", Pair("float/float.htm","http://bit.ly/2KNOMu6"))
+        tacklePages.put("22869", Pair("hook/hook.htm","http://bit.ly/2KNOMu6"))
+        tacklePages.put("22871", Pair("line/line.htm","http://bit.ly/2KNOMu6"))
+        tacklePages.put("22859", Pair("lure/lure.htm","http://bit.ly/2KNOMu6"))
+        tacklePages.put("22875", Pair("reel/reel.htm","http://bit.ly/2KNOMu6"))
+        tacklePages.put("22874", Pair("rod/rod.htm","http://bit.ly/2KNOMu6"))
+        tacklePages.put("22873", Pair("swivel/swivelHtm.htm","http://bit.ly/2KNOMu6"))
+        tacklePages.put("22867", Pair("weight/weight.htm","http://bit.ly/2KNOMu6"))
 
     }
 
