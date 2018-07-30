@@ -14,7 +14,7 @@ class KnotActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_knot)
 
-        (fragmentPage as PageFragment).offlineUrl = "file:///android_asset/pages/knot/knot.htm"
+        (fragmentPage as PageFragment).offlineUrl = "file:///android_asset/pages/knots/knotsHtm.htm"
         (fragmentPage as PageFragment).onlineUrl = "http://bit.ly/2klR0WC"
         (fragmentPage as PageFragment).loadOfflineContent()
     }
