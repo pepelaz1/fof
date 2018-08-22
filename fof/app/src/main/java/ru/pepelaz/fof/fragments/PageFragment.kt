@@ -79,23 +79,6 @@ class PageFragment : Fragment() {
                 }
             }
 
-
-
-//            override fun shouldOverrideUrlLoading(view: WebView?, request: WebResourceRequest?): Boolean {
-//                val uri = request.url
-//                if (request..startsWith("tel:")) {
-//                    val tel = Intent(Intent.ACTION_DIAL, Uri.parse(url))
-//                    startActivity(tel)
-//                    return true
-//                } else if (url.contains("mailto:")) {
-//                    view!!.getContext().startActivity(
-//                            Intent(Intent.ACTION_VIEW, Uri.parse(url)))
-//                    return true
-//
-//                } else {
-//                    return super.shouldOverrideUrlLoading(view, request)
-//                }
-//            }
         }
 
 

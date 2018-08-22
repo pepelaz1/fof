@@ -32,7 +32,8 @@ class SpeciesNavigateActivity : AppCompatActivity(), InfoFragment.IInfoFragment 
        val specie = SpeciesStorage.getAt(curIdx)
         val contentUrl = "file:///android_asset/species/"+ specie.name.toLowerCase() +"/" + specie.name.toLowerCase() + ".htm"
         (fragmentInfo as InfoFragment).contentUrl = contentUrl
-        (fragmentInfo as InfoFragment).moreUrl = specie.moreUrl
+        (fragmentInfo as InfoFragment).moreUrl  = "file:///android_asset/species/"+ specie.name.toLowerCase() + "/" +
+                specie.name.toLowerCase() + "AppOnePage/" + specie.name.toLowerCase() + "AppOnePage.htm"
         (fragmentInfo as InfoFragment).imageUrl = specie.imageUrl
 
         if (curIdx == 0) {

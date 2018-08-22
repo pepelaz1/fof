@@ -73,6 +73,17 @@ class InfoFragment : Fragment() {
                     pd!!.dismiss()
                 }
             }
+
+            @Suppress("OverridingDeprecatedMember")
+            override fun shouldOverrideUrlLoading(view: WebView, url: String): Boolean {
+                if (url.startsWith("http://back")) {
+                    val tel = Intent(Intent.ACTION_DIAL, Uri.parse(url))
+                    activity!!.finish()
+                    return true
+                } else {
+                    return super.shouldOverrideUrlLoading(view, url)
+                }
+            }
         }
         v.webView.loadUrl(contentUrl)
         v.buttonPrev.setOnClickListener({
@@ -84,10 +95,12 @@ class InfoFragment : Fragment() {
         })
 
         v.buttonMore.setOnClickListener({
+            pd = ProgressDialog.show(context, "", "Loading...", true);
             v.webView.loadUrl(moreUrl)
         })
 
         v.buttonImage.setOnClickListener({
+            pd = ProgressDialog.show(context, "", "Loading...", true);
             v.webView.loadUrl(imageUrl)
         })
 
