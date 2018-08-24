@@ -1,15 +1,15 @@
-window.local_table1_0_data = [
+window.local_table1_516_data = [
 {
- csv: "Line, Main, Trace\u000AType:, Mono, Wire\u000AStrength (lbs):, 30/50, 80\u000ALength (mts):, - , 1\u000AHook size:, -, 8/0",
- first: "congerOnePage_htm_files/23127.png",
- firstdark: "congerOnePage_htm_files/23128.png",
- last: "congerOnePage_htm_files/23129.png",
- lastdark: "congerOnePage_htm_files/23130.png",
- next: "congerOnePage_htm_files/23131.png",
- nextdark: "congerOnePage_htm_files/23132.png",
- prev: "congerOnePage_htm_files/23133.png",
- prevdark: "congerOnePage_htm_files/23134.png",
- rows: "5",
+ csv: "Cod, Boat, Shore\u000Albs:, 58 06 00, 44 08 00\u000Akilos:, 26.478, 20.183\u000AYear:, 1992, 1966\u000ABy:, N. Cook, B. Jones\u000APlace:, North Sea - Off Whitby, Tom\u2019s Point - Barry",
+ first: "congerOnePage_htm_files/14470.png",
+ firstdark: "congerOnePage_htm_files/14471.png",
+ last: "congerOnePage_htm_files/14472.png",
+ lastdark: "congerOnePage_htm_files/14473.png",
+ next: "congerOnePage_htm_files/14474.png",
+ nextdark: "congerOnePage_htm_files/14475.png",
+ prev: "congerOnePage_htm_files/14476.png",
+ prevdark: "congerOnePage_htm_files/14477.png",
+ rows: "6",
  theme: "1"
 }
 ];

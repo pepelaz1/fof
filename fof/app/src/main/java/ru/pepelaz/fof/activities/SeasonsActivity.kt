@@ -13,7 +13,7 @@ class SeasonsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_seasons)
 
-        (fragmentPage as PageFragment).offlineUrl = "file:///android_asset/pages/season/season.htm"
+        (fragmentPage as PageFragment).offlineUrl = "file:///android_asset/pages/seasonsNew/seasonsNew.htm"
         (fragmentPage as PageFragment).onlineUrl = "http://bit.ly/2LpudFt"
         (fragmentPage as PageFragment).loadOfflineContent()
     }

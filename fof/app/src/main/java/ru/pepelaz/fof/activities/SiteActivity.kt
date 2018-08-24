@@ -23,6 +23,7 @@ class SiteActivity : AppCompatActivity() {
                 webView.visibility = View.VISIBLE
             }
         }
-        webView.loadUrl("http://www.fish-o-fax.com/")
+        //webView.loadUrl("http://www.fish-o-fax.com/")
+        webView.loadUrl("http://www.coarsefishingfacts.com/index.htm")
     }
 }

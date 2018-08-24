@@ -117,7 +117,7 @@ class TackleFragment : Fragment() {
         tacklePages.put("22868", Pair("float/float.htm","http://bit.ly/2KNOMu6"))
         tacklePages.put("22869", Pair("hook/hook.htm","http://bit.ly/2KNOMu6"))
         tacklePages.put("22871", Pair("line/line.htm","http://bit.ly/2KNOMu6"))
-        tacklePages.put("22859", Pair("lure/lure.htm","http://bit.ly/2KNOMu6"))
+        tacklePages.put("22859", Pair("lure/lureApp.htm","http://bit.ly/2KNOMu6"))
         tacklePages.put("22875", Pair("reel/reel.htm","http://bit.ly/2KNOMu6"))
         tacklePages.put("22874", Pair("rod/rod.htm","http://bit.ly/2KNOMu6"))
         tacklePages.put("22873", Pair("swivel/swivelHtm.htm","http://bit.ly/2KNOMu6"))

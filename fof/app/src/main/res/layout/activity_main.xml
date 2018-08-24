@@ -489,7 +489,7 @@
                 android:layout_height="@dimen/home_down_buttons_padding_height"
                 android:background="@color/blue"
                 android:onClick="buttonGoSiteClicked"
-                android:text="www.Fish-O-Fax.com"
+                android:text="Coarse Fishing"
                 android:textAllCaps="false"
                 android:textColor="@android:color/white"
                 android:paddingLeft="@dimen/home_site_button_padding_left"

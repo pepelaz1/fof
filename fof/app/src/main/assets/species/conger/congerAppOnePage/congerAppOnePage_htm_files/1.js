@@ -1,14 +1,14 @@
-window.local_table1_220_data = [
+window.local_table1_310_data = [
 {
- csv: "Natural Food, Bait, Presentation\u000ACuttle, Cuttle, Whole\u000APout, Pout, Live\u000AMackerel,Large lask\u000ASquid,Squid,Whole",
- first: "congerOnePage_htm_files/23121.png",
- firstdark: "congerOnePage_htm_files/23122.png",
- last: "congerOnePage_htm_files/23121.png",
- lastdark: "congerOnePage_htm_files/23122.png",
- next: "congerOnePage_htm_files/23121.png",
- nextdark: "congerOnePage_htm_files/23122.png",
- prev: "congerOnePage_htm_files/23121.png",
- prevdark: "congerOnePage_htm_files/23122.png",
+ csv: "Angler,Boat,Shore\u000Albs,94 12 04,68 02 00\u000AKilos,42.985,30.899\u000AYear:,1985,1967\u000ABy:,S.Neill,H.Legerton\u000APlace:,Belfast Lough,Canvey Island",
+ first: "congerOnePage_htm_files/14470.png",
+ firstdark: "congerOnePage_htm_files/14471.png",
+ last: "congerOnePage_htm_files/14472.png",
+ lastdark: "congerOnePage_htm_files/14473.png",
+ next: "congerOnePage_htm_files/14474.png",
+ nextdark: "congerOnePage_htm_files/14475.png",
+ prev: "congerOnePage_htm_files/14476.png",
+ prevdark: "congerOnePage_htm_files/14477.png",
  rows: "6",
  theme: "1"
 }

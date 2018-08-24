@@ -1,4 +1,4 @@
-window.local_table1_483_data = [
+window.local_table1_485_data = [
 {
  csv: "Classification, Name\u000AClass:, Actinopterygii\u000AOrder:, Pleuronectiformes\u000AFamily:, Pleuronectidae\u000ASpecies:, Limanda limanda",
  first: "dabAppOnePage_htm_files/14470.png",

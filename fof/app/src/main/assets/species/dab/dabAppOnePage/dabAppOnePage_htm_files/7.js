@@ -1,4 +1,4 @@
-window.local_table1_480_data = [
+window.local_table1_482_data = [
 {
  csv: "Natural Food, Bait, Presentation\u000ACrustacean:, Crab, Piece\u000APolychaete Worm:, Ragworm, Small whole\u000AMolluscs:, Limpet, Whole",
  first: "dabAppOnePage_htm_files/14462.png",

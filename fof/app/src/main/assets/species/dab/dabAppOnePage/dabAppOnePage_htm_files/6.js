@@ -1,4 +1,4 @@
-window.local_table1_479_data = [
+window.local_table1_481_data = [
 {
  csv: "Line, Main, Type\u000AType:, Mono, Mono\u000AStrength (lbs):, 10, 10\u000ALength (m):,-, 2\u000AHook Size:, -, 6 - 2",
  first: "dabAppOnePage_htm_files/14470.png",

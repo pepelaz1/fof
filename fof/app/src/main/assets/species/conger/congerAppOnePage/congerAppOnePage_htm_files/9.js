@@ -1,14 +1,14 @@
-window.local_table1_6_data = [
+window.local_table1_517_data = [
 {
- csv: "Line, Main, Trace\u000AType:, Mono, Wire\u000AStrength (lbs):, 30/50, 80\u000ALength (mts):, - , 1\u000AHook size:, 6/0, 8/0",
- first: "congerOnePage_htm_files/23127.png",
- firstdark: "congerOnePage_htm_files/23128.png",
- last: "congerOnePage_htm_files/23129.png",
- lastdark: "congerOnePage_htm_files/23130.png",
- next: "congerOnePage_htm_files/23131.png",
- nextdark: "congerOnePage_htm_files/23132.png",
- prev: "congerOnePage_htm_files/23133.png",
- prevdark: "congerOnePage_htm_files/23134.png",
+ csv: "Organisation, Landing Size cms, Size Sexual Maturity\u000AEuropean Union, 35,  60\u000AInshore Fisheries and Conservation Authority, 35, -\u000AAngling Trust (Boat), 35,  -\u000AAngling Trust (Shore), 35, -",
+ first: "congerOnePage_htm_files/14470.png",
+ firstdark: "congerOnePage_htm_files/14471.png",
+ last: "congerOnePage_htm_files/14472.png",
+ lastdark: "congerOnePage_htm_files/14473.png",
+ next: "congerOnePage_htm_files/14474.png",
+ nextdark: "congerOnePage_htm_files/14475.png",
+ prev: "congerOnePage_htm_files/14476.png",
+ prevdark: "congerOnePage_htm_files/14477.png",
  rows: "5",
  theme: "1"
 }

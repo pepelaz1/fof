@@ -1,4 +1,4 @@
-window.local_table1_5_data = [
+window.local_table1_6_data = [
 {
  csv: "Line, Main, Trace\u000A Type:, Mono, -\u000AStrength (lbs):, 20, -\u000ALength (mts):, Varies, -\u000AHook:, 4/0 / 6/0, -",
  first: "bassAppOnePage_htm_files/14470.png",

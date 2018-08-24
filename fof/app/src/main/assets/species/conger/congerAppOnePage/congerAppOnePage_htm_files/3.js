@@ -1,15 +1,15 @@
-window.local_table1_133_data = [
+window.local_table1_480_data = [
 {
- csv: "Organisation, Landing Size cms, Size Sexual Maturity\u000AEuropean Union:, None, Unknown\u000AICFA:, 58 - Restrictions, -\u000AAngling Trust (Boat), 120, -\u000AAngling Trust (Shore), 91, -",
- first: "congerOnePage_htm_files/23127.png",
- firstdark: "congerOnePage_htm_files/23128.png",
- last: "congerOnePage_htm_files/23129.png",
- lastdark: "congerOnePage_htm_files/23130.png",
- next: "congerOnePage_htm_files/23131.png",
- nextdark: "congerOnePage_htm_files/23132.png",
- prev: "congerOnePage_htm_files/23133.png",
- prevdark: "congerOnePage_htm_files/23134.png",
- rows: "8",
+ csv: "Line, Main, Trace\u000AType:, Mono, Mono\u000AStrength (lbs):, 20 - 30, 40\u000ALength (m):,  , 1\u000AHook Size:,  , 4/0",
+ first: "congerOnePage_htm_files/14470.png",
+ firstdark: "congerOnePage_htm_files/14471.png",
+ last: "congerOnePage_htm_files/14472.png",
+ lastdark: "congerOnePage_htm_files/14473.png",
+ next: "congerOnePage_htm_files/14474.png",
+ nextdark: "congerOnePage_htm_files/14475.png",
+ prev: "congerOnePage_htm_files/14476.png",
+ prevdark: "congerOnePage_htm_files/14477.png",
+ rows: "5",
  theme: "1"
 }
 ];

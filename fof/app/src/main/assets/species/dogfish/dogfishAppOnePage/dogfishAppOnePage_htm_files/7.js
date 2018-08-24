@@ -1,4 +1,4 @@
-window.local_table1_514_data = [
+window.local_table1_519_data = [
 {
  csv: "Line, Main, Type\u000AType:, Mono, Mono\u000AStrength (lbs):,10, 10\u000ALength (m):,-, 2\u000AHook Size:, -, 2/0 - 4/0",
  first: "dogfishAppOnePage_htm_files/14470.png",

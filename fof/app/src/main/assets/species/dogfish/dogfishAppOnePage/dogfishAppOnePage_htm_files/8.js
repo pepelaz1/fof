@@ -1,4 +1,4 @@
-window.local_table1_518_data = [
+window.local_table1_520_data = [
 {
  csv: "Natural Food, Bait, Presentation\u000ACrustaceans, Crab, Piece\u000AMolluscs, Limpet or Whelk, Whole\u000APolychaete worms, Rag or Lug, Whole\u000ASmall fishes, Mackerel, Large lask\u000A- , Squid, Whole",
  first: "dogfishAppOnePage_htm_files/14462.png",

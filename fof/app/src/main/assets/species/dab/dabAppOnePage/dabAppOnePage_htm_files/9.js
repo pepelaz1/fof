@@ -1,4 +1,4 @@
-window.local_table1_482_data = [
+window.local_table1_484_data = [
 {
  csv: "Organisation, Landing Size cms, Size Sexual Maturity\u000AEuropean Union, None,  Unknown\u000AInshore Fisheries and Conservation Authority, 15*, -\u000AAngling Trust (Boat), 23,  -\u000AAngling Trust (Shore),None, -",
  first: "dabAppOnePage_htm_files/14470.png",
