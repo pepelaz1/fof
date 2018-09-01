@@ -23,9 +23,7 @@ import java.util.*
 import android.opengl.ETC1.getWidth
 import android.view.WindowManager
 import android.view.Display
-
-
-
+import android.webkit.WebSettings
 
 
 /**
@@ -65,7 +63,7 @@ class InfoFragment : Fragment() {
         v.webView.settings.javaScriptEnabled = true
         v.webView.settings.setSupportZoom(true)
         v.webView.settings.builtInZoomControls = false
-        v.webView.settings.userAgentString = "Mozilla/5.0 (iPhone; CPU iPhone OS 8_3 like Mac OS X) AppleWebKit/600.14 (KHTML, like Gecko) Mobile/12F70"
+
         var scale = resources.getDimension(R.dimen.species_page_scale)
         v.webView.setInitialScale(scale.toInt())
         v.webView.webViewClient = object : WebViewClient() {
