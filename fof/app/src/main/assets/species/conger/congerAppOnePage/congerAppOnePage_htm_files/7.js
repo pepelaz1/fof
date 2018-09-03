@@ -1,15 +1,15 @@
-window.local_table1_515_data = [
+window.local_table1_7_data = [
 {
- csv: "Natural Food, Bait, Presentation\u000ACrustaceans, Crab, Peeler\u000ACrustaceans, Limpet, Whole\u000ASmall fishes, Mackerel, Large lask\u000ASquid, Squid, Whole\u000A-, Worm, Whole + Squid",
- first: "congerOnePage_htm_files/14462.png",
- firstdark: "congerOnePage_htm_files/14463.png",
- last: "congerOnePage_htm_files/14462.png",
- lastdark: "congerOnePage_htm_files/14463.png",
- next: "congerOnePage_htm_files/14462.png",
- nextdark: "congerOnePage_htm_files/14463.png",
- prev: "congerOnePage_htm_files/14462.png",
- prevdark: "congerOnePage_htm_files/14463.png",
- rows: "6",
+ csv: "Line, Main, Trace\u000AType:, Mono, Wire\u000AStrength (lbs):, 30/50, 80\u000ALength (mts):, - , 1\u000AHook size:, 6/0, 8/0",
+ first: "congerOnePageNew_htm_files/23127.png",
+ firstdark: "congerOnePageNew_htm_files/23128.png",
+ last: "congerOnePageNew_htm_files/23129.png",
+ lastdark: "congerOnePageNew_htm_files/23130.png",
+ next: "congerOnePageNew_htm_files/23131.png",
+ nextdark: "congerOnePageNew_htm_files/23132.png",
+ prev: "congerOnePageNew_htm_files/23133.png",
+ prevdark: "congerOnePageNew_htm_files/23134.png",
+ rows: "5",
  theme: "1"
 }
 ];

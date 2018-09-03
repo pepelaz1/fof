@@ -1,14 +1,14 @@
-window.local_table1_514_data = [
+window.local_table1_0_data = [
 {
- csv: "Line, Main, Type\u000AType:, Mono, Mono\u000AStrength (lbs):, 20, 50\u000ALength (m):,-, 1\u000AHook Size:, -, 5/0 - 8/0",
- first: "congerOnePage_htm_files/14470.png",
- firstdark: "congerOnePage_htm_files/14471.png",
- last: "congerOnePage_htm_files/14472.png",
- lastdark: "congerOnePage_htm_files/14473.png",
- next: "congerOnePage_htm_files/14474.png",
- nextdark: "congerOnePage_htm_files/14475.png",
- prev: "congerOnePage_htm_files/14476.png",
- prevdark: "congerOnePage_htm_files/14477.png",
+ csv: "Line, Main, Trace\u000AType:, Mono, Wire\u000AStrength (lbs):, 30/50, 80\u000ALength (mts):, - , 1\u000AHook size:, -, 8/0",
+ first: "congerOnePageNew_htm_files/23127.png",
+ firstdark: "congerOnePageNew_htm_files/23128.png",
+ last: "congerOnePageNew_htm_files/23129.png",
+ lastdark: "congerOnePageNew_htm_files/23130.png",
+ next: "congerOnePageNew_htm_files/23131.png",
+ nextdark: "congerOnePageNew_htm_files/23132.png",
+ prev: "congerOnePageNew_htm_files/23133.png",
+ prevdark: "congerOnePageNew_htm_files/23134.png",
  rows: "5",
  theme: "1"
 }

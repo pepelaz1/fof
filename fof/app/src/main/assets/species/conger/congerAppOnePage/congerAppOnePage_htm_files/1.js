@@ -1,15 +1,15 @@
-window.local_table1_310_data = [
+window.local_table1_135_data = [
 {
- csv: "Angler,Boat,Shore\u000Albs,94 12 04,68 02 00\u000AKilos,42.985,30.899\u000AYear:,1985,1967\u000ABy:,S.Neill,H.Legerton\u000APlace:,Belfast Lough,Canvey Island",
- first: "congerOnePage_htm_files/14470.png",
- firstdark: "congerOnePage_htm_files/14471.png",
- last: "congerOnePage_htm_files/14472.png",
- lastdark: "congerOnePage_htm_files/14473.png",
- next: "congerOnePage_htm_files/14474.png",
- nextdark: "congerOnePage_htm_files/14475.png",
- prev: "congerOnePage_htm_files/14476.png",
- prevdark: "congerOnePage_htm_files/14477.png",
- rows: "6",
+ csv: "Organisation, Landing Size cms, Size Sexual Maturity\u000AEuropean Union:, None, Unknown\u000AICFA:, 58 - Restrictions, -\u000AAngling Trust (Boat), 120, -\u000AAngling Trust (Shore), 91, -",
+ first: "congerOnePageNew_htm_files/23127.png",
+ firstdark: "congerOnePageNew_htm_files/23128.png",
+ last: "congerOnePageNew_htm_files/23129.png",
+ lastdark: "congerOnePageNew_htm_files/23130.png",
+ next: "congerOnePageNew_htm_files/23131.png",
+ nextdark: "congerOnePageNew_htm_files/23132.png",
+ prev: "congerOnePageNew_htm_files/23133.png",
+ prevdark: "congerOnePageNew_htm_files/23134.png",
+ rows: "8",
  theme: "1"
 }
 ];

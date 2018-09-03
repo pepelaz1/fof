@@ -1,15 +1,15 @@
-window.local_table1_512_data = [
+window.local_table1_137_data = [
 {
- csv: "Line, Main, Trace\u000AType:, Mono, -\u000AStrength (lbs):, 20 - 30,  -\u000ALength (m):, -, -\u000AHook Size:, -, 4/0 Single or Trebles\u000A  ",
- first: "congerOnePage_htm_files/14470.png",
- firstdark: "congerOnePage_htm_files/14471.png",
- last: "congerOnePage_htm_files/14472.png",
- lastdark: "congerOnePage_htm_files/14473.png",
- next: "congerOnePage_htm_files/14474.png",
- nextdark: "congerOnePage_htm_files/14475.png",
- prev: "congerOnePage_htm_files/14476.png",
- prevdark: "congerOnePage_htm_files/14477.png",
- rows: "5",
+ csv: "Rig, Rod, Reel\u000A1: Leger: Running - Rotten bottom, 50 lbs Roller guides, Multiplier\u000A2: Leger: Rolling - Swivel hook, 50 lbs Roller guides, Multiplier",
+ first: "congerOnePageNew_htm_files/23127.png",
+ firstdark: "congerOnePageNew_htm_files/23128.png",
+ last: "congerOnePageNew_htm_files/23129.png",
+ lastdark: "congerOnePageNew_htm_files/23130.png",
+ next: "congerOnePageNew_htm_files/23131.png",
+ nextdark: "congerOnePageNew_htm_files/23132.png",
+ prev: "congerOnePageNew_htm_files/23133.png",
+ prevdark: "congerOnePageNew_htm_files/23134.png",
+ rows: "3",
  theme: "1"
 }
 ];

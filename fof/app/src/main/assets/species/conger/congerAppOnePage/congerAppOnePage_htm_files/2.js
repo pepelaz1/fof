@@ -1,15 +1,15 @@
-window.local_table1_479_data = [
+window.local_table1_136_data = [
 {
- csv: "Rig, Rod (lbs), Reel\u000A1. Leger - Flowing Trace, 20 - 30, Multiplier\u000A2. Pirk & Feathers, 50, Multiplier\u000A ",
- first: "congerOnePage_htm_files/14470.png",
- firstdark: "congerOnePage_htm_files/14471.png",
- last: "congerOnePage_htm_files/14472.png",
- lastdark: "congerOnePage_htm_files/14473.png",
- next: "congerOnePage_htm_files/14474.png",
- nextdark: "congerOnePage_htm_files/14475.png",
- prev: "congerOnePage_htm_files/14476.png",
- prevdark: "congerOnePage_htm_files/14477.png",
- rows: "3",
+ csv: "Classification, Name\u000AClass:, Actinopterygii\u000AOrder:, Anguilliformes\u000AFamily:, Congridae\u000ASpecies:, Conger conger ",
+ first: "congerOnePageNew_htm_files/23127.png",
+ firstdark: "congerOnePageNew_htm_files/23128.png",
+ last: "congerOnePageNew_htm_files/23129.png",
+ lastdark: "congerOnePageNew_htm_files/23130.png",
+ next: "congerOnePageNew_htm_files/23131.png",
+ nextdark: "congerOnePageNew_htm_files/23132.png",
+ prev: "congerOnePageNew_htm_files/23133.png",
+ prevdark: "congerOnePageNew_htm_files/23134.png",
+ rows: "5",
  theme: "1"
 }
 ];
