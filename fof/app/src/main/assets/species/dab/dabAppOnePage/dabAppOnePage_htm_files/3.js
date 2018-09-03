@@ -1,14 +1,14 @@
-window.local_table1_456_data = [
+window.local_table1_501_data = [
 {
- csv: "Line, Main, Trace\u000AType:, Mono, Mono\u000AStrength (lbs):,10, 10\u000ALength (m):, - , 2\u000AHook Size:, - , 4",
- first: "dabAppOnePage_htm_files/14470.png",
- firstdark: "dabAppOnePage_htm_files/14471.png",
- last: "dabAppOnePage_htm_files/14472.png",
- lastdark: "dabAppOnePage_htm_files/14473.png",
- next: "dabAppOnePage_htm_files/14474.png",
- nextdark: "dabAppOnePage_htm_files/14475.png",
- prev: "dabAppOnePage_htm_files/14476.png",
- prevdark: "dabAppOnePage_htm_files/14477.png",
+ csv: "Classification, Name\u000AClass:, Actinopterygii\u000AOrder:, Pleuronectiformes\u000AFamily:, Pleuronectidae\u000ASpecies:, Limanda limanda",
+ first: "dabOnePageTest_htm_files/23422.png",
+ firstdark: "dabOnePageTest_htm_files/23423.png",
+ last: "dabOnePageTest_htm_files/23424.png",
+ lastdark: "dabOnePageTest_htm_files/23425.png",
+ next: "dabOnePageTest_htm_files/23426.png",
+ nextdark: "dabOnePageTest_htm_files/23427.png",
+ prev: "dabOnePageTest_htm_files/23428.png",
+ prevdark: "dabOnePageTest_htm_files/23429.png",
  rows: "5",
  theme: "1"
 }

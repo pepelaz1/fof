@@ -1,15 +1,15 @@
-window.local_table1_455_data = [
+window.local_table1_497_data = [
 {
- csv: "Rig, Rod (lbs), Reel\u000A1. Leger: Rolling - Three Hook & Spoon, 20 - 30, Multiplier\u000A2. Leger: Running - Three Hook, 50, Multiplier\u000A ",
- first: "dabAppOnePage_htm_files/14470.png",
- firstdark: "dabAppOnePage_htm_files/14471.png",
- last: "dabAppOnePage_htm_files/14472.png",
- lastdark: "dabAppOnePage_htm_files/14473.png",
- next: "dabAppOnePage_htm_files/14474.png",
- nextdark: "dabAppOnePage_htm_files/14475.png",
- prev: "dabAppOnePage_htm_files/14476.png",
- prevdark: "dabAppOnePage_htm_files/14477.png",
- rows: "3",
+ csv: "Organisation, Landing Size cms, Size Sexual Maturity\u000AEuropean Union, None,  Unknown\u000AInshore Fisheries and Conservation Authority, 15*, -\u000AAngling Trust (Boat), 23,  -\u000AAngling Trust (Shore),None, -",
+ first: "dabOnePageTest_htm_files/23422.png",
+ firstdark: "dabOnePageTest_htm_files/23423.png",
+ last: "dabOnePageTest_htm_files/23424.png",
+ lastdark: "dabOnePageTest_htm_files/23425.png",
+ next: "dabOnePageTest_htm_files/23426.png",
+ nextdark: "dabOnePageTest_htm_files/23427.png",
+ prev: "dabOnePageTest_htm_files/23428.png",
+ prevdark: "dabOnePageTest_htm_files/23429.png",
+ rows: "5",
  theme: "1"
 }
 ];

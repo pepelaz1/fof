@@ -1,14 +1,14 @@
-window.local_table1_306_data = [
+window.local_table1_496_data = [
 {
- csv: "Angler,Boat,Shore\u000Albs,94 12 04,68 02 00\u000AKilos,42.985,30.899\u000AYear:,1985,1967\u000ABy:,S.Neill,H.Legerton\u000APlace:,Belfast Lough,Canvey Island",
- first: "dabAppOnePage_htm_files/14470.png",
- firstdark: "dabAppOnePage_htm_files/14471.png",
- last: "dabAppOnePage_htm_files/14472.png",
- lastdark: "dabAppOnePage_htm_files/14473.png",
- next: "dabAppOnePage_htm_files/14474.png",
- nextdark: "dabAppOnePage_htm_files/14475.png",
- prev: "dabAppOnePage_htm_files/14476.png",
- prevdark: "dabAppOnePage_htm_files/14477.png",
+ csv: "Dab, Boat, Shore\u000Albs:, 02 12 04, 02 09 08\u000Akilos:, 1.254, 1.176\u000AYear:, 1975, 1936\u000ABy:, R. Islip, M. Watts\u000APlace:, Gairlock - Wester Ross, Morfa Beach -Port Talbot",
+ first: "dabOnePageTest_htm_files/23422.png",
+ firstdark: "dabOnePageTest_htm_files/23423.png",
+ last: "dabOnePageTest_htm_files/23424.png",
+ lastdark: "dabOnePageTest_htm_files/23425.png",
+ next: "dabOnePageTest_htm_files/23426.png",
+ nextdark: "dabOnePageTest_htm_files/23427.png",
+ prev: "dabOnePageTest_htm_files/23428.png",
+ prevdark: "dabOnePageTest_htm_files/23429.png",
  rows: "6",
  theme: "1"
 }
