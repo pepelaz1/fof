@@ -1,15 +1,15 @@
-window.local_table1_523_data = [
+window.local_table1_527_data = [
 {
- csv: "Dogfish, Boat, Shore\u000Albs:, 04 09 00, 04 15 03\u000Akilos:, 2.069, 2.244\u000AYear:, 2005, 1988\u000ABy:, M. Donnelly, S. Ramsey\u000APlace:, Off Fleetwood, Abbey Burnfoot",
- first: "dogfishAppOnePage_htm_files/14470.png",
- firstdark: "dogfishAppOnePage_htm_files/14471.png",
- last: "dogfishAppOnePage_htm_files/14472.png",
- lastdark: "dogfishAppOnePage_htm_files/14473.png",
- next: "dogfishAppOnePage_htm_files/14474.png",
- nextdark: "dogfishAppOnePage_htm_files/14475.png",
- prev: "dogfishAppOnePage_htm_files/14476.png",
- prevdark: "dogfishAppOnePage_htm_files/14477.png",
- rows: "6",
+ csv: "Organisation, Landing Size (cms), Size Sexual Maturity\u000AEuropean Union, None,  60\u000AInshore Fisheries and Conservation Authority, None, -\u000AAngling Trust (Boat), 46,  -\u000AAngling Trust (Shore), 35, -",
+ first: "dogfishOnePageNew_htm_files/36376.png",
+ firstdark: "dogfishOnePageNew_htm_files/36377.png",
+ last: "dogfishOnePageNew_htm_files/36378.png",
+ lastdark: "dogfishOnePageNew_htm_files/36379.png",
+ next: "dogfishOnePageNew_htm_files/36380.png",
+ nextdark: "dogfishOnePageNew_htm_files/36381.png",
+ prev: "dogfishOnePageNew_htm_files/36382.png",
+ prevdark: "dogfishOnePageNew_htm_files/36383.png",
+ rows: "5",
  theme: "1"
 }
 ];

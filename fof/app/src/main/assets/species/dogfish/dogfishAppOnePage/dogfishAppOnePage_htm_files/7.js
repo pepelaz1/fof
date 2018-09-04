@@ -1,15 +1,15 @@
-window.local_table1_519_data = [
+window.local_table1_520_data = [
 {
- csv: "Line, Main, Type\u000AType:, Mono, Mono\u000AStrength (lbs):,10, 10\u000ALength (m):,-, 2\u000AHook Size:, -, 2/0 - 4/0",
- first: "dogfishAppOnePage_htm_files/14470.png",
- firstdark: "dogfishAppOnePage_htm_files/14471.png",
- last: "dogfishAppOnePage_htm_files/14472.png",
- lastdark: "dogfishAppOnePage_htm_files/14473.png",
- next: "dogfishAppOnePage_htm_files/14474.png",
- nextdark: "dogfishAppOnePage_htm_files/14475.png",
- prev: "dogfishAppOnePage_htm_files/14476.png",
- prevdark: "dogfishAppOnePage_htm_files/14477.png",
- rows: "5",
+ csv: "Natural Food, Bait, Presentation\u000ACrustaceans, Crab, Piece\u000AMolluscs, Limpet or Whelk, Whole\u000APolychaete worms, Rag or Lug, Whole\u000ASmall fishes, Mackerel, Large lask\u000A- , Squid, Whole",
+ first: "dogfishOnePageNew_htm_files/36372.png",
+ firstdark: "dogfishOnePageNew_htm_files/36373.png",
+ last: "dogfishOnePageNew_htm_files/36372.png",
+ lastdark: "dogfishOnePageNew_htm_files/36373.png",
+ next: "dogfishOnePageNew_htm_files/36372.png",
+ nextdark: "dogfishOnePageNew_htm_files/36373.png",
+ prev: "dogfishOnePageNew_htm_files/36372.png",
+ prevdark: "dogfishOnePageNew_htm_files/36373.png",
+ rows: "6",
  theme: "1"
 }
 ];

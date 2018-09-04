@@ -1,14 +1,14 @@
 window.local_table1_296_data = [
 {
  csv: "Rig,Rod,Reel\u000AN/A,N/A,N/A",
- first: "breamAppOnePage_htm_files/14462.png",
- firstdark: "breamAppOnePage_htm_files/14463.png",
- last: "breamAppOnePage_htm_files/14462.png",
- lastdark: "breamAppOnePage_htm_files/14463.png",
- next: "breamAppOnePage_htm_files/14462.png",
- nextdark: "breamAppOnePage_htm_files/14463.png",
- prev: "breamAppOnePage_htm_files/14462.png",
- prevdark: "breamAppOnePage_htm_files/14463.png",
+ first: "breamOnePageNew_htm_files/36303.png",
+ firstdark: "breamOnePageNew_htm_files/36304.png",
+ last: "breamOnePageNew_htm_files/36303.png",
+ lastdark: "breamOnePageNew_htm_files/36304.png",
+ next: "breamOnePageNew_htm_files/36303.png",
+ nextdark: "breamOnePageNew_htm_files/36304.png",
+ prev: "breamOnePageNew_htm_files/36303.png",
+ prevdark: "breamOnePageNew_htm_files/36304.png",
  rows: "2",
  theme: "1"
 }

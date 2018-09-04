@@ -1,14 +1,14 @@
-window.local_table1_520_data = [
+window.local_table1_523_data = [
 {
- csv: "Natural Food, Bait, Presentation\u000ACrustaceans, Crab, Piece\u000AMolluscs, Limpet or Whelk, Whole\u000APolychaete worms, Rag or Lug, Whole\u000ASmall fishes, Mackerel, Large lask\u000A- , Squid, Whole",
- first: "dogfishAppOnePage_htm_files/14462.png",
- firstdark: "dogfishAppOnePage_htm_files/14463.png",
- last: "dogfishAppOnePage_htm_files/14462.png",
- lastdark: "dogfishAppOnePage_htm_files/14463.png",
- next: "dogfishAppOnePage_htm_files/14462.png",
- nextdark: "dogfishAppOnePage_htm_files/14463.png",
- prev: "dogfishAppOnePage_htm_files/14462.png",
- prevdark: "dogfishAppOnePage_htm_files/14463.png",
+ csv: "Dogfish, Boat, Shore\u000Albs:, 04 09 00, 04 15 03\u000Akilos:, 2.069, 2.244\u000AYear:, 2005, 1988\u000ABy:, M. Donnelly, S. Ramsey\u000APlace:, Off Fleetwood, Abbey Burnfoot",
+ first: "dogfishOnePageNew_htm_files/36376.png",
+ firstdark: "dogfishOnePageNew_htm_files/36377.png",
+ last: "dogfishOnePageNew_htm_files/36378.png",
+ lastdark: "dogfishOnePageNew_htm_files/36379.png",
+ next: "dogfishOnePageNew_htm_files/36380.png",
+ nextdark: "dogfishOnePageNew_htm_files/36381.png",
+ prev: "dogfishOnePageNew_htm_files/36382.png",
+ prevdark: "dogfishOnePageNew_htm_files/36383.png",
  rows: "6",
  theme: "1"
 }

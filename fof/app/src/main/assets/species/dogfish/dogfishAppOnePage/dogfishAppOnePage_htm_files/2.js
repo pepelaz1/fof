@@ -1,15 +1,15 @@
-window.local_table1_500_data = [
+window.local_table1_505_data = [
 {
- csv: "Rig,Rod (lbs),Reel\u000A1. Leger - Running, Beach Caster, Fixed spool",
- first: "dogfishAppOnePage_htm_files/14462.png",
- firstdark: "dogfishAppOnePage_htm_files/14463.png",
- last: "dogfishAppOnePage_htm_files/14462.png",
- lastdark: "dogfishAppOnePage_htm_files/14463.png",
- next: "dogfishAppOnePage_htm_files/14462.png",
- nextdark: "dogfishAppOnePage_htm_files/14463.png",
- prev: "dogfishAppOnePage_htm_files/14462.png",
- prevdark: "dogfishAppOnePage_htm_files/14463.png",
- rows: "2",
+ csv: "Classification, Name\u000AClass:, Actinopterygii\u000AOrder:, Gadiformes\u000AFamily:, Gadidae\u000ASpecies:, Gadus morhua",
+ first: "dogfishOnePageNew_htm_files/36376.png",
+ firstdark: "dogfishOnePageNew_htm_files/36377.png",
+ last: "dogfishOnePageNew_htm_files/36378.png",
+ lastdark: "dogfishOnePageNew_htm_files/36379.png",
+ next: "dogfishOnePageNew_htm_files/36380.png",
+ nextdark: "dogfishOnePageNew_htm_files/36381.png",
+ prev: "dogfishOnePageNew_htm_files/36382.png",
+ prevdark: "dogfishOnePageNew_htm_files/36383.png",
+ rows: "5",
  theme: "1"
 }
 ];
