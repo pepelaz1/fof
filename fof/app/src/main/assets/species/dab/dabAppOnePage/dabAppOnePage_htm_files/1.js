@@ -1,15 +1,15 @@
-window.local_table1_496_data = [
+window.local_table1_455_data = [
 {
- csv: "Dab, Boat, Shore\u000Albs:, 02 12 04, 02 09 08\u000Akilos:, 1.254, 1.176\u000AYear:, 1975, 1936\u000ABy:, R. Islip, M. Watts\u000APlace:, Gairlock - Wester Ross, Morfa Beach -Port Talbot",
- first: "dabOnePageTest_htm_files/23422.png",
- firstdark: "dabOnePageTest_htm_files/23423.png",
- last: "dabOnePageTest_htm_files/23424.png",
- lastdark: "dabOnePageTest_htm_files/23425.png",
- next: "dabOnePageTest_htm_files/23426.png",
- nextdark: "dabOnePageTest_htm_files/23427.png",
- prev: "dabOnePageTest_htm_files/23428.png",
- prevdark: "dabOnePageTest_htm_files/23429.png",
- rows: "6",
+ csv: "Rig, Rod (lbs), Reel\u000A1. Leger: Rolling - Three Hook & Spoon, 20 - 30, Multiplier\u000A2. Leger: Running - Three Hook, 50, Multiplier\u000A ",
+ first: "dabOnePage_htm_files/14470.png",
+ firstdark: "dabOnePage_htm_files/14471.png",
+ last: "dabOnePage_htm_files/14472.png",
+ lastdark: "dabOnePage_htm_files/14473.png",
+ next: "dabOnePage_htm_files/14474.png",
+ nextdark: "dabOnePage_htm_files/14475.png",
+ prev: "dabOnePage_htm_files/14476.png",
+ prevdark: "dabOnePage_htm_files/14477.png",
+ rows: "3",
  theme: "1"
 }
 ];

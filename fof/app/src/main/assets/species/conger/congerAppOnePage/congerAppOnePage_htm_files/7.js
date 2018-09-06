@@ -1,4 +1,4 @@
-window.local_table1_7_data = [
+window.local_table1_8_data = [
 {
  csv: "Line, Main, Trace\u000AType:, Mono, Wire\u000AStrength (lbs):, 30/50, 80\u000ALength (mts):, - , 1\u000AHook size:, 6/0, 8/0",
  first: "congerOnePageNew_htm_files/23127.png",
