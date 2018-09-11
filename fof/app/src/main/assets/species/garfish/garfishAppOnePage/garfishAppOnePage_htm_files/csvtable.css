@@ -1,0 +1,89 @@
+/* tables */
+table.tablesorter thead tr th, table.tablesorter tfoot tr th {
+    border: 1px solid #FFF;
+    font-size: 8pt;
+    padding: 4px;
+    text-align: left;
+}
+table.tablesorter thead tr .header {
+    background-image: url(bg.gif);
+    background-repeat: no-repeat;
+    background-position: center right;
+    cursor: pointer;
+}
+
+table.tablesorter thead tr .header1 {
+    background-image: url(bg.png);
+    background-repeat: no-repeat;
+    background-position: center right;
+    cursor: pointer;
+}
+
+table.tablesorter tbody td {
+}
+table.tablesorter tbody tr.odd td {
+
+}
+table.tablesorter thead tr .headerSortUp {
+    background-image: url(asc.gif);
+}
+
+
+table.tablesorter thead tr .headerSortUp1 {
+    background-image: url(asc.png);
+}
+
+table.tablesorter thead tr .headerSortDown {
+    background-image: url(desc.gif);
+}
+
+table.tablesorter thead tr .headerSortDown1 {
+    background-image: url(desc.png);
+}
+
+table.tablesorter thead tr .headerSortDown, table.tablesorter thead tr .headerSortUp {
+ /*   background-color: #999; */
+}
+
+/* CSV Table Classes */
+.table {
+    font: 0.9em Verdana,Arial,Geneva,Helvetica,sans-serif;
+    border-collapse:separate;
+    border-spacing:0px 0px;
+    width: 100%;
+}
+
+/* Header */
+
+.table tr td {
+    width:30px;
+    padding:5px;
+}
+
+/* Table Cells */
+.table TD, #table TH {
+    text-align: left;
+    border: 1px solid #FFFFFF;
+    border-top: 1px solid transparent;
+}
+/* Default background color for rows */
+.table TR {
+    background: #fafafa;
+}
+/* Background color for odd rows */
+.table tr:nth-child(odd){
+
+    background: #fefefe;
+}
+/* Hover color for all rows */
+
+.table TR:hover  {
+    background: #eee;
+}
+
+.table THEAD TR:nth-child(1){
+    text-align: left;
+    background: #999;
+    color:#000000;
+}
+
