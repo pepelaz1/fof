@@ -1,4 +1,4 @@
-window.local_table1_1_data = [
+window.local_table1_4_data = [
 {
  csv: "Rig, Rod (lbs), Reel\u000A1. Flying Collar, 30,Multiplier\u000A2. French Boom,12-20,Multiplier ",
  first: "haddockOnePageHtm_htm_files/14470.png",
