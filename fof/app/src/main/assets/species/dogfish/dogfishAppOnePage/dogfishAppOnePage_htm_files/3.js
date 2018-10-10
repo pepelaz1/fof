@@ -1,6 +1,6 @@
 window.local_table1_449_data = [
 {
- csv: "Rig, Rod (lbs), Reel\u000A1. Leger - Running Rotten bottom,10 - 12, Multiplier\u000A2. Leger - Running, 10 - 12, Multiplier\u000A ",
+ csv: "Rig, Rod (lbs), Reel\u000A1. Ledger - Running Rotten bottom,10 - 12, Multiplier\u000A2. Ledger - Running, 10 - 12, Multiplier\u000A ",
  first: "dogfishOnePageNew_htm_files/36480.png",
  firstdark: "dogfishOnePageNew_htm_files/36481.png",
  last: "dogfishOnePageNew_htm_files/36482.png",

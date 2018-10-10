@@ -1,6 +1,6 @@
 window.local_table1_457_data = [
 {
- csv: "Rig, Rod (lbs), Reel\u000A1. Leger: Rolling - Three Hook & Spoon, 20 - 30, Multiplier\u000A2. Leger: Running - Three Hook, 50, Multiplier\u000A ",
+ csv: "Rig, Rod (lbs), Reel\u000A1. Ledger: Rolling - Three Hook & Spoon, 20 - 30, Multiplier\u000A2. Ledger: Running - Three Hook, 50, Multiplier\u000A ",
  first: "dabOnePageHtm_htm_files/14470.png",
  firstdark: "dabOnePageHtm_htm_files/14471.png",
  last: "dabOnePageHtm_htm_files/14472.png",

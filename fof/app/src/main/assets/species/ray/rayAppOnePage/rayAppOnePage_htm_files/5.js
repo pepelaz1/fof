@@ -1,6 +1,6 @@
 window.local_table1_24_data = [
 {
- csv: "Rig, Rod (lbs),Reel\u000A1. Leger: Running, 12/20,Multiplier\u000A2. Leger: Uptide,12/20,Multiplier\u000A\u000A\u000A ",
+ csv: "Rig, Rod (lbs),Reel\u000A1. Ledger: Running, 12/20,Multiplier\u000A2. Ledger: Uptide,12/20,Multiplier\u000A\u000A\u000A ",
  first: "rayOnePage_htm_files/23636.png",
  firstdark: "rayOnePage_htm_files/23637.png",
  last: "rayOnePage_htm_files/23638.png",

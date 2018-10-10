@@ -1,6 +1,6 @@
 window.local_table1_462_data = [
 {
- csv: "Rig,Rod (lbs),Reel\u000A1. Leger: - Running & Breakaway lead, Beach Caster, Fixed spool",
+ csv: "Rig,Rod (lbs),Reel\u000A1. Ledger: - Running & Breakaway lead, Beach Caster, Fixed spool",
  first: "dabOnePageHtm_htm_files/14462.png",
  firstdark: "dabOnePageHtm_htm_files/14463.png",
  last: "dabOnePageHtm_htm_files/14462.png",

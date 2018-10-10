@@ -1,6 +1,6 @@
 window.local_table1_164_data = [
 {
- csv: "Rig, Rod, Reel\u000A1: Leger - Flowing trace, 10/12 lbs, Multiplier\u000A2: Paternoster - Adjustable, 10/12 lbs, Multiplier",
+ csv: "Rig, Rod, Reel\u000A1: Ledger - Flowing trace, 10/12 lbs, Multiplier\u000A2: Paternoster - Adjustable, 10/12 lbs, Multiplier",
  first: "doryOnePageHtm_htm_files/23551.png",
  firstdark: "doryOnePageHtm_htm_files/23552.png",
  last: "doryOnePageHtm_htm_files/23553.png",

@@ -29,7 +29,7 @@ import kotlin.collections.HashMap
 
 class TackleFragment : Fragment() {
 
-    val offlineUrl: String? = "file:///android_asset/pages/tackle/tackleHtm.htm"
+    val offlineUrl: String? = "file:///android_asset/pages/tackle/tackleOnePage.htm"
     var onlineUrl: String? = ""
     val origOnlineUrl: String? = "http://bit.ly/2KNOMu6"
     val tacklePages = HashMap<String, Pair<String, String>>()
@@ -113,16 +113,16 @@ class TackleFragment : Fragment() {
 
 
     fun loadTacklePages() {
-        tacklePages.put("22870", Pair("boom/boom.htm","http://bit.ly/2KNOMu6"))
-        tacklePages.put("22868", Pair("float/float.htm","http://bit.ly/2KNOMu6"))
-        tacklePages.put("22869", Pair("hook/hook.htm","http://bit.ly/2KNOMu6"))
-        tacklePages.put("22871", Pair("line/line.htm","http://bit.ly/2KNOMu6"))
-        tacklePages.put("22859", Pair("lure/lureApp.htm","http://bit.ly/2KNOMu6"))
-        tacklePages.put("22875", Pair("reel/reel.htm","http://bit.ly/2KNOMu6"))
-        tacklePages.put("22874", Pair("rod/rod.htm","http://bit.ly/2KNOMu6"))
-        tacklePages.put("22873", Pair("swivel/swivelHtm.htm","http://bit.ly/2KNOMu6"))
-        tacklePages.put("22867", Pair("weight/weight.htm","http://bit.ly/2KNOMu6"))
-
+        tacklePages.put("22882", Pair("boom/boom.htm","http://bit.ly/2KNOMu6"))
+        tacklePages.put("22880", Pair("float/float.htm","http://bit.ly/2KNOMu6"))
+        tacklePages.put("22881", Pair("hook/hook.htm","http://bit.ly/2KNOMu6"))
+        tacklePages.put("22883", Pair("line/line.htm","http://bit.ly/2KNOMu6"))
+        tacklePages.put("22884", Pair("lure/lureApp.htm","http://bit.ly/2KNOMu6"))
+        tacklePages.put("22887", Pair("reel/reel.htm","http://bit.ly/2KNOMu6"))
+        tacklePages.put("22886", Pair("rod/rod.htm","http://bit.ly/2KNOMu6"))
+        tacklePages.put("22885", Pair("swivel/swivelHtm.htm","http://bit.ly/2KNOMu6"))
+        tacklePages.put("22878", Pair("weight/weight.htm","http://bit.ly/2KNOMu6"))
+        tacklePages.put("22879", Pair("rig/rigOnePage.htm","http://bit.ly/2KNOMu6"))
     }
 
     override fun onDestroy() {

@@ -1,6 +1,6 @@
 window.local_table1_472_data = [
 {
- csv: "Rig, Rod, Reel\u000A1: Leger-Flowing trace, 12 lbs, Multiplier\u000A2: Paternoster-Adjustable, Spinning, Multiplier",
+ csv: "Rig, Rod, Reel\u000A1: Ledger-Flowing trace, 12 lbs, Multiplier\u000A2: Paternoster-Adjustable, Spinning, Multiplier",
  first: "breamOnePageNew_htm_files/14470.png",
  firstdark: "breamOnePageNew_htm_files/14471.png",
  last: "breamOnePageNew_htm_files/14472.png",

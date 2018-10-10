@@ -1,6 +1,6 @@
 window.local_table1_500_data = [
 {
- csv: "Rig,Rod (lbs),Reel\u000A1. Leger - Running, Beach Caster, Fixed spool",
+ csv: "Rig,Rod (lbs),Reel\u000A1. Ledger - Running, Beach Caster, Fixed spool",
  first: "dogfishOnePageNew_htm_files/36477.png",
  firstdark: "dogfishOnePageNew_htm_files/36478.png",
  last: "dogfishOnePageNew_htm_files/36477.png",

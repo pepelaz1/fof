@@ -1,6 +1,6 @@
 window.local_table1_4_data = [
 {
- csv: "Rig, Rod (lbs), Reel\u000A1. Leger - Running, 30,Multiplier\u000A2. Float - Adjustable,30,Multiplier ",
+ csv: "Rig, Rod (lbs), Reel\u000A1. Ledger - Running, 30,Multiplier\u000A2. Float - Adjustable,30,Multiplier ",
  first: "topeOnePage_htm_files/14470.png",
  firstdark: "topeOnePage_htm_files/14471.png",
  last: "topeOnePage_htm_files/14472.png",

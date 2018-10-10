@@ -1,6 +1,6 @@
 window.local_table1_493_data = [
 {
- csv: "Rig, Rod (lbs), Reel\u000A1. Leger; Three Hooks,12, Multiplier\u000A2. Leger: Running - Spoon,12, Multiplier\u000A ",
+ csv: "Rig, Rod (lbs), Reel\u000A1. Ledger; Three Hooks,12, Multiplier\u000A2. Ledger: Running - Spoon,12, Multiplier\u000A ",
  first: "plaiceOnePage_htm_files/36612.png",
  firstdark: "plaiceOnePage_htm_files/36613.png",
  last: "plaiceOnePage_htm_files/36614.png",

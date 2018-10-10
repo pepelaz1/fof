@@ -1,7 +1,7 @@
 package ru.pepelaz.fof.activities
 
-import android.Manifest.permission.ACCESS_FINE_LOCATION
-import android.Manifest.permission.CAMERA
+import android.Manifest.permission.*
+import android.app.Activity.RESULT_OK
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -10,13 +10,19 @@ import android.view.View
 import android.widget.ImageView
 import android.content.Intent
 import android.content.pm.PackageManager.PERMISSION_GRANTED
+import android.graphics.Bitmap
+import android.net.Uri
 import android.os.Build
+import android.os.Environment
+import android.os.Environment.getExternalStoragePublicDirectory
 import android.provider.MediaStore
 import android.support.annotation.NonNull
 import android.support.v4.app.ActivityCompat
 import android.support.v4.content.ContextCompat
+import android.support.v4.content.FileProvider
 import io.nlopez.smartlocation.SmartLocation
 import kotlinx.android.synthetic.main.activity_main.*
+import ru.pepelaz.fof.BuildConfig
 import ru.pepelaz.fof.R
 import ru.pepelaz.fof.activities.locations.LocationsActivity
 import ru.pepelaz.fof.activities.species.SpeciesActivity
@@ -28,6 +34,10 @@ import ru.pepelaz.fof.flashlight.FlashlightFactory
 import ru.pepelaz.fof.helpers.CurrentCoords
 import ru.pepelaz.fof.helpers.PresentLocationCoords
 import ru.pepelaz.fof.helpers.RxBus
+import java.io.File
+import java.io.IOException
+import java.text.SimpleDateFormat
+import java.util.*
 
 
 class MainActivity : AppCompatActivity() {
@@ -35,6 +45,8 @@ class MainActivity : AppCompatActivity() {
     private val PERMISSION_REQUEST = 1001
     private lateinit var flashlight: Flashlight
     private var isFlashlightEnabled = false
+    val REQUEST_TAKE_PHOTO = 1
+    var currentPhotoPath: String = ""
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -44,8 +56,12 @@ class MainActivity : AppCompatActivity() {
         flashlight = FlashlightFactory.newInstance(this, Build.VERSION_CODES.KITKAT)
 
         if ((ContextCompat.checkSelfPermission(this, ACCESS_FINE_LOCATION) != PERMISSION_GRANTED) ||
-            (ContextCompat.checkSelfPermission(this, CAMERA) != PERMISSION_GRANTED)) {
-            ActivityCompat.requestPermissions(this, arrayOf(ACCESS_FINE_LOCATION, CAMERA), PERMISSION_REQUEST)
+            (ContextCompat.checkSelfPermission(this, CAMERA) != PERMISSION_GRANTED) ||
+            (ContextCompat.checkSelfPermission(this, READ_EXTERNAL_STORAGE) != PERMISSION_GRANTED) ||
+            (ContextCompat.checkSelfPermission(this, WRITE_EXTERNAL_STORAGE) != PERMISSION_GRANTED)
+        ) {
+            ActivityCompat.requestPermissions(this, arrayOf(ACCESS_FINE_LOCATION, CAMERA, READ_EXTERNAL_STORAGE,
+                    WRITE_EXTERNAL_STORAGE), PERMISSION_REQUEST)
         } else {
             getCoordinates()
             flashlight.onStart()
@@ -100,12 +116,10 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this, GlossaryActivity::class.java))
         })
 
-        imageViewCamera.setOnClickListener({
 
-            val cameraIntent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
-            if(cameraIntent.resolveActivity(packageManager)!=null){
-                startActivityForResult(cameraIntent,1)
-            }
+
+        imageViewCamera.setOnClickListener({
+            openCameraIntent()
         })
 
         imageViewCooking.setOnClickListener({
@@ -140,6 +154,68 @@ class MainActivity : AppCompatActivity() {
         })
         Log.d("test_test","Destiny: " + resources.getDisplayMetrics().density)
     }
+
+
+    var imageFilePath: String = ""
+    @Throws(IOException::class)
+    private fun createImageFile(): File {
+        // Create an image file name
+        val timeStamp: String = SimpleDateFormat("yyyyMMdd_HHmmss").format(Date())
+        val imageFileName = "IMG_$timeStamp"
+
+        var dir = File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES), "Fof")
+        if (!dir.exists()) {
+            dir.mkdirs()
+        }
+
+        return File.createTempFile(imageFileName, ".jpg", dir)
+    }
+
+
+    private fun openCameraIntent() {
+        val intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
+        var photoFile: File? = null
+        try {
+            photoFile = createImageFile()
+        }
+        catch (e: IOException) {
+        }
+
+        if (photoFile != null) {
+            imageFilePath = photoFile.absolutePath
+            val photoURI = FileProvider.getUriForFile(this, "${BuildConfig.APPLICATION_ID}.fileprovider", photoFile)
+            intent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI)
+            startActivityForResult(intent, REQUEST_TAKE_PHOTO)
+        }
+    }
+
+    private fun galleryAddPic() {
+//        Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE).also { mediaScanIntent ->
+//            val f = File(imageFilePath)
+//            mediaScanIntent.data = Uri.fromFile(f)
+//            sendBroadcast(mediaScanIntent)
+//        }
+
+        val intent = Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE)
+        val contentUri = Uri.fromFile(File(imageFilePath))
+        intent.data = contentUri
+        this.sendBroadcast(intent)
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        when(requestCode){
+            REQUEST_TAKE_PHOTO ->{
+                if(resultCode == RESULT_OK){
+                    galleryAddPic()
+                }
+            }
+        }
+    }
+
+
+
+
 
     override fun onRequestPermissionsResult(requestCode: Int, @NonNull permissions: Array<String>,
                                             @NonNull grantResults: IntArray) {

@@ -1,6 +1,6 @@
 window.local_table1_164_data = [
 {
- csv: "Rig, Rod, Reel\u000A1: Leger-Running, 20lbs, Multiplier\u000A2: Leger-Rolling with Spoon, 20lbs, Multiplier",
+ csv: "Rig, Rod, Reel\u000A1: Ledger-Running, 20lbs, Multiplier\u000A2: Ledger-Rolling with Spoon, 20lbs, Multiplier",
  first: "anglerAppOnePage_htm_files/14470.png",
  firstdark: "anglerAppOnePage_htm_files/14471.png",
  last: "anglerAppOnePage_htm_files/14472.png",
