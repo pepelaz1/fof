@@ -83,6 +83,8 @@ class MainActivity : AppCompatActivity() {
         imageViewAbout.setOnTouchListener(touchListener)
         imageViewCompass.setOnTouchListener(touchListener)
         imageViewTorch.setOnTouchListener(touchListener)
+        imageViewCoarse.setOnTouchListener(touchListener)
+        imageViewFacebook.setOnTouchListener(touchListener)
 
         imageViewFish.setOnClickListener({
             startActivity(Intent(this, SpeciesActivity::class.java))
@@ -115,8 +117,6 @@ class MainActivity : AppCompatActivity() {
         imageViewGlossary.setOnClickListener({
             startActivity(Intent(this, GlossaryActivity::class.java))
         })
-
-
 
         imageViewCamera.setOnClickListener({
             openCameraIntent()
@@ -152,6 +152,16 @@ class MainActivity : AppCompatActivity() {
 
             textViewTorch.text = (if (isFlashlightEnabled) "Torch on" else "Torch off" )
         })
+
+        imageViewCoarse.setOnClickListener({
+            val i = Intent(Intent.ACTION_VIEW, Uri.parse("http://coarsefishingfacts.com"))
+            startActivity(i)
+        })
+
+        imageViewFacebook.setOnClickListener({
+            val i = Intent(Intent.ACTION_VIEW, Uri.parse("https://www.facebook.com/SeaFishingBook/"))
+            startActivity(i)
+        })
         Log.d("test_test","Destiny: " + resources.getDisplayMetrics().density)
     }
 
@@ -159,7 +169,7 @@ class MainActivity : AppCompatActivity() {
     var imageFilePath: String = ""
     @Throws(IOException::class)
     private fun createImageFile(): File {
-        // Create an image file name
+
         val timeStamp: String = SimpleDateFormat("yyyyMMdd_HHmmss").format(Date())
         val imageFileName = "IMG_$timeStamp"
 
@@ -167,7 +177,6 @@ class MainActivity : AppCompatActivity() {
         if (!dir.exists()) {
             dir.mkdirs()
         }
-
         return File.createTempFile(imageFileName, ".jpg", dir)
     }
 
@@ -190,11 +199,6 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun galleryAddPic() {
-//        Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE).also { mediaScanIntent ->
-//            val f = File(imageFilePath)
-//            mediaScanIntent.data = Uri.fromFile(f)
-//            sendBroadcast(mediaScanIntent)
-//        }
 
         val intent = Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE)
         val contentUri = Uri.fromFile(File(imageFilePath))
@@ -212,9 +216,6 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
-
-
-
 
 
     override fun onRequestPermissionsResult(requestCode: Int, @NonNull permissions: Array<String>,
@@ -270,7 +271,5 @@ class MainActivity : AppCompatActivity() {
     fun buttonGoSiteClicked(v: View) {
         startActivity(Intent(this, SiteActivity::class.java))
     }
-
-
 
 }

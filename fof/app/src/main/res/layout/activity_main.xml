@@ -36,7 +36,7 @@
         <TableLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="80"
+            android:layout_weight="90"
             android:layout_gravity="center"
             android:weightSum="100">
 
@@ -44,7 +44,7 @@
                 android:id="@+id/tableRow1"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight="25"
+                android:layout_weight="20"
                 android:weightSum="100">
 
                 <LinearLayout
@@ -152,7 +152,7 @@
                 android:id="@+id/tableRow2"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight="25"
+                android:layout_weight="20"
                 android:weightSum="100">
 
                 <LinearLayout
@@ -262,7 +262,7 @@
                 android:id="@+id/tableRow3"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight="25"
+                android:layout_weight="20"
                 android:weightSum="100">
 
                 <LinearLayout
@@ -370,7 +370,7 @@
                 android:id="@+id/tableRow4"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight="25"
+                android:layout_weight="20"
                 android:weightSum="100">
 
                 <LinearLayout
@@ -473,38 +473,70 @@
                         android:textStyle="bold|italic" />
                 </LinearLayout>
             </TableRow>
+
+            <TableRow
+                android:id="@+id/tableRow5"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="20"
+                android:weightSum="100">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_margin="@dimen/home_icon_margin"
+                    android:layout_weight="25"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/imageViewCoarse"
+                        android:layout_width="@dimen/home_button_width"
+                        android:layout_height="@dimen/home_button_height"
+                        android:layout_gravity="center"
+                        android:scaleType="fitXY"
+                        app:srcCompat="@drawable/coarse" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="Coarse"
+                        android:textAlignment="center"
+                        android:textColor="@android:color/black"
+                        android:textSize="@dimen/home_button_text_size"
+                        android:textStyle="bold|italic" />
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_margin="@dimen/home_icon_margin"
+                    android:layout_weight="75">
+
+                    <ImageView
+                        android:id="@+id/imageViewFacebook"
+                        android:layout_width="@dimen/facebook_button_width"
+                        android:layout_height="@dimen/home_button_height"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentLeft="true"
+                        android:scaleType="fitXY"
+                        app:srcCompat="@drawable/facebook" />
+
+                    <Button
+                        android:id="@+id/buttonQuit"
+                        style="@style/AppTheme.Button"
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/home_down_buttons_padding_height"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="8dp"
+                        android:layout_marginTop="12dp"
+                        android:onClick="buttonQuitClicked"
+                        android:text="Close" />
+
+                </RelativeLayout>
+
+            </TableRow>
         </TableLayout>
-
-        <RelativeLayout
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:layout_weight="10"
-            android:orientation="horizontal"
-            android:layout_gravity="center">
-
-
-            <Button
-                android:id="@+id/buttonGoSite"
-                android:layout_width="wrap_content"
-                android:layout_height="@dimen/home_down_buttons_padding_height"
-                android:background="@color/blue"
-                android:onClick="buttonGoSiteClicked"
-                android:text="Coarse Fishing"
-                android:textAllCaps="false"
-                android:textColor="@android:color/white"
-                android:paddingLeft="@dimen/home_site_button_padding_left"
-                android:paddingRight="@dimen/home_site_button_padding_right"/>
-
-            <Button
-                android:id="@+id/buttonQuit"
-                style="@style/AppTheme.Button"
-                android:layout_width="wrap_content"
-                android:layout_height="@dimen/home_down_buttons_padding_height"
-                android:layout_marginLeft="@dimen/home_quit_button_margin_left"
-                android:layout_toRightOf="@id/buttonGoSite"
-                android:onClick="buttonQuitClicked"
-                android:text="Close" />
-        </RelativeLayout>
 
     </LinearLayout>
 
