@@ -7,4 +7,6 @@
     <dimen name="home_site_button_padding_right">30dp</dimen>
     <dimen name="home_down_buttons_padding_height">36dp</dimen>
 
+    <dimen name="home_facebook_padding_right">4dp</dimen>
+    <dimen name="home_facebook_padding_left">4dp</dimen>
 </resources>

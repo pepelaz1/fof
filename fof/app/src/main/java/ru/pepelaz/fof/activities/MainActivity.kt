@@ -268,8 +268,8 @@ class MainActivity : AppCompatActivity() {
     fun buttonQuitClicked(v: View) {
         finish()
     }
-    fun buttonGoSiteClicked(v: View) {
-        startActivity(Intent(this, SiteActivity::class.java))
-    }
+//    fun buttonGoSiteClicked(v: View) {
+//        startActivity(Intent(this, SiteActivity::class.java))
+//    }
 
 }

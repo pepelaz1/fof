@@ -47,7 +47,9 @@ class TackleFragment : Fragment() {
             if (v.webView.url == offlineUrl)
                 activity!!.finish()
             else
-                v.webView.goBack()
+               // v.webView.goBack()
+                v.webView.loadUrl(offlineUrl)
+
         })
         v.buttonUpdates.setOnClickListener({
             pd = ProgressDialog.show(context, "", "Loading...", true);
@@ -97,11 +99,14 @@ class TackleFragment : Fragment() {
                     for (e in tacklePages) {
 
                         if (hr.extra.contains(e.key)) {
-                            view!!.webView.loadUrl("file:///android_asset/pages/" + e.value.first);
+                           // view!!.webView.loadUrl("file:///android_asset/pages/" + e.value.first);
                             onlineUrl = e.value.second
                         }
                     }
+                } else {
+
                 }
+
             }
             false
         }
@@ -122,7 +127,7 @@ class TackleFragment : Fragment() {
         tacklePages.put("22886", Pair("rod/rod.htm","http://bit.ly/2KNOMu6"))
         tacklePages.put("22885", Pair("swivel/swivelHtm.htm","http://bit.ly/2KNOMu6"))
         tacklePages.put("22878", Pair("weight/weight.htm","http://bit.ly/2KNOMu6"))
-        tacklePages.put("22879", Pair("rig/rigOnePage.htm","http://bit.ly/2KNOMu6"))
+        tacklePages.put("22879", Pair("rig/rigs2.htm","http://bit.ly/2KNOMu6"))
     }
 
     override fun onDestroy() {

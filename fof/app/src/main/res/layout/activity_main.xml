@@ -485,7 +485,7 @@
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_margin="@dimen/home_icon_margin"
-                    android:layout_weight="25"
+                    android:layout_weight="23"
                     android:orientation="vertical">
 
                     <ImageView
@@ -506,34 +506,56 @@
                         android:textStyle="bold|italic" />
                 </LinearLayout>
 
-                <RelativeLayout
+                <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_margin="@dimen/home_icon_margin"
-                    android:layout_weight="75">
+                    android:layout_weight="54"
+                    android:orientation="vertical"
+                    android:paddingRight="@dimen/home_facebook_padding_right"
+                    android:paddingLeft="@dimen/home_facebook_padding_left">
 
                     <ImageView
                         android:id="@+id/imageViewFacebook"
-                        android:layout_width="@dimen/facebook_button_width"
+                        android:layout_width="match_parent"
                         android:layout_height="@dimen/home_button_height"
-                        android:layout_alignParentTop="true"
-                        android:layout_alignParentLeft="true"
+                        android:layout_gravity="left|center_vertical"
                         android:scaleType="fitXY"
                         app:srcCompat="@drawable/facebook" />
+
+
+                </LinearLayout>
+
+
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_margin="@dimen/home_icon_margin"
+                    android:layout_weight="23"
+                    android:orientation="vertical">
 
                     <Button
                         android:id="@+id/buttonQuit"
                         style="@style/AppTheme.Button"
                         android:layout_width="wrap_content"
                         android:layout_height="@dimen/home_down_buttons_padding_height"
-                        android:layout_alignParentTop="true"
-                        android:layout_alignParentRight="true"
-                        android:layout_marginRight="8dp"
-                        android:layout_marginTop="12dp"
                         android:onClick="buttonQuitClicked"
                         android:text="Close" />
+                </LinearLayout>
 
-                </RelativeLayout>
+                <!--<LinearLayout-->
+                    <!--android:layout_width="0dp"-->
+                    <!--android:layout_height="match_parent"-->
+                    <!--android:layout_margin="@dimen/home_icon_margin"-->
+                    <!--android:layout_weight="75"-->
+                    <!--android:orientation="vertical"-->
+                    <!--android:background="@color/red">-->
+
+
+                <!--</LinearLayout>-->
+
+
 
             </TableRow>
         </TableLayout>
