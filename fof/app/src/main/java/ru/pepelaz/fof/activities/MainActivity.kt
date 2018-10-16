@@ -159,7 +159,7 @@ class MainActivity : AppCompatActivity() {
         })
 
         imageViewFacebook.setOnClickListener({
-            val i = Intent(Intent.ACTION_VIEW, Uri.parse("https://www.facebook.com/SeaFishingBook/"))
+            val i = Intent(Intent.ACTION_VIEW, Uri.parse("https://www.facebook.com/SeaFishingFacts/"))
             startActivity(i)
         })
         Log.d("test_test","Destiny: " + resources.getDisplayMetrics().density)
