@@ -62,7 +62,11 @@ class InfoFragment : Fragment() {
         v.webView.settings.domStorageEnabled = true
         v.webView.settings.javaScriptEnabled = true
         v.webView.settings.setSupportZoom(true)
+        v.webView.settings.cacheMode
         v.webView.settings.builtInZoomControls = false
+        //v.webView.clearCache(true)
+       // v.webView.settings.cacheMode = WebSettings.LOAD_NO_CACHE
+        //v.webView.settings.setAppCacheEnabled(false)
 
         var scale = resources.getDimension(R.dimen.species_page_scale)
         v.webView.setInitialScale(scale.toInt())
@@ -95,11 +99,13 @@ class InfoFragment : Fragment() {
 
         v.buttonMore.setOnClickListener({
             pd = ProgressDialog.show(context, "", "Loading...", true);
+            //v.webView.clearCache(true)
             v.webView.loadUrl(moreUrl)
         })
 
         v.buttonImage.setOnClickListener({
             pd = ProgressDialog.show(context, "", "Loading...", true);
+            //v.webView.clearCache(true)
             v.webView.loadUrl(imageUrl)
         })
 

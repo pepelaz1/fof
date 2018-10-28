@@ -38,7 +38,8 @@ import java.io.File
 import java.io.IOException
 import java.text.SimpleDateFormat
 import java.util.*
-
+import com.facebook.FacebookSdk;
+import com.facebook.appevents.AppEventsLogger;
 
 class MainActivity : AppCompatActivity() {
 
