@@ -31,6 +31,10 @@
                 android:resource="@xml/file_paths"></meta-data>
         </provider>
 
+        <provider android:authorities="com.facebook.app.FacebookContentProvider2678312392394029"
+            android:name="com.facebook.FacebookContentProvider"
+            android:exported="true"/>
+
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyAGXlLUxZ884iovVGJycVVaWiHW011mEFc"/>
