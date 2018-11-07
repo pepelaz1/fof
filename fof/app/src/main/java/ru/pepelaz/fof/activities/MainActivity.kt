@@ -23,6 +23,7 @@ import android.support.v4.app.ActivityCompat
 import android.support.v4.content.ContextCompat
 import android.support.v4.content.FileProvider
 import android.support.v7.app.AlertDialog
+import android.text.Html
 import com.facebook.*
 import io.nlopez.smartlocation.SmartLocation
 import kotlinx.android.synthetic.main.activity_main.*
@@ -175,8 +176,6 @@ class MainActivity : AppCompatActivity() {
             startActivity(i)
         })
         Log.d("test_test","Destiny: " + resources.getDisplayMetrics().density)
-
-       // facebook()
     }
 
 
@@ -214,33 +213,45 @@ class MainActivity : AppCompatActivity() {
 
     private fun galleryAddPic() {
 
-        val builder = AlertDialog.Builder(this)
-        builder.setMessage("What to do with the photo?")
-        builder.setPositiveButton("Share on Facebook"){_, _ ->
-            val options = BitmapFactory.Options()
-            options.inPreferredConfig = Bitmap.Config.ARGB_8888;
-            val bitmap = BitmapFactory.decodeFile(imageFilePath, options);
+        val intent = Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE)
+        val contentUri = Uri.fromFile(File(imageFilePath))
+        intent.data = contentUri
+        this.sendBroadcast(intent)
 
-            val photo = SharePhoto.Builder()
-                    .setBitmap(bitmap)
-                    .build()
-            val content = SharePhotoContent.Builder()
-                    .addPhoto(photo)
-                    .build();
-
-             val dialog = ShareDialog(this);
-             dialog.show(content);
+        val builder = AlertDialog.Builder(this, R.style.ShareFacebookDialogTheme)
+        builder.setTitle("SAVED TO GALLERY")
+        builder.setMessage(Html.fromHtml("<i>SHARE WITH SEA FISHING FACTS FACEBOOK GROUP?</i>"))
+        builder.setPositiveButton("YES"){_, _ ->
+            val i = Intent(Intent.ACTION_VIEW, Uri.parse("https://www.facebook.com/SeaFishingFacts/"))
+            startActivity(i)
+//            val options = BitmapFactory.Options()
+//            options.inPreferredConfig = Bitmap.Config.ARGB_8888;
+//            val bitmap = BitmapFactory.decodeFile(imageFilePath, options);
+//
+//            val photo = SharePhoto.Builder()
+//                    .setBitmap(bitmap)
+//                    .build()
+//            val content = SharePhotoContent.Builder()
+//                    .addPhoto(photo)
+//                    .build();
+//
+//             val dialog = ShareDialog(this);
+//             dialog.show(content);
         }
 
+        builder.setNeutralButton("N0") { _, _ ->
 
-        builder.setNeutralButton("Save to Gallery") { _, _ ->
-            val intent = Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE)
-            val contentUri = Uri.fromFile(File(imageFilePath))
-            intent.data = contentUri
-            this.sendBroadcast(intent)
         }
 
-        builder.show()
+        val dialog = builder.create()
+
+        dialog.show()
+
+        val positiveButton = dialog.getButton(AlertDialog.BUTTON_POSITIVE)
+        val neutralButton = dialog.getButton(AlertDialog.BUTTON_NEUTRAL)
+        positiveButton.setTextColor(resources.getColor(R.color.black))
+        neutralButton.setTextColor(resources.getColor(R.color.black))
+
 
     }
 
@@ -253,45 +264,6 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         }
-    }
-
-    fun facebook() {
-
-        callbackManager = CallbackManager.Factory.create()
-        LoginManager.getInstance().logInWithPublishPermissions(this, Arrays.asList("publish_actions"))
-        LoginManager.getInstance().registerCallback(callbackManager,
-                object : FacebookCallback<LoginResult> {
-                    override fun onSuccess(loginResult: LoginResult) {
-                        Log.d("test_test", "Facebook token: " + loginResult.accessToken.token)
-                       // startActivity(Intent(applicationContext, AuthenticatedActivity::class.java))
-                    }
-
-                    override fun onCancel() {
-                        Log.d("test_test", "Facebook onCancel.")
-
-                    }
-
-                    override fun onError(error: FacebookException) {
-                        Log.d("test_test", "Facebook onError.")
-
-                    }
-                })
-
-
-//        val params = Bundle()
-//        params.putString("password", "newpassword")
-//        params.putString("name", "tomcsparks@hotmail.com")
-//
-//        GraphRequest(
-//                AccessToken.getCurrentAccessToken(),
-//                "/479319125923794",
-//                null,
-//                HttpMethod.GET,
-//                GraphRequest.Callback {
-//                    Log.d("test_test","it: " + it.toString())
-//                }).executeAsync()
-
-
     }
 
     override fun onRequestPermissionsResult(requestCode: Int, @NonNull permissions: Array<String>,

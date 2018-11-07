@@ -64,4 +64,8 @@
         <item name="android:inputType">textEmailAddress|textMultiLine</item>
     </style>
 
+    <style name="ShareFacebookDialogTheme" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="android:background">@color/yellow</item>
+    </style>
+
 </resources>
