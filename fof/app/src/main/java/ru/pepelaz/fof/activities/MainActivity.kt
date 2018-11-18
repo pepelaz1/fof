@@ -167,7 +167,7 @@ class MainActivity : AppCompatActivity() {
         })
 
         imageViewCoarse.setOnClickListener({
-            val i = Intent(Intent.ACTION_VIEW, Uri.parse("http://coarsefishingfacts.com"))
+            val i = Intent(Intent.ACTION_VIEW, Uri.parse("http://coarsefishingfacts.com/coarsepromo.htm"))
             startActivity(i)
         })
 
