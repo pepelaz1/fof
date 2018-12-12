@@ -17,28 +17,132 @@
             android:gravity="center_horizontal"
             android:textStyle="bold"
             android:textColor="@color/black"
-            android:textSize="24sp"
-            android:layout_marginBottom="8dp"/>
+            android:textSize="22sp"
+            android:layout_marginBottom="4dp"/>
 
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:padding="8dp"
+            android:layout_height="wrap_content"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
             android:fontFamily="Verdana"
             android:textColor="@color/black"
             android:textSize="14sp"
             android:layout_marginBottom="8dp"
-            android:text="The information provided on the bearing and distance of any location selected is subjected to the following limitation and caution must be made by users to ensure safe passage by checking with other proven navigation methods of the correct course to take"/>
+            android:text="The information provided on the bearing and distance of any location selected is subjected to the following limitation and caution must be made by users to ensure safe passage by checking with other proven navigation methods of the correct course to take."/>
 
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:padding="8dp"
+            android:layout_height="wrap_content"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
             android:fontFamily="Verdana"
             android:textColor="@color/black"
             android:textSize="14sp"
             android:layout_marginBottom="8dp"
-            android:text="1. The bearing provided by the course may be affected by the accurancy of the Compass provided by the phone to show North and other cardinal points"/>
+            android:text="1. The bearing provided by the course may be affected by the accurancy of the Compass provided by the phone to show North and other cardinal points."/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:fontFamily="Verdana"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            android:layout_marginBottom="8dp"
+            android:text="2. The bearing provided by the course does not consider sea or land hazard(s) that may be encountered of that course which may affect the safety of the user."/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:fontFamily="Verdana"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            android:layout_marginBottom="8dp"
+            android:text="3. The calculations providing bearing do not consider any magnetic variations as digital GPS signals are used."/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:fontFamily="Verdana"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            android:layout_marginBottom="8dp"
+            android:text="4. The Latitude and Longitude are given as Decimal Degrees not Degrees, Minutes and Seconds and the distance in land and not natural miles."/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Disclamer"
+            android:fontFamily="Verdana"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:paddingLeft="8dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:fontFamily="Verdana"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            android:layout_marginBottom="8dp"
+            android:text="By continuing you agree to limitations and will not hold Fish - O - Fax, publisher and developer liable to any loss or injury."/>
+
+        <CheckBox
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Do now show again"
+            android:textColor="@color/black"/>
+
+        <LinearLayout
+            android:id="@+id/linearButtons"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_gravity="center"
+            android:layout_weight="10"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:weightSum="100"
+            android:paddingBottom="8dp">
+
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="50"
+                android:gravity="center">
+
+                <Button
+                    android:id="@+id/yes"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="YES" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="50"
+                android:gravity="center">
+
+                <Button
+                    android:id="@+id/no"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="NO"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
     </LinearLayout>
 
 </LinearLayout>

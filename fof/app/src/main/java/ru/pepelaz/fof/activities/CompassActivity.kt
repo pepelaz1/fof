@@ -28,7 +28,7 @@ import ru.pepelaz.fof.fragments.PresentLocationFragment
 import ru.pepelaz.fof.helpers.CurrentCoords
 import ru.pepelaz.fof.helpers.PresentLocationCoords
 import android.util.DisplayMetrics
-
+import android.widget.Button
 
 
 class CompassActivity : AppCompatActivity(), SensorEventListener,  OnMapReadyCallback {
@@ -59,14 +59,18 @@ class CompassActivity : AppCompatActivity(), SensorEventListener,  OnMapReadyCal
     fun showWarningDialog() {
         var warningDialog = WarningDialog(this)
         warningDialog.show()
+        val yes = warningDialog.findViewById(R.id.yes) as Button
+        yes.setOnClickListener({
+            warningDialog.dismiss()
+        })
 
-        val metrics = resources.displayMetrics
-        val width = metrics.widthPixels
-        val height = metrics.heightPixels
+        val no = warningDialog.findViewById(R.id.no) as Button
+        no.setOnClickListener({
+            finish()
+        })
 
 
-        warningDialog.getWindow().setLayout(7 * width / 7, 5 * height / 5)
-    }
+   }
 
 
     override fun onResume() {
