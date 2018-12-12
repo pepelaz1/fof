@@ -23,9 +23,13 @@ import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.model.MarkerOptions
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.Marker
+import ru.pepelaz.fof.dialogs.WarningDialog
 import ru.pepelaz.fof.fragments.PresentLocationFragment
 import ru.pepelaz.fof.helpers.CurrentCoords
 import ru.pepelaz.fof.helpers.PresentLocationCoords
+import android.util.DisplayMetrics
+
+
 
 class CompassActivity : AppCompatActivity(), SensorEventListener,  OnMapReadyCallback {
 
@@ -51,6 +55,19 @@ class CompassActivity : AppCompatActivity(), SensorEventListener,  OnMapReadyCal
             layoutCompass.visibility = View.GONE
         })
     }
+
+    fun showWarningDialog() {
+        var warningDialog = WarningDialog(this)
+        warningDialog.show()
+
+        val metrics = resources.displayMetrics
+        val width = metrics.widthPixels
+        val height = metrics.heightPixels
+
+
+        warningDialog.getWindow().setLayout(7 * width / 7, 5 * height / 5)
+    }
+
 
     override fun onResume() {
         super.onResume()
@@ -157,11 +174,15 @@ class CompassActivity : AppCompatActivity(), SensorEventListener,  OnMapReadyCal
         finish()
     }
 
-    fun onRefreshClick(v: View) {
-        CurrentCoords.longitude = PresentLocationCoords.longitude
-        CurrentCoords.latitude = PresentLocationCoords.latitude
+    fun onNewTargetClick(v: View) {
+        //CurrentCoords.longitude = PresentLocationCoords.longitude
+        //CurrentCoords.latitude = PresentLocationCoords.latitude
 
-        updateMapPosition()
+        //updateMapPosition()
+    }
+
+    fun onWarningClick(v: View) {
+        showWarningDialog()
     }
 }
 

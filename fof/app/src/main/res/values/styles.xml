@@ -52,6 +52,11 @@
         <item name="android:textSize">@dimen/button3_text_size</item>
         <item name="android:minWidth">@dimen/button3_min_width</item>
     </style>
+
+    <style name="AppTheme.Button4" parent="AppTheme.Button2">
+        <item name="android:minWidth">@dimen/button4_min_width</item>
+    </style>
+
     <style name="AppTheme.EditText" parent="Widget.AppCompat.EditText">
         <item name="android:background">@drawable/edittext_background</item>
         <item name="android:paddingTop">8dp</item>
@@ -62,6 +67,11 @@
         <item name="android:layout_marginTop">4dp</item>
         <item name="android:layout_marginBottom">4dp</item>
         <item name="android:inputType">textEmailAddress|textMultiLine</item>
+    </style>
+
+    <style name="AppTheme.ImageButton" parent="Widget.AppCompat.ImageButton">
+        <item name="android:layout_width">@dimen/image_button_width</item>
+        <item name="android:layout_height">@dimen/image_button_height</item>
     </style>
 
     <style name="ShareFacebookDialogTheme" parent="Theme.AppCompat.Light.Dialog.Alert">

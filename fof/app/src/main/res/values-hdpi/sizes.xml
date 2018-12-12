@@ -11,6 +11,7 @@
     <dimen name="home_facebook_padding_left">0dp</dimen>
 
     <dimen name="button3_min_width">60dp</dimen>
+    <dimen name="button4_min_width">130dp</dimen>
     <dimen name="species_page_scale">80px</dimen>
 
 </resources>
