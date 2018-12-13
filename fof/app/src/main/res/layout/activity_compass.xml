@@ -17,35 +17,78 @@
         android:weightSum="100"
         android:visibility="visible">
 
-        <LinearLayout
+
+        <TableLayout
             android:layout_width="wrap_content"
             android:layout_height="0dp"
-            android:layout_weight="7"
-            android:orientation="horizontal"
+            android:layout_weight="12"
             android:layout_gravity="center">
+            <TableRow>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:textSize="24sp"
+                    android:textColor="#000"
+                    android:textStyle="bold"
+                    android:layout_marginRight="10dp"
+                    android:text="HEADING" />
 
-            <TextView
-                android:id="@+id/textViewDegree"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:textSize="24sp"
-                android:textColor="#000"
-                android:textStyle="bold"
-                android:layout_marginRight="10dp"
-                android:text="" />
+                <TextView
+                    android:id="@+id/headingDegree"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:textSize="24sp"
+                    android:textColor="#000"
+                    android:textStyle="bold"
+                    android:layout_marginRight="10dp"
+                    android:text="" />
 
-            <TextView
-                android:id="@+id/textViewTitle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:textSize="24sp"
-                android:textColor="#000"
-                android:textStyle="bold"
-                android:text="" />
+                <TextView
+                    android:id="@+id/headingTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:textSize="24sp"
+                    android:textColor="#000"
+                    android:textStyle="bold"
+                    android:text="" />
+            </TableRow>
+            <TableRow>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:textSize="24sp"
+                    android:textColor="#000"
+                    android:textStyle="bold"
+                    android:layout_marginRight="10dp"
+                    android:text="BEARING" />
 
-        </LinearLayout>
+                <TextView
+                    android:id="@+id/bearingDegree"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:textSize="24sp"
+                    android:textColor="#000"
+                    android:textStyle="bold"
+                    android:layout_marginRight="10dp"
+                    android:text="" />
+
+                <TextView
+                    android:id="@+id/bearingTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:textSize="24sp"
+                    android:textColor="#000"
+                    android:textStyle="bold"
+                    android:text="" />
+
+            </TableRow>
+        </TableLayout>
 
         <ImageView
             android:layout_width="wrap_content"
@@ -56,26 +99,19 @@
         </ImageView>
 
         <ImageView
-            android:id="@+id/imageViewCompass"
+            android:id="@+id/compass"
             android:layout_width="wrap_content"
             android:layout_height="0dp"
-            android:layout_weight="78"
+            android:layout_weight="58"
             android:layout_gravity="center"
             android:src="@drawable/compass2"
             android:visibility="visible"/>
 
-        <fragment
-            android:name="ru.pepelaz.fof.fragments.PresentLocationFragment"
-            android:id="@+id/presentLocationFragment"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="0"/>
 
         <LinearLayout
-            android:id="@+id/linear1"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="0"
+            android:layout_weight="10"
             android:gravity="center"
             android:weightSum="100"
             android:orientation="horizontal">
@@ -83,58 +119,160 @@
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="50">
+                android:layout_weight="50"
+                android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/textViewLatitudeTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Latitude:"
+                    android:text="PRESENT"
                     android:textColor="@android:color/black"
-                    android:textStyle="bold"/>
+                    android:textStyle="bold"
+                    android:layout_gravity="center_horizontal"/>
 
-                <TextView
-                    android:id="@+id/textViewLatitudeValue"
+                <TableLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@android:color/black"
-                    android:textStyle="bold"/>
+                    android:layout_gravity="center">
+                    <TableRow>
+                        <TextView
+                            android:id="@+id/latPresent"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Latitude:"
+                            android:textColor="@android:color/black"
+                            android:textStyle="bold"
+                            android:layout_marginRight="8dp"/>
 
+                        <TextView
+                            android:id="@+id/latPresentVal"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@android:color/black"
+                            android:textStyle="bold"
+                            android:text="32.234"/>
+                    </TableRow>
+                    <TableRow>
+                        <TextView
+                            android:id="@+id/lngPresent"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Longitude:"
+                            android:textColor="@android:color/black"
+                            android:textStyle="bold"
+                            android:layout_marginRight="8dp"/>
+
+                        <TextView
+                            android:id="@+id/lngPresentVal"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@android:color/black"
+                            android:textStyle="bold"
+                            android:text="-104.234"/>
+                    </TableRow>
+                </TableLayout>
+                
             </LinearLayout>
 
 
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="50">
+                android:layout_weight="50"
+                android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/textViewLongitudeTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Longitude:"
+                    android:text="NAME"
                     android:textColor="@android:color/black"
-                    android:textStyle="bold"/>
+                    android:textStyle="bold"
+                    android:layout_gravity="center_horizontal"/>
 
-                <TextView
-                    android:id="@+id/textViewLongitudeValue"
+                <TableLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="8dp"
-                    android:textColor="@android:color/black"
-                    android:textStyle="bold"/>
+                    android:layout_gravity="center">
+                    <TableRow>
+                        <TextView
+                            android:id="@+id/latLocation"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Latitude:"
+                            android:textColor="@android:color/black"
+                            android:textStyle="bold"
+                            android:layout_marginRight="8dp"/>
+
+                        <TextView
+                            android:id="@+id/latLocationVal"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@android:color/black"
+                            android:textStyle="bold"
+                            android:text="32.234"/>
+                    </TableRow>
+                    <TableRow>
+                        <TextView
+                            android:id="@+id/lngLocation"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Longitude:"
+                            android:textColor="@android:color/black"
+                            android:textStyle="bold"
+                            android:layout_marginRight="8dp"/>
+
+                        <TextView
+                            android:id="@+id/lngLocationVal"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@android:color/black"
+                            android:textStyle="bold"
+                            android:text="-104.234"/>
+                    </TableRow>
+                </TableLayout>
 
             </LinearLayout>
         </LinearLayout>
 
-        <fragment xmlns:android="http://schemas.android.com/apk/res/android"
-            xmlns:tools="http://schemas.android.com/tools"
-            android:id="@+id/map"
-            android:name="com.google.android.gms.maps.SupportMapFragment"
-            android:layout_width="match_parent"
+        <TableLayout
+            android:layout_width="wrap_content"
             android:layout_height="0dp"
-            android:layout_weight="0"
-            tools:context=".activities.locations.LocationsActivity"/>
+            android:layout_weight="5"
+            android:layout_gravity="center">
+            <TableRow>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:textSize="20sp"
+                    android:textColor="#000"
+                    android:textStyle="bold"
+                    android:layout_marginRight="10dp"
+                    android:text="DISTANCE" />
+
+                <TextView
+                    android:id="@+id/distance"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:textSize="20sp"
+                    android:textColor="#000"
+                    android:textStyle="bold"
+                    android:layout_marginRight="10dp"
+                    android:text="400" />
+
+                <TextView
+                    android:id="@+id/distanceTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:textSize="20sp"
+                    android:textColor="#000"
+                    android:textStyle="bold"
+                    android:text="Miles" />
+            </TableRow>
+
+        </TableLayout>
 
         <LinearLayout
             android:id="@+id/linearButtons"

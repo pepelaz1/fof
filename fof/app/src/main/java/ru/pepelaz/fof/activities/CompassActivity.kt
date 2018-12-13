@@ -31,13 +31,10 @@ import android.util.DisplayMetrics
 import android.widget.Button
 
 
-class CompassActivity : AppCompatActivity(), SensorEventListener,  OnMapReadyCallback {
+class CompassActivity : AppCompatActivity(), SensorEventListener {
 
 
     private var currentDegree = 0f
-    private var map: GoogleMap? = null
-    private var marker: Marker? = null
-
     private val sensorManager: SensorManager by lazy {
         getSystemService(Context.SENSOR_SERVICE) as SensorManager
     }
@@ -46,11 +43,7 @@ class CompassActivity : AppCompatActivity(), SensorEventListener,  OnMapReadyCal
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_compass)
 
-        val mapFragment = supportFragmentManager
-                .findFragmentById(R.id.map) as SupportMapFragment
-        mapFragment.getMapAsync(this)
-
-        imageViewCompass.setOnClickListener({
+        compass.setOnClickListener({
             scrollViewError.visibility = View.VISIBLE
             layoutCompass.visibility = View.GONE
         })
@@ -98,8 +91,11 @@ class CompassActivity : AppCompatActivity(), SensorEventListener,  OnMapReadyCal
         // get the angle around the z-axis rotated
         val degree = Math.round(event!!.values[0])
 
-        textViewDegree.setText( degree.toString() + 0x00B0.toChar())
-        textViewTitle.text = evaluateTitleFromDegree(degree)
+        headingDegree.text = degree.toString() + 0x00B0.toChar()
+        headingTitle.text = evaluateTitleFromDegree(degree)
+
+        bearingDegree.text = headingDegree.text
+        bearingTitle.text = headingTitle.text
 
         // create a rotation animation (reverse turn degree degrees)
         val ra = RotateAnimation(
@@ -116,7 +112,7 @@ class CompassActivity : AppCompatActivity(), SensorEventListener,  OnMapReadyCal
         ra.fillAfter = true
 
         // Start the animation
-        imageViewCompass.startAnimation(ra)
+        compass.startAnimation(ra)
         currentDegree = -degree.toFloat()
     }
 
@@ -145,36 +141,6 @@ class CompassActivity : AppCompatActivity(), SensorEventListener,  OnMapReadyCal
 
     override fun onAccuracyChanged(sensor: Sensor?, accuracy: Int) {
 
-    }
-
-    override fun onMapReady(googleMap: GoogleMap) {
-        // Log.d("test_test","on map ready")
-        map = googleMap
-
-        map!!.mapType = GoogleMap.MAP_TYPE_TERRAIN
-        map!!.uiSettings.setZoomControlsEnabled(true)
-        map!!.uiSettings.setCompassEnabled(true)
-        map!!.uiSettings.setMyLocationButtonEnabled(true)
-        map!!.uiSettings.setAllGesturesEnabled(true)
-
-        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            return;
-        }
-        map!!.setMyLocationEnabled(true);
-
-        updateMapPosition()
-    }
-
-    fun updateMapPosition() {
-        textViewLatitudeValue.text = CurrentCoords.latitude.toString()
-        textViewLongitudeValue.text = CurrentCoords.longitude.toString()
-
-        if (map != null)  {
-            val current = LatLng(CurrentCoords.latitude, CurrentCoords.longitude)
-            marker = map!!.addMarker(MarkerOptions().position(current).title("Me"))
-            map!!.moveCamera(CameraUpdateFactory.newLatLngZoom(current, 13.0f))
-        }
-        (presentLocationFragment as PresentLocationFragment).onNewCoords()
     }
 
 
