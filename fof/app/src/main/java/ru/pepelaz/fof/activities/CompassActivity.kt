@@ -54,6 +54,10 @@ class CompassActivity : AppCompatActivity(), SensorEventListener,  OnMapReadyCal
             scrollViewError.visibility = View.VISIBLE
             layoutCompass.visibility = View.GONE
         })
+
+        var prefs = getSharedPreferences("fof",0)
+        if (prefs.getBoolean("showWarningDialog", true) == true)
+            showWarningDialog()
     }
 
     fun showWarningDialog() {

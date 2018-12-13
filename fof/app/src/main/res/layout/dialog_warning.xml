@@ -94,16 +94,17 @@
             android:textColor="@color/black"
             android:textSize="14sp"
             android:layout_marginBottom="8dp"
-            android:text="By continuing you agree to limitations and will not hold Fish - O - Fax, publisher and developer liable to any loss or injury."/>
+            android:text="By continuing you agree to the limitations and will not hold Fish - O - Fax, publisher and developer liable to any loss or injury."/>
 
         <CheckBox
+            android:id="@+id/dontShowAgain"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Do now show again"
-            android:textColor="@color/black"/>
+            android:textColor="@color/black"
+            android:layout_marginBottom="8dp"/>
 
         <LinearLayout
-            android:id="@+id/linearButtons"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_gravity="center"
