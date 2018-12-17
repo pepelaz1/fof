@@ -165,8 +165,13 @@
             android:screenOrientation="portrait">
         </activity>
         <activity
-            android:name=".activities.CompassActivity"
+            android:name=".activities.compass.CompassActivity"
             android:label="Compass"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name=".activities.compass.CompassLocationsActivity"
+            android:label="CompassLocations"
             android:screenOrientation="portrait">
         </activity>
     </application>

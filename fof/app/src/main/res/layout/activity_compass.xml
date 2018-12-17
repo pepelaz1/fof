@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#fff"
-    tools:context=".activities.CompassActivity">
+    tools:context=".activities.compass.CompassActivity">
 
 
     <LinearLayout
@@ -150,7 +150,7 @@
                             android:layout_height="wrap_content"
                             android:textColor="@android:color/black"
                             android:textStyle="bold"
-                            android:text="32.234"/>
+                            android:text=""/>
                     </TableRow>
                     <TableRow>
                         <TextView
@@ -168,7 +168,7 @@
                             android:layout_height="wrap_content"
                             android:textColor="@android:color/black"
                             android:textStyle="bold"
-                            android:text="-104.234"/>
+                            android:text=""/>
                     </TableRow>
                 </TableLayout>
                 
@@ -182,9 +182,10 @@
                 android:orientation="vertical">
 
                 <TextView
+                    android:id="@+id/locationName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="NAME"
+                    android:text="PRESENT"
                     android:textColor="@android:color/black"
                     android:textStyle="bold"
                     android:layout_gravity="center_horizontal"/>
@@ -209,7 +210,7 @@
                             android:layout_height="wrap_content"
                             android:textColor="@android:color/black"
                             android:textStyle="bold"
-                            android:text="32.234"/>
+                            android:text=""/>
                     </TableRow>
                     <TableRow>
                         <TextView
@@ -227,7 +228,7 @@
                             android:layout_height="wrap_content"
                             android:textColor="@android:color/black"
                             android:textStyle="bold"
-                            android:text="-104.234"/>
+                            android:text=""/>
                     </TableRow>
                 </TableLayout>
 

@@ -73,7 +73,7 @@
             android:textColor="@color/black"
             android:textSize="14sp"
             android:layout_marginBottom="8dp"
-            android:text="4. The Latitude and Longitude are given as Decimal Degrees not Degrees, Minutes and Seconds and the distance in land and not natural miles."/>
+            android:text="4. The Latitude and Longitude are given as Decimal Degrees not Degrees, Minutes and Seconds and the distance in land and not nautical miles."/>
 
         <TextView
             android:layout_width="match_parent"
@@ -100,7 +100,7 @@
             android:id="@+id/dontShowAgain"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Do now show again"
+            android:text="Do not show again"
             android:textColor="@color/black"
             android:layout_marginBottom="8dp"/>
 

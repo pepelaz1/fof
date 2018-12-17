@@ -1,18 +1,12 @@
 package ru.pepelaz.fof.activities.locations
 
 import android.Manifest
-import android.Manifest.permission.ACCESS_FINE_LOCATION
-import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Bundle
-import android.support.annotation.NonNull
 import android.support.v4.app.ActivityCompat
 import android.support.v4.app.FragmentActivity
-import android.support.v4.content.ContextCompat
-import android.util.Log
 import android.view.View
-import io.nlopez.smartlocation.SmartLocation
 import kotlinx.android.synthetic.main.activity_locations.*
 import ru.pepelaz.fof.R
 import com.google.android.gms.maps.GoogleMap

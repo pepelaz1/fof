@@ -1,8 +1,6 @@
 package ru.pepelaz.fof.activities
 
 import android.Manifest.permission.*
-import android.app.Activity.RESULT_OK
-import android.content.DialogInterface
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -11,12 +9,9 @@ import android.view.View
 import android.widget.ImageView
 import android.content.Intent
 import android.content.pm.PackageManager.PERMISSION_GRANTED
-import android.graphics.Bitmap
-import android.graphics.BitmapFactory
 import android.net.Uri
 import android.os.Build
 import android.os.Environment
-import android.os.Environment.getExternalStoragePublicDirectory
 import android.provider.MediaStore
 import android.support.annotation.NonNull
 import android.support.v4.app.ActivityCompat
@@ -43,13 +38,7 @@ import java.io.File
 import java.io.IOException
 import java.text.SimpleDateFormat
 import java.util.*
-import com.facebook.appevents.AppEventsLogger;
-import com.facebook.login.LoginManager
-import com.facebook.login.LoginResult
-import com.facebook.share.ShareApi
-import com.facebook.share.model.SharePhoto
-import com.facebook.share.model.SharePhotoContent
-import com.facebook.share.widget.ShareDialog
+import ru.pepelaz.fof.activities.compass.CompassActivity
 
 class MainActivity : AppCompatActivity() {
 
@@ -286,7 +275,7 @@ class MainActivity : AppCompatActivity() {
     fun getCoordinates() {
         SmartLocation.with(this).location()
                 .start { location ->
-                    Log.d("test_test", "Lat: " + location.latitude + ", Long: " + location.longitude)
+                    Log.d("test_test", "getCoordinates, Lat: " + location.latitude + ", Long: " + location.longitude)
                    // CurrentCoords.latitude = location.latitude
                    // CurrentCoords.longitude = location.longitude
 
