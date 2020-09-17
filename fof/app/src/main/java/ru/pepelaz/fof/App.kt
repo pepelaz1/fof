@@ -2,7 +2,7 @@ package ru.pepelaz.fof
 
 import android.app.Application
 import android.content.Context
-import android.support.multidex.MultiDexApplication
+import androidx.multidex.MultiDexApplication
 import com.facebook.FacebookSdk
 import com.facebook.appevents.AppEventsLogger
 
@@ -12,7 +12,7 @@ class App : MultiDexApplication() {
         lateinit var instance: MultiDexApplication
 
         fun applicationContext() : Context {
-            return instance!!.applicationContext
+            return instance.applicationContext
         }
     }
 

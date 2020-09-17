@@ -16,7 +16,7 @@ class WarningDialog(context: Context) : Dialog(context) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.dialog_warning)
       //  getWindow().setLayout(context.resources.displayMetrics.widthPixels, context.resources.displayMetrics.heightPixels)
-        getWindow().setLayout(context.resources.displayMetrics.widthPixels, WRAP_CONTENT)
+        getWindow()?.setLayout(context.resources.displayMetrics.widthPixels, WRAP_CONTENT)
 
         dontShowAgain.setOnClickListener({
             var editor = sharedPrefs.edit()

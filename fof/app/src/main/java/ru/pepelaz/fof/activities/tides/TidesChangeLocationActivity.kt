@@ -5,12 +5,12 @@ import android.app.AlertDialog
 import android.content.Context
 import android.content.pm.PackageManager
 import android.os.Bundle
-import android.support.v4.app.ActivityCompat
-import android.support.v4.app.FragmentActivity
 import android.util.Log
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
+import androidx.core.app.ActivityCompat
+import androidx.fragment.app.FragmentActivity
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback

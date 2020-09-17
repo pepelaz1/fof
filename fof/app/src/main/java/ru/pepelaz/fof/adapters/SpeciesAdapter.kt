@@ -48,7 +48,7 @@ class SpeciesAdapter : BaseAdapter {
         if (!specieImages.containsKey(specie.name)) {
             val path = "species/" + specie.name.toLowerCase() + "/" + specie.name.toLowerCase() + "_htm_files"
             val list = App.applicationContext().assets.list(path)
-            for (fileName in list) {
+            for (fileName in list!!) {
                 if (fileName.length == 6 && fileName.substringAfter(".").toLowerCase() == "jpg") {
                     // val imageFile = "species/"+ specie.name.toLowerCase() +"/" + specie.name.toLowerCase() + "_htm_files/10.jpg"
                     //val imageFile = "file:///android_asset/species/"+ specie.name.toLowerCase() +"/" + specie.name.toLowerCase() + ".htm"

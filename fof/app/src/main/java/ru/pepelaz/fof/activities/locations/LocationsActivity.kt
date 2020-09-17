@@ -4,9 +4,10 @@ import android.Manifest
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Bundle
-import android.support.v4.app.ActivityCompat
-import android.support.v4.app.FragmentActivity
+import android.util.Log
 import android.view.View
+import androidx.core.app.ActivityCompat
+import androidx.fragment.app.FragmentActivity
 import kotlinx.android.synthetic.main.activity_locations.*
 import ru.pepelaz.fof.R
 import com.google.android.gms.maps.GoogleMap
@@ -33,21 +34,26 @@ class LocationsActivity : FragmentActivity(), OnMapReadyCallback {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_locations)
-        val mapFragment = supportFragmentManager
-                .findFragmentById(R.id.map) as SupportMapFragment
-        mapFragment.getMapAsync(this)
+        try {
+            setContentView(R.layout.activity_locations)
+           /* val mapFragment = supportFragmentManager
+                    .findFragmentById(R.id.map) as SupportMapFragment
+            mapFragment.getMapAsync(this)*/
 
 
-        RxBus.listen(CoordinatesEvent::class.java).subscribe({
+            /*RxBus.listen(CoordinatesEvent::class.java).subscribe({
 
-            longitude = it.longitude
-            latitude = it.latitude
+                longitude = it.longitude
+                latitude = it.latitude
 
 
-            updateMapPosition()
+                updateMapPosition()
 
-        })
+            })*/
+        }
+        catch (ex: Exception) {
+            Log.d("test_test", ex.toString())
+        }
 
 
     }

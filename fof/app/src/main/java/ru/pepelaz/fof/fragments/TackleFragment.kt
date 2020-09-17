@@ -4,7 +4,6 @@ package ru.pepelaz.fof.fragments
 import android.app.ProgressDialog
 import android.content.Context
 import android.os.Bundle
-import android.support.v4.app.Fragment
 
 import ru.pepelaz.fof.R
 import android.content.Intent
@@ -18,12 +17,12 @@ import android.opengl.ETC1.getWidth
 import android.webkit.WebResourceRequest
 import android.webkit.WebSettings
 import kotlinx.android.synthetic.main.fragment_tackle.view.*
-import android.support.v4.content.ContextCompat.startActivity
 import android.os.Build
 import android.annotation.TargetApi
 import android.os.Build.VERSION_CODES.N
 import android.util.Log
 import android.view.*
+import androidx.fragment.app.Fragment
 import kotlin.collections.HashMap
 
 
@@ -98,7 +97,7 @@ class TackleFragment : Fragment() {
 
                     for (e in tacklePages) {
 
-                        if (hr.extra.contains(e.key)) {
+                        if (hr.extra!!.contains(e.key)) {
                            // view!!.webView.loadUrl("file:///android_asset/pages/" + e.value.first);
                             onlineUrl = e.value.second
                         }

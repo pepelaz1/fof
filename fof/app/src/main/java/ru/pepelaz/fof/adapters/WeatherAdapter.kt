@@ -19,7 +19,7 @@ import java.text.SimpleDateFormat
 class WeatherAdapter : ArrayAdapter<Weather> {
     internal var context: Context
 
-    constructor(context: Context) : super(context, R.layout.weather_row, WeatherStorage.get()) {
+    constructor(context: Context) : super(context, R.layout.weather_row, WeatherStorage.get()!!) {
         this.context = context
     }
 

@@ -4,7 +4,6 @@ package ru.pepelaz.fof.fragments
 import android.app.ProgressDialog
 import android.content.Context
 import android.os.Bundle
-import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -23,10 +22,10 @@ import android.view.Display
 import android.webkit.WebResourceRequest
 import android.webkit.WebSettings
 import kotlinx.android.synthetic.main.fragment_page.view.*
-import android.support.v4.content.ContextCompat.startActivity
 import android.os.Build
 import android.annotation.TargetApi
 import android.os.Build.VERSION_CODES.N
+import androidx.fragment.app.Fragment
 
 
 class PageFragment : Fragment() {

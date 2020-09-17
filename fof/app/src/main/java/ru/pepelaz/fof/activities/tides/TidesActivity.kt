@@ -3,11 +3,11 @@ package ru.pepelaz.fof.activities.tides
 import android.content.Intent
 import android.graphics.Color
 import android.location.Geocoder
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.support.v4.content.ContextCompat
 import android.util.Log
 import android.view.View
+import androidx.core.content.ContextCompat
 import com.github.mikephil.charting.charts.Chart
 import com.github.mikephil.charting.data.Entry
 import com.github.mikephil.charting.data.LineData

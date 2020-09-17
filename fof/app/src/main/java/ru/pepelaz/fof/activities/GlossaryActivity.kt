@@ -1,6 +1,6 @@
 package ru.pepelaz.fof.activities
 
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import kotlinx.android.synthetic.main.activity_glossary.*

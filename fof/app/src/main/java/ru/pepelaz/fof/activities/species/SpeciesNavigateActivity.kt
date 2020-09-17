@@ -1,7 +1,7 @@
 package ru.pepelaz.fof.activities.species
 
 import android.content.res.AssetManager
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import kotlinx.android.synthetic.main.activity_species.*
 import kotlinx.android.synthetic.main.activity_species_navigate.*

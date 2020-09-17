@@ -2,13 +2,13 @@ package ru.pepelaz.fof.fragments
 
 import android.content.Context
 import android.os.Bundle
-import android.support.v4.app.Fragment
-import android.support.v4.content.ContextCompat
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
 import android.widget.TextView
+import androidx.core.content.ContextCompat
+import androidx.fragment.app.Fragment
 
 import ru.pepelaz.fof.R
 import java.util.*

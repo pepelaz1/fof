@@ -17,7 +17,7 @@ class LocationsAdapter(context: Context, locations: ArrayList<Location>) :
     init {
         this.locations = locations
     }
-    override fun getView(position: Int, convertView: View?, parent: ViewGroup): View? {
+    override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
         var vi = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
         var v = vi.inflate(android.R.layout.simple_list_item_1,null)
         var textView =  v.findViewById(android.R.id.text1) as TextView

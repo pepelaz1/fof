@@ -1,7 +1,7 @@
 package ru.pepelaz.fof.activities
 
 import android.app.ProgressDialog
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import kotlinx.android.synthetic.main.activity_knot.*
 import ru.pepelaz.fof.R

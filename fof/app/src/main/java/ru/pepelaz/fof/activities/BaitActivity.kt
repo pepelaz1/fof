@@ -1,8 +1,8 @@
 package ru.pepelaz.fof.activities
 
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_bait.*
 import ru.pepelaz.fof.R
 import ru.pepelaz.fof.fragments.PageFragment

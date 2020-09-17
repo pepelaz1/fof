@@ -29,23 +29,25 @@ class LollipopFlashlight(context: Context) : AbstractLollipopFlashlight(context)
 
     private val _sessionCallback = object : CameraCaptureSession.StateCallback() {
 
-        override fun onConfigured(session: CameraCaptureSession?) {
+        override fun onConfigured(session: CameraCaptureSession) {
             _cameraDevice?.let {
                 _captureSession = session
                 _captureBuilder?.set(CaptureRequest.CONTROL_AF_MODE, CaptureRequest.CONTROL_AF_MODE_CONTINUOUS_PICTURE)
                 _captureBuilder?.set(CaptureRequest.CONTROL_AE_MODE, CaptureRequest.CONTROL_AE_MODE_ON)
-                _captureSession?.setRepeatingRequest(_captureBuilder?.build(), null, null)
+                _captureBuilder?.build()?.let { it1 -> _captureSession?.setRepeatingRequest(it1, null, null) }
             }
         }
 
-        override fun onConfigureFailed(session: CameraCaptureSession?) {
-            // do nothing
+        override fun onConfigureFailed(p0: CameraCaptureSession) {
+            TODO("Not yet implemented")
         }
+
+
     }
 
     private val _stateCallback = object : CameraDevice.StateCallback() {
 
-        override fun onOpened(device: CameraDevice?) {
+        override fun onOpened(device: CameraDevice) {
             _cameraDevice = device
             _cameraDevice?.let {
                 val imageReaderInitialized = initImageReader(it.id)
@@ -61,11 +63,12 @@ class LollipopFlashlight(context: Context) : AbstractLollipopFlashlight(context)
             }
         }
 
-        override fun onDisconnected(device: CameraDevice?) {
+        override fun onDisconnected(device: CameraDevice) {
             nullAll()
         }
 
-        override fun onError(device: CameraDevice?, errorCode: Int) {
+
+        override fun onError(device: CameraDevice, errorCode: Int) {
             nullAll()
         }
 
@@ -93,7 +96,7 @@ class LollipopFlashlight(context: Context) : AbstractLollipopFlashlight(context)
         } else {
             _captureBuilder?.set(CaptureRequest.FLASH_MODE, CaptureRequest.FLASH_MODE_OFF)
         }
-        _captureSession?.setRepeatingRequest(_captureBuilder?.build(), null, null)
+        _captureBuilder?.build()?.let { _captureSession?.setRepeatingRequest(it, null, null) }
     }
 
     override fun isSupported(): Observable<Boolean> = Observable.fromCallable { getFirstCameraIdWithFlash() != null }
@@ -129,8 +132,8 @@ class LollipopFlashlight(context: Context) : AbstractLollipopFlashlight(context)
     private fun initImageReader(cameraId: String): Boolean {
         val cameraCharacteristics = cameraManager.getCameraCharacteristics(cameraId)
         val map = cameraCharacteristics[CameraCharacteristics.SCALER_STREAM_CONFIGURATION_MAP]
-        val outputSizes = map.getOutputSizes(ImageFormat.JPEG)
-        if (outputSizes.isEmpty()) {
+        val outputSizes = map?.getOutputSizes(ImageFormat.JPEG)
+        if (outputSizes!!.isEmpty()) {
             return false
         }
         val minSize = outputSizes.sortedBy { size -> size.width * size.height }[0]
