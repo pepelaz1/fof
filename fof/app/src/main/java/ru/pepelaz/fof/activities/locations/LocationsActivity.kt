@@ -36,12 +36,12 @@ class LocationsActivity : FragmentActivity(), OnMapReadyCallback {
         super.onCreate(savedInstanceState)
         try {
             setContentView(R.layout.activity_locations)
-           /* val mapFragment = supportFragmentManager
+            val mapFragment = supportFragmentManager
                     .findFragmentById(R.id.map) as SupportMapFragment
-            mapFragment.getMapAsync(this)*/
+            mapFragment.getMapAsync(this)
 
 
-            /*RxBus.listen(CoordinatesEvent::class.java).subscribe({
+            RxBus.listen(CoordinatesEvent::class.java).subscribe({
 
                 longitude = it.longitude
                 latitude = it.latitude
@@ -49,7 +49,7 @@ class LocationsActivity : FragmentActivity(), OnMapReadyCallback {
 
                 updateMapPosition()
 
-            })*/
+            })
         }
         catch (ex: Exception) {
             Log.d("test_test", ex.toString())
