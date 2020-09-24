@@ -37,6 +37,14 @@
             android:exported="true"/>
 
         <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="ca-app-pub-5271346601394676~4763567518"/>
+         <!--   android:value="ca-app-pub-2827606467333782~8736140535"/>-->
+
+
+
+
+        <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyAGXlLUxZ884iovVGJycVVaWiHW011mEFc"/>
 

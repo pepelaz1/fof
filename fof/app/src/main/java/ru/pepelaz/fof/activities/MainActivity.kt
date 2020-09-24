@@ -1,29 +1,33 @@
 package ru.pepelaz.fof.activities
 
 import android.Manifest.permission.*
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
-import android.util.Log
-import android.view.MotionEvent
-import android.view.View
-import android.widget.ImageView
 import android.content.Intent
 import android.content.pm.PackageManager.PERMISSION_GRANTED
 import android.net.Uri
 import android.os.Build
+import android.os.Bundle
 import android.os.Environment
 import android.provider.MediaStore
-import androidx.appcompat.app.AlertDialog
 import android.text.Html
+import android.util.Log
+import android.view.MotionEvent
+import android.view.View
+import android.widget.ImageView
 import androidx.annotation.NonNull
+import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.content.FileProvider
-import com.facebook.*
+import com.facebook.CallbackManager
+import com.google.android.gms.ads.*
+import com.google.android.gms.ads.initialization.InitializationStatus
+import com.google.android.gms.ads.initialization.OnInitializationCompleteListener
 import io.nlopez.smartlocation.SmartLocation
 import kotlinx.android.synthetic.main.activity_main.*
 import ru.pepelaz.fof.BuildConfig
 import ru.pepelaz.fof.R
+import ru.pepelaz.fof.activities.compass.CompassActivity
 import ru.pepelaz.fof.activities.locations.LocationsActivity
 import ru.pepelaz.fof.activities.species.SpeciesActivity
 import ru.pepelaz.fof.activities.tides.TidesActivity
@@ -38,7 +42,6 @@ import java.io.File
 import java.io.IOException
 import java.text.SimpleDateFormat
 import java.util.*
-import ru.pepelaz.fof.activities.compass.CompassActivity
 
 class MainActivity : AppCompatActivity() {
 
@@ -49,6 +52,7 @@ class MainActivity : AppCompatActivity() {
     var currentPhotoPath: String = ""
     private var callbackManager: CallbackManager? = null
 
+    lateinit var mAdView : AdView
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -136,13 +140,13 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this, WeatherActivity::class.java))
         })
 
-        imageViewKnot.setOnClickListener({
+        imageViewKnot.setOnClickListener {
             startActivity(Intent(this, KnotActivity::class.java))
-        })
+        }
 
-        imageViewAbout.setOnClickListener({
+        imageViewAbout.setOnClickListener {
             startActivity(Intent(this, AboutActivity::class.java))
-        })
+        }
 
         imageViewCompass.setOnClickListener({
             startActivity(Intent(this, CompassActivity::class.java))
@@ -152,7 +156,7 @@ class MainActivity : AppCompatActivity() {
             isFlashlightEnabled = !isFlashlightEnabled
             flashlight.enable(isFlashlightEnabled)
 
-            textViewTorch.text = (if (isFlashlightEnabled) "Torch on" else "Torch off" )
+            textViewTorch.text = (if (isFlashlightEnabled) "Torch on" else "Torch off")
         })
 
         imageViewCoarse.setOnClickListener({
@@ -160,11 +164,54 @@ class MainActivity : AppCompatActivity() {
             startActivity(i)
         })
 
+        imageViewFof.setOnClickListener({
+            val i = Intent(Intent.ACTION_VIEW, Uri.parse("http://bit.ly/2uByz6L"))
+            startActivity(i)
+        })
+
         imageViewFacebook.setOnClickListener({
             val i = Intent(Intent.ACTION_VIEW, Uri.parse("https://www.facebook.com/SeaFishingFacts/"))
             startActivity(i)
         })
-        Log.d("test_test","Destiny: " + resources.getDisplayMetrics().density)
+        Log.d("test_test", "Destiny: " + resources.getDisplayMetrics().density)
+
+        MobileAds.initialize(this, object : OnInitializationCompleteListener {
+            override fun onInitializationComplete(initializationStatus: InitializationStatus?) {
+                Log.d("test_test",initializationStatus.toString())
+//                val adRequest = AdRequest.Builder().build()
+//                adView.loadAd(adRequest)
+
+                mAdView = findViewById(R.id.adView)
+                val adRequest = AdRequest.Builder().build()
+                mAdView.loadAd(adRequest)
+
+                mAdView.adListener = object: AdListener() {
+                    override fun onAdLoaded() {
+                        Log.d("test_test","onAdLoaded")
+                    }
+
+                    override fun onAdFailedToLoad(adError : LoadAdError) {
+                        Log.d("test_test","onAdFailedToLoad, error: " + adError.toString() )
+                    }
+
+                    override fun onAdOpened() {
+                        Log.d("test_test","onAdOpened")
+                    }
+
+                    override fun onAdClicked() {
+                        Log.d("test_test","onAdClicked")
+                    }
+
+                    override fun onAdLeftApplication() {
+                        Log.d("test_test","onAdLeftApplication")
+                    }
+
+                    override fun onAdClosed() {
+                         Log.d("test_test","onAdClosed")
+                    }
+                }
+            }
+        })
     }
 
 
@@ -210,7 +257,7 @@ class MainActivity : AppCompatActivity() {
         val builder = AlertDialog.Builder(this, R.style.ShareFacebookDialogTheme)
         builder.setTitle("SAVED TO GALLERY")
         builder.setMessage(Html.fromHtml("<i>SHARE WITH SEA FISHING FACTS FACEBOOK GROUP?</i>"))
-        builder.setPositiveButton("YES"){_, _ ->
+        builder.setPositiveButton("YES"){ _, _ ->
             val i = Intent(Intent.ACTION_VIEW, Uri.parse("https://www.facebook.com/SeaFishingFacts/"))
             startActivity(i)
 //            val options = BitmapFactory.Options()
@@ -247,8 +294,8 @@ class MainActivity : AppCompatActivity() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         when(requestCode){
-            REQUEST_TAKE_PHOTO ->{
-                if(resultCode == RESULT_OK){
+            REQUEST_TAKE_PHOTO -> {
+                if (resultCode == RESULT_OK) {
                     galleryAddPic()
                 }
             }
@@ -264,11 +311,11 @@ class MainActivity : AppCompatActivity() {
                     if (grantResults[0] == PERMISSION_GRANTED) {
                         getCoordinates()
                     }
-                    if (grantResults[1] == PERMISSION_GRANTED) {
-                        flashlight.onPermissionGranted()
-                        flashlight.onStart()
-                    }
+                if (grantResults[1] == PERMISSION_GRANTED) {
+                    flashlight.onPermissionGranted()
+                    flashlight.onStart()
                 }
+            }
         }
     }
 

@@ -24,21 +24,22 @@
         android:orientation="vertical"
         android:weightSum="100">
 
-        <ImageView
+        <!--<ImageView
             android:id="@+id/imageView4"
             android:layout_width="wrap_content"
             android:layout_height="0dp"
             android:layout_weight="10"
             android:layout_marginTop="@dimen/home_logo_margin_top"
             android:layout_marginBottom="@dimen/home_logo_margin_bottom"
-            app:srcCompat="@drawable/logo_transparent" />
+            app:srcCompat="@drawable/logo_transparent" />-->
 
         <TableLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="90"
+            android:layout_weight="92"
             android:layout_gravity="center"
-            android:weightSum="100">
+            android:weightSum="100"
+            android:layout_marginTop="20dp">
 
             <TableRow
                 android:id="@+id/tableRow1"
@@ -215,75 +216,17 @@
                     android:orientation="vertical">
 
                     <ImageView
-                        android:id="@+id/imageViewLocations"
+                        android:id="@+id/imageViewKnot"
                         android:layout_width="@dimen/home_button_width"
                         android:layout_height="@dimen/home_button_height"
                         android:layout_gravity="center"
                         android:scaleType="fitXY"
-                        app:srcCompat="@drawable/gps" />
+                        app:srcCompat="@drawable/knot" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:text="Locations"
-                        android:textAlignment="center"
-                        android:textColor="@android:color/black"
-                        android:textSize="@dimen/home_button_text_size"
-                        android:textStyle="bold|italic" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_margin="@dimen/home_icon_margin"
-                    android:layout_weight="25"
-                    android:orientation="vertical">
-
-                    <ImageView
-                        android:id="@+id/imageViewGlossary"
-                        android:layout_width="@dimen/home_button_width"
-                        android:layout_height="@dimen/home_button_height"
-                        android:layout_gravity="center"
-                        android:scaleType="fitXY"
-                        app:srcCompat="@drawable/glossary" />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:text="Glossary"
-                        android:textAlignment="center"
-                        android:textColor="@android:color/black"
-                        android:textSize="@dimen/home_button_text_size"
-                        android:textStyle="bold|italic" />
-                </LinearLayout>
-            </TableRow>
-
-            <TableRow
-                android:id="@+id/tableRow3"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="20"
-                android:weightSum="100">
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_margin="@dimen/home_icon_margin"
-                    android:layout_weight="25"
-                    android:orientation="vertical">
-
-                    <ImageView
-                        android:id="@+id/imageViewCamera"
-                        android:layout_width="@dimen/home_button_width"
-                        android:layout_height="@dimen/home_button_height"
-                        android:layout_gravity="center"
-                        android:scaleType="fitXY"
-                        app:srcCompat="@drawable/camera" />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:text="Camera"
+                        android:text="Knots"
                         android:textAlignment="center"
                         android:textColor="@android:color/black"
                         android:textSize="@dimen/home_button_text_size"
@@ -309,6 +252,64 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:text="Cooking"
+                        android:textAlignment="center"
+                        android:textColor="@android:color/black"
+                        android:textSize="@dimen/home_button_text_size"
+                        android:textStyle="bold|italic" />
+                </LinearLayout>
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/tableRow3"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="20"
+                android:weightSum="100">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_margin="@dimen/home_icon_margin"
+                    android:layout_weight="25"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/imageViewLocations"
+                        android:layout_width="@dimen/home_button_width"
+                        android:layout_height="@dimen/home_button_height"
+                        android:layout_gravity="center"
+                        android:scaleType="fitXY"
+                        app:srcCompat="@drawable/gps" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="Locations"
+                        android:textAlignment="center"
+                        android:textColor="@android:color/black"
+                        android:textSize="@dimen/home_button_text_size"
+                        android:textStyle="bold|italic" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_margin="@dimen/home_icon_margin"
+                    android:layout_weight="25"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/imageViewCompass"
+                        android:layout_width="@dimen/home_button_width"
+                        android:layout_height="@dimen/home_button_height"
+                        android:layout_gravity="center"
+                        android:scaleType="fitXY"
+                        app:srcCompat="@drawable/compass" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="Compass"
                         android:textAlignment="center"
                         android:textColor="@android:color/black"
                         android:textSize="@dimen/home_button_text_size"
@@ -381,17 +382,17 @@
                     android:orientation="vertical">
 
                     <ImageView
-                        android:id="@+id/imageViewKnot"
+                        android:id="@+id/imageViewGlossary"
                         android:layout_width="@dimen/home_button_width"
                         android:layout_height="@dimen/home_button_height"
                         android:layout_gravity="center"
                         android:scaleType="fitXY"
-                        app:srcCompat="@drawable/knot" />
+                        app:srcCompat="@drawable/glossary" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:text="Knots"
+                        android:text="Glossary"
                         android:textAlignment="center"
                         android:textColor="@android:color/black"
                         android:textSize="@dimen/home_button_text_size"
@@ -431,17 +432,17 @@
                     android:orientation="vertical">
 
                     <ImageView
-                        android:id="@+id/imageViewCompass"
+                        android:id="@+id/imageViewCamera"
                         android:layout_width="@dimen/home_button_width"
                         android:layout_height="@dimen/home_button_height"
                         android:layout_gravity="center"
                         android:scaleType="fitXY"
-                        app:srcCompat="@drawable/compass" />
+                        app:srcCompat="@drawable/camera" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:text="Compass"
+                        android:text="Camera"
                         android:textAlignment="center"
                         android:textColor="@android:color/black"
                         android:textSize="@dimen/home_button_text_size"
@@ -485,7 +486,7 @@
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_margin="@dimen/home_icon_margin"
-                    android:layout_weight="23"
+                    android:layout_weight="25"
                     android:orientation="vertical">
 
                     <ImageView
@@ -510,7 +511,25 @@
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_margin="@dimen/home_icon_margin"
-                    android:layout_weight="54"
+                    android:layout_weight="25"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/imageViewFof"
+                        android:layout_width="@dimen/home_button_width"
+                        android:layout_height="@dimen/home_button_height"
+                        android:layout_gravity="center"
+                        android:scaleType="fitXY"
+                        app:srcCompat="@drawable/fof" />
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_margin="@dimen/home_icon_margin"
+                    android:layout_weight="25"
                     android:orientation="vertical"
                     android:paddingRight="@dimen/home_facebook_padding_right"
                     android:paddingLeft="@dimen/home_facebook_padding_left">
@@ -526,13 +545,11 @@
 
                 </LinearLayout>
 
-
-
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_margin="@dimen/home_icon_margin"
-                    android:layout_weight="23"
+                    android:layout_weight="25"
                     android:orientation="vertical">
 
                     <Button
@@ -544,21 +561,32 @@
                         android:text="Close" />
                 </LinearLayout>
 
-                <!--<LinearLayout-->
-                    <!--android:layout_width="0dp"-->
-                    <!--android:layout_height="match_parent"-->
-                    <!--android:layout_margin="@dimen/home_icon_margin"-->
-                    <!--android:layout_weight="75"-->
-                    <!--android:orientation="vertical"-->
-                    <!--android:background="@color/red">-->
-
-
-                <!--</LinearLayout>-->
-
-
-
             </TableRow>
         </TableLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="8"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginBottom="20dp">
+
+            <com.google.android.gms.ads.AdView
+                xmlns:ads="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/adView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                ads:adSize="BANNER"
+                ads:adUnitId="ca-app-pub-5271346601394676/5286311691">
+            <!--    ads:adUnitId="ca-app-pub-2827606467333782/4285759634">-->
+   <!--             ads:adUnitId="ca-app-pub-3940256099942544/6300978111">-->
+
+
+<!--                ca-app-pub-3940256099942544/6300978111-->
+            </com.google.android.gms.ads.AdView>
+        </RelativeLayout>
 
     </LinearLayout>
 
