@@ -234,7 +234,10 @@ class CompassActivity : AppCompatActivity(), SensorEventListener {
         bearingDegree.text = degree.toString() + 0x00B0.toChar()
         bearingTitle.text = evaluateTitleFromDegree(degree)
 
-        distance.text = calcDistance().toString()
+
+        val s = String.format("%.4f", calcDistance())
+        Log.d("test_test", s)
+        distance.text = s
     }
 
     fun calcBearing() : Int {
@@ -258,7 +261,7 @@ class CompassActivity : AppCompatActivity(), SensorEventListener {
         return result
     }
 
-    fun calcDistance() : Int {
+    fun calcDistance() : Double {
 
         //ROUND(ACOS(SIN(nowLatRadians)*SIN(goToLatRadians)+COS(nowLatRadians)*COS(goToLatRadians)*COS(goToLongRadians-nowLongRadians))*3981.875,0)
 
@@ -267,7 +270,7 @@ class CompassActivity : AppCompatActivity(), SensorEventListener {
         var llat = Math.toRadians(locationLat)
         var llong = Math.toRadians(locationLong)
 
-        return Math.round(Math.acos(Math.sin(plat) * Math.sin(llat) + Math.cos(plat) * Math.cos(llat) * Math.cos(llong - plong)) *  3981.875).toInt()
+        return Math.acos(Math.sin(plat) * Math.sin(llat) + Math.cos(plat) * Math.cos(llat) * Math.cos(llong - plong)) *  3981.875
     }
 }
 

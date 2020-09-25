@@ -69,7 +69,8 @@ class LocationsActivity : FragmentActivity(), OnMapReadyCallback {
     }
 
     fun onSavedClick(v: View) {
-        startActivity(Intent(this, LocationsSavedActivity::class.java))
+        //startActivity(Intent(this, LocationsSavedActivity::class.java))
+        startActivityForResult(Intent(this, LocationsSavedActivity::class.java), 0)
     }
 
     override fun onMapReady(googleMap: GoogleMap) {
@@ -115,4 +116,9 @@ class LocationsActivity : FragmentActivity(), OnMapReadyCallback {
         (presentLocationFragment as PresentLocationFragment).onNewCoords()
     }
 
- }
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        finish()
+    }
+
+}
