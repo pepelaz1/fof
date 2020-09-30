@@ -7,7 +7,7 @@
     tools:context=".activities.tides.TidesActivity">
 
     <fragment
-        android:name="ru.pepelaz.fof.fragments.PresentLocationFragment"
+        android:name="ru.pepelaz.foffree.fragments.PresentLocationFragment"
         android:id="@+id/presentLocationFragment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -19,7 +19,7 @@
         app:layout_constraintTop_toTopOf="parent"/>
 
     <fragment
-        android:name="ru.pepelaz.fof.fragments.CalendarFragment"
+        android:name="ru.pepelaz.foffree.fragments.CalendarFragment"
         android:id="@+id/calendarFragment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

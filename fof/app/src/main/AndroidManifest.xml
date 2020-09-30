@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="ru.pepelaz.fof">
+    package="ru.pepelaz.foffree">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
@@ -19,7 +19,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
-        android:name=".App"
+        android:name="ru.pepelaz.foffree.App"
         android:usesCleartextTraffic="true">
 
         <provider
@@ -66,7 +66,7 @@
         </activity>
 
         <activity
-            android:name=".activities.StartupActivity"
+            android:name="ru.pepelaz.foffree.activities.StartupActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -75,111 +75,111 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activities.MainActivity"
+            android:name="ru.pepelaz.foffree.activities.MainActivity"
             android:label="@string/main_activity_title"
             android:screenOrientation="portrait">
         </activity>
         <activity
-            android:name=".activities.SiteActivity"
+            android:name="ru.pepelaz.foffree.activities.SiteActivity"
             android:screenOrientation="portrait">
         </activity>
         <activity
-            android:name=".activities.species.SpeciesActivity"
+            android:name="ru.pepelaz.foffree.activities.species.SpeciesActivity"
             android:label="Species"
             android:screenOrientation="portrait">
         </activity>
         <activity
-            android:name=".activities.species.SpeciesNavigateActivity"
+            android:name="ru.pepelaz.foffree.activities.species.SpeciesNavigateActivity"
             android:label="Species"
             android:screenOrientation="portrait">
         </activity>
         <activity
-            android:name=".activities.RecordsActivity"
+            android:name="ru.pepelaz.foffree.activities.RecordsActivity"
             android:label="Records"
             android:screenOrientation="portrait">
         </activity>
         <activity
-            android:name=".activities.TackleActivity"
+            android:name="ru.pepelaz.foffree.activities.TackleActivity"
             android:label="Tackle"
             android:screenOrientation="portrait">
         </activity>
         <activity
-            android:name=".activities.BaitActivity"
+            android:name="ru.pepelaz.foffree.activities.BaitActivity"
             android:label="Bait"
             android:screenOrientation="portrait">
         </activity>
         <activity
-            android:name=".activities.PlacesActivity"
+            android:name="ru.pepelaz.foffree.activities.PlacesActivity"
             android:label="Distribution"
             android:screenOrientation="portrait">
         </activity>
         <activity
-            android:name=".activities.SeasonsActivity"
+            android:name="ru.pepelaz.foffree.activities.SeasonsActivity"
             android:label="Seasons"
             android:screenOrientation="portrait">
         </activity>
         <activity
-            android:name="ru.pepelaz.fof.activities.locations.LocationsActivity"
+            android:name="ru.pepelaz.foffree.activities.locations.LocationsActivity"
             android:label="Locations"
             android:screenOrientation="portrait">
         </activity>
         <activity
-            android:name="ru.pepelaz.fof.activities.locations.LocationEditActivity"
+            android:name="ru.pepelaz.foffree.activities.locations.LocationEditActivity"
             android:label="Locations"
             android:screenOrientation="portrait">
         </activity>
         <activity
-            android:name="ru.pepelaz.fof.activities.locations.LocationsSavedActivity"
+            android:name="ru.pepelaz.foffree.activities.locations.LocationsSavedActivity"
             android:label="Locations"
             android:screenOrientation="portrait">
         </activity>
         <activity
-            android:name=".activities.GlossaryActivity"
+            android:name="ru.pepelaz.foffree.activities.GlossaryActivity"
             android:label="Glossary"
             android:screenOrientation="portrait">
         </activity>
         <activity
-            android:name=".activities.CookingActivity"
+            android:name="ru.pepelaz.foffree.activities.CookingActivity"
             android:label="Cooking"
             android:screenOrientation="portrait">
         </activity>
         <activity
-            android:name=".activities.tides.TidesActivity"
+            android:name="ru.pepelaz.foffree.activities.tides.TidesActivity"
             android:label="Tides"
             android:screenOrientation="portrait">
         </activity>
         <activity
-            android:name=".activities.tides.TidesChangeLocationActivity"
+            android:name="ru.pepelaz.foffree.activities.tides.TidesChangeLocationActivity"
             android:label="Tides"
             android:screenOrientation="portrait">
         </activity>
         <activity
-            android:name=".activities.weather.WeatherActivity"
+            android:name="ru.pepelaz.foffree.activities.weather.WeatherActivity"
             android:label="Weather / Wind"
             android:screenOrientation="portrait">
         </activity>
         <activity
-            android:name=".activities.weather.WeatherChangeLocationActivity"
+            android:name="ru.pepelaz.foffree.activities.weather.WeatherChangeLocationActivity"
             android:label="Weather / Wind"
             android:screenOrientation="portrait">
         </activity>
         <activity
-            android:name=".activities.KnotActivity"
+            android:name="ru.pepelaz.foffree.activities.KnotActivity"
             android:label="Knots"
             android:screenOrientation="portrait">
         </activity>
         <activity
-            android:name=".activities.AboutActivity"
+            android:name="ru.pepelaz.foffree.activities.AboutActivity"
             android:label="About"
             android:screenOrientation="portrait">
         </activity>
         <activity
-            android:name=".activities.compass.CompassActivity"
+            android:name="ru.pepelaz.foffree.activities.compass.CompassActivity"
             android:label="Compass"
             android:screenOrientation="portrait">
         </activity>
         <activity
-            android:name=".activities.compass.CompassLocationsActivity"
+            android:name="ru.pepelaz.foffree.activities.compass.CompassLocationsActivity"
             android:label="CompassLocations"
             android:screenOrientation="portrait">
         </activity>

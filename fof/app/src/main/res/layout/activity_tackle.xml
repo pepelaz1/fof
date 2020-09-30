@@ -8,7 +8,7 @@
 
 
     <fragment
-        android:name="ru.pepelaz.fof.fragments.TackleFragment"
+        android:name="ru.pepelaz.foffree.fragments.TackleFragment"
         android:id="@+id/fragmentTackle"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

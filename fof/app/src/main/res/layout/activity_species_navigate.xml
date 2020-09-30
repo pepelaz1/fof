@@ -8,7 +8,7 @@
 
 
     <fragment
-        android:name="ru.pepelaz.fof.fragments.InfoFragment"
+        android:name="ru.pepelaz.foffree.fragments.InfoFragment"
         android:id="@+id/fragmentInfo"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
