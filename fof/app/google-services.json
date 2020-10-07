@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "901252598835",
+    "firebase_url": "https://fishofax-1523504459458.firebaseio.com",
+    "project_id": "fishofax-1523504459458",
+    "storage_bucket": "fishofax-1523504459458.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:901252598835:android:87a3dd1fee4af742e1a746",
+        "android_client_info": {
+          "package_name": "ru.pepelaz.foffree"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "901252598835-6ub7b5160lp6cqcet0q7sli3kg3ialqi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB9ynENfcM43sUuBOR2bZaYPH8aSCgs-bg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "901252598835-6ub7b5160lp6cqcet0q7sli3kg3ialqi.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

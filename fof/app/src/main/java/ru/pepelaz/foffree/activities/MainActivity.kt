@@ -23,6 +23,9 @@ import com.facebook.CallbackManager
 import com.google.android.gms.ads.*
 import com.google.android.gms.ads.initialization.InitializationStatus
 import com.google.android.gms.ads.initialization.OnInitializationCompleteListener
+import com.google.firebase.analytics.FirebaseAnalytics
+import com.google.firebase.analytics.ktx.analytics
+import com.google.firebase.ktx.Firebase
 import io.nlopez.smartlocation.SmartLocation
 import kotlinx.android.synthetic.main.activity_main.*
 import ru.pepelaz.foffree.BuildConfig
@@ -54,10 +57,13 @@ class MainActivity : AppCompatActivity() {
 
     lateinit var mAdView : AdView
 
+    private lateinit var firebaseAnalytics: FirebaseAnalytics
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        firebaseAnalytics = Firebase.analytics
 
         flashlight = FlashlightFactory.newInstance(this, Build.VERSION_CODES.KITKAT)
 
@@ -97,6 +103,7 @@ class MainActivity : AppCompatActivity() {
         })
 
         imageViewRecords.setOnClickListener({
+           // throw RuntimeException("Test Crash")
             startActivity(Intent(this, RecordsActivity::class.java))
         })
 

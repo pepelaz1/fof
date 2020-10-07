@@ -6,16 +6,29 @@ apply plugin: 'kotlin-kapt'
 
 apply plugin: 'kotlin-android-extensions'
 
+apply plugin: 'com.google.gms.google-services'
+
+apply plugin: 'com.google.firebase.crashlytics'
+
 android {
+    signingConfigs {
+        tomsparks {
+            storeFile file('C:\\work\\tom-sparks\\fof\\app\\keystore\\tomsparks.jks')
+            storePassword '123456'
+            keyAlias 'key0'
+            keyPassword '123456'
+        }
+    }
     compileSdkVersion 29
     defaultConfig {
         applicationId "ru.pepelaz.foffree"
         minSdkVersion 16
         targetSdkVersion 29
-        versionCode 1
-        versionName "1.0"
+        versionCode 3
+        versionName "3.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         multiDexEnabled true
+        signingConfig signingConfigs.tomsparks
     }
     buildTypes {
         release {
@@ -57,7 +70,7 @@ dependencies {
     implementation 'com.j256.ormlite:ormlite-android:5.1'
     implementation 'com.google.android.gms:play-services-ads:19.4.0'
     implementation 'com.google.android.gms:play-services-gcm:17.0.0'
-    implementation 'com.google.android.gms:play-services-location:17.0.0'
+    implementation 'com.google.android.gms:play-services-location:17.1.0'
     implementation 'com.google.android.gms:play-services-auth:18.1.0'
     implementation 'com.google.firebase:firebase-auth:19.4.0'
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
@@ -75,4 +88,8 @@ dependencies {
     implementation 'com.facebook.android:facebook-android-sdk:[4,5)'
     implementation 'com.facebook.android:facebook-share:[4,5)'
     implementation 'com.android.support:multidex:1.0.3'
+
+    implementation platform('com.google.firebase:firebase-bom:25.11.0')
+    implementation 'com.google.firebase:firebase-analytics-ktx'
+    implementation 'com.google.firebase:firebase-crashlytics-ktx'
 }
