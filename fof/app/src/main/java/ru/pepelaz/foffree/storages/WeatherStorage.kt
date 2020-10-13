@@ -9,7 +9,7 @@ object WeatherStorage {
         return weather
     }
 
-    fun set(weather: ArrayList<Weather>) {
-        this.weather = weather
+    fun set(weather: List<Weather>) {
+        this.weather = ArrayList(weather)
     }
 }

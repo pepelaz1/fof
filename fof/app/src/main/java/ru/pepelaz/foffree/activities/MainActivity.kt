@@ -1,8 +1,10 @@
 package ru.pepelaz.foffree.activities
 
 import android.Manifest.permission.*
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.content.pm.PackageManager.PERMISSION_GRANTED
+import android.location.Location
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
@@ -13,6 +15,7 @@ import android.util.Log
 import android.view.MotionEvent
 import android.view.View
 import android.widget.ImageView
+import android.widget.Toast
 import androidx.annotation.NonNull
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
@@ -23,6 +26,7 @@ import com.facebook.CallbackManager
 import com.google.android.gms.ads.*
 import com.google.android.gms.ads.initialization.InitializationStatus
 import com.google.android.gms.ads.initialization.OnInitializationCompleteListener
+import com.google.android.gms.location.*
 import com.google.firebase.analytics.FirebaseAnalytics
 import com.google.firebase.analytics.ktx.analytics
 import com.google.firebase.ktx.Firebase
@@ -59,23 +63,34 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var firebaseAnalytics: FirebaseAnalytics
 
+    private lateinit var fusedLocationClient: FusedLocationProviderClient
+
+    private lateinit var locationRequest: LocationRequest
+
+    // globally declare LocationCallback
+    private lateinit var locationCallback: LocationCallback
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
         firebaseAnalytics = Firebase.analytics
 
+        setupLocations()
+
         flashlight = FlashlightFactory.newInstance(this, Build.VERSION_CODES.KITKAT)
 
         if ((ContextCompat.checkSelfPermission(this, ACCESS_FINE_LOCATION) != PERMISSION_GRANTED) ||
+            (ContextCompat.checkSelfPermission(this, ACCESS_COARSE_LOCATION) != PERMISSION_GRANTED) ||
             (ContextCompat.checkSelfPermission(this, CAMERA) != PERMISSION_GRANTED) ||
             (ContextCompat.checkSelfPermission(this, READ_EXTERNAL_STORAGE) != PERMISSION_GRANTED) ||
             (ContextCompat.checkSelfPermission(this, WRITE_EXTERNAL_STORAGE) != PERMISSION_GRANTED)
         ) {
-            ActivityCompat.requestPermissions(this, arrayOf(ACCESS_FINE_LOCATION, CAMERA, READ_EXTERNAL_STORAGE,
+            ActivityCompat.requestPermissions(this, arrayOf(ACCESS_FINE_LOCATION, ACCESS_COARSE_LOCATION, CAMERA, READ_EXTERNAL_STORAGE,
                     WRITE_EXTERNAL_STORAGE), PERMISSION_REQUEST)
         } else {
-            getCoordinates()
+            //getCoordinates()
+            getLastKnownLocation()
             flashlight.onStart()
         }
 
@@ -221,6 +236,66 @@ class MainActivity : AppCompatActivity() {
         })
     }
 
+    private fun setupLocations() {
+        fusedLocationClient = LocationServices.getFusedLocationProviderClient(applicationContext)
+        locationRequest = LocationRequest()
+        locationRequest.interval = 50000
+        locationRequest.fastestInterval = 50000
+        locationRequest.smallestDisplacement = 170f // 170 m = 0.1 mile
+        locationRequest.priority = LocationRequest.PRIORITY_HIGH_ACCURACY //set according to your app function
+        locationCallback = object : LocationCallback() {
+            override fun onLocationResult(locationResult: LocationResult?) {
+                locationResult ?: return
+
+                if (locationResult.locations.isNotEmpty()) {
+                    // get latest location
+                    val location = locationResult.lastLocation
+                    Log.d("test_test", "onLocationResult, Lat: " + location.latitude + ", Long: " + location.longitude)
+                    // use your location object
+                    // get latitude , longitude and other info from this
+                    processLocation(location)
+                }
+            }
+        }
+        startLocationUpdates()
+    }
+
+    @SuppressLint("MissingPermission")
+    private fun startLocationUpdates() {
+           fusedLocationClient.requestLocationUpdates(
+                locationRequest,
+                locationCallback,
+                null /* Looper */
+        )
+    }
+
+
+    @SuppressLint("MissingPermission")
+    fun getLastKnownLocation() {
+        fusedLocationClient.lastLocation.addOnSuccessListener { location->
+                    if (location != null) {
+                        // use your location object
+                        // get latitude , longitude and other info from this
+                        Log.d("test_test", "getLastKnownLocation, Lat: " + location.latitude + ", Long: " + location.longitude)
+                        processLocation(location)
+                    }
+
+                }
+      }
+
+    private fun processLocation(location: Location) {
+        var s = "Coordinates: " + location.latitude.toString() +", " + location.longitude.toString()
+
+        PresentLocationCoords.latitude = location.latitude
+        PresentLocationCoords.longitude = location.longitude
+
+        if (CurrentCoords.latitude == 0.0 || CurrentCoords.longitude == 0.0) {
+            CurrentCoords.longitude = PresentLocationCoords.longitude
+            CurrentCoords.latitude = PresentLocationCoords.latitude
+        }
+
+        RxBus.publish(CoordinatesEvent(location.latitude, location.longitude))
+    }
 
     var imageFilePath: String = ""
     @Throws(IOException::class)
@@ -316,7 +391,8 @@ class MainActivity : AppCompatActivity() {
             PERMISSION_REQUEST -> {
                 if (!grantResults.isEmpty())
                     if (grantResults[0] == PERMISSION_GRANTED) {
-                        getCoordinates()
+                        //getCoordinates()
+                        setupLocations()
                     }
                 if (grantResults[1] == PERMISSION_GRANTED) {
                     flashlight.onPermissionGranted()
@@ -326,24 +402,17 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    fun getCoordinates() {
-        SmartLocation.with(this).location()
-                .start { location ->
+  /*  fun getCoordinates() {
+        Log.d("test_test", "try get coordinates")
+        Log.d("test_test", "location services enabled: " +  SmartLocation.with(this).location().state().isGpsAvailable())
+        SmartLocation.with(this).location().continuous().start { location ->
                     Log.d("test_test", "getCoordinates, Lat: " + location.latitude + ", Long: " + location.longitude)
-                   // CurrentCoords.latitude = location.latitude
-                   // CurrentCoords.longitude = location.longitude
+                    // CurrentCoords.latitude = location.latitude
+                    // CurrentCoords.longitude = location.longitude
 
-                    PresentLocationCoords.latitude = location.latitude
-                    PresentLocationCoords.longitude = location.longitude
-
-                    if (CurrentCoords.latitude == 0.0 || CurrentCoords.longitude == 0.0) {
-                        CurrentCoords.longitude = PresentLocationCoords.longitude
-                        CurrentCoords.latitude = PresentLocationCoords.latitude
-                    }
-
-                    RxBus.publish(CoordinatesEvent(location.latitude, location.longitude))
+                     processLocation(location)
                 }
-    }
+    }*/
 
     object touchListener: View.OnTouchListener {
         override fun onTouch(v: View, m: MotionEvent): Boolean {

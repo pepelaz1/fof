@@ -1,5 +1,6 @@
 package ru.pepelaz.foffree.activities.tides
 
+import android.app.Activity
 import android.content.Intent
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
@@ -7,6 +8,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import androidx.core.content.ContextCompat
+import androidx.fragment.app.FragmentActivity
 import com.github.mikephil.charting.charts.Chart
 import com.github.mikephil.charting.data.Entry
 import com.github.mikephil.charting.data.LineData
@@ -95,7 +97,7 @@ class TidesActivity() : AppCompatActivity(), CalendarFragment.ICalendarFragment 
                             { error ->
                                 Log.d("test_test", "Failed to get weather data, error: " + error.toString())
                                 showChartError()
-                            }
+                           }
                     )
         }
 

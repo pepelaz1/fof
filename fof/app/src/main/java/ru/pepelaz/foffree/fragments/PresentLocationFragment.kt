@@ -2,6 +2,7 @@ package ru.pepelaz.foffree.fragments
 
 import android.location.Geocoder
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -52,19 +53,23 @@ class PresentLocationFragment : Fragment() {
 
         //CurrentCoords.latitude = -1.0
         //CurrentCoords.longitude = -1.0
-       // Log.d("test_test", "onNewCoords, lat: " + CurrentCoords.latitude + ", long: " + CurrentCoords.longitude)
+        Log.d("test_test", "onNewCoords, lat: " + CurrentCoords.latitude + ", long: " + CurrentCoords.longitude)
+
+
         val geocoder = Geocoder(context)
-        var addresses = geocoder.getFromLocation(
-                CurrentCoords.latitude,
-                CurrentCoords.longitude,
-                1)
-       // Log.d("test_test", "adresses: " + addresses)
-        if (addresses != null && addresses.size > 0 && layoutView!!.textPresentLocation != null) {
-            layoutView!!.textPresentLocation.text =  Utils.constructLocationName(addresses[0])
+        try {
+            var addresses = geocoder.getFromLocation(
+                    CurrentCoords.latitude,
+                    CurrentCoords.longitude,
+                    1)
+           // Log.d("test_test", "adresses: " + addresses)
+            if (addresses != null && addresses.size > 0 && layoutView!!.textPresentLocation != null) {
+                layoutView!!.textPresentLocation.text =  Utils.constructLocationName(addresses[0])
+            }
+        } catch (ex: Exception) {
+            Log.d("test_test", ex.toString())
         }
-
-
-    }
+   }
 
     companion object {
         /**
